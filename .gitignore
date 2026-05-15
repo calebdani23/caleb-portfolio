@@ -5,3 +5,7 @@ dist/
 .env.*
 .DS_Store
 npm-debug.log*
+
+# OpenCode local binary/runtime
+.opencode-bin/
+.opencode-runtime/
