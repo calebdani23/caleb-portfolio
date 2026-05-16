@@ -1,22 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-REPO="/home/calebdani/srv/projects/caleb-portfolio" 
-
-if [ ! -d "$REPO" ]; then
-  echo "ERROR: Repo not found at $REPO"
-  exit 1
-fi
-
-cd "$REPO"
-
-export PATH="$REPO/.opencode-bin:$PATH"
-
-export XDG_CONFIG_HOME="$REPO/.opencode-runtime/config"
-export XDG_DATA_HOME="$REPO/.opencode-runtime/data"
-export XDG_CACHE_HOME="$REPO/.opencode-runtime/cache"
-
-export OPENCODE_CONFIG="$REPO/opencode.json"
-export OPENCODE_CONFIG_DIR="$REPO/.opencode"
+REPO="$HOME/srv/projects/caleb-portfolio"
+source "$REPO/scripts/ai-env.sh"
 
 exec "$REPO/.opencode-bin/opencode" "$@"

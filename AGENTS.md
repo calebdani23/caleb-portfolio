@@ -1,31 +1,30 @@
-# AGENTS.md — caleb-portfolio
+# Caleb Portfolio — Agent Instructions
+
+Single-page Astro 6 portfolio for Caleb Perez.
 
 ## Stack
 
-- **Astro v6** (ESM, `"type": "module"`) with `astro/tsconfigs/strict`
-- **Tailwind CSS v4** — no `tailwind.config.*` file. Configured via `@import "tailwindcss"` in `src/styles/global.css` + `@tailwindcss/vite` plugin in `astro.config.mjs`.
-- **Node >= 22.12.0** (`.nvmrc`: `22`)
+- Astro 6, TypeScript (strict via `astro/tsconfigs/strict`), Tailwind CSS 4
+- Tailwind: Vite plugin (`@tailwindcss/vite`), **not** PostCSS or `tailwind.config.js`. Config is done via CSS `@import "tailwindcss"` in `src/styles/global.css`.
+- Node >=22.12.0 (`.nvmrc`: `22`)
 
 ## Commands
 
-| Purpose | Command |
+| Command | Action |
 |---|---|
-| Dev server | `npm run dev` → http://localhost:4321 |
-| Build | `npm run build` → `dist/` |
-| Preview | `npm run preview` |
+| `npm run dev` | Dev server at `localhost:4321` |
+| `npm run build` | Production build to `dist/` — **only verification command** |
+| `npm run preview` | Preview production build locally |
+| `npm run astro` | Raw Astro CLI |
 
-No tests, lint, typecheck, or format scripts exist. No CI.
+## Architecture
 
-## Project structure
-
-- `src/pages/` — routes (`index.astro` is the only page; `/proyectos/` is an empty placeholder)
-- `src/layouts/BaseLayout.astro` — wraps pages, sets `<html lang="es">`, imports global CSS
-- `src/styles/global.css` — Tailwind import + dark-theme defaults (`#06141b` bg)
-- `src/content/projects/` — **empty**; Astro content collection dir but no `config.ts` and no entries yet
-- `src/components/` — empty
-
-## Conventions
-
-- **Spanish** throughout (site lang, copy, route `/proyectos`)
-- **Dark theme only** — `color-scheme: dark` in CSS, no light mode
-- Tailwind v4 utility classes only; no custom `@apply` or design tokens in config (use CSS variables or inline Tw classes)
+- **Single page**: `src/pages/index.astro` — all content is in this file (hero + projects grid)
+- **Layout**: `src/layouts/BaseLayout.astro` — HTML shell, dark theme, Spanish (`lang="es"`)
+- **Styles**: `src/styles/global.css` — uses Tailwind v4's `@import "tailwindcss"`, dark color scheme forced
+- **Components**: `src/components/` is empty — no extracted components yet
+- **Content**: `src/content/projects/` exists but is empty (set up for Astro content collections but unused)
+- **Public**: `favicon.ico` and `favicon.svg`
+- **Design**: Dark background `#06141b`, text `#f8fafc`, accent `cyan-300`/`#06b6d4`, radial gradient highlights
+- **No tests, no linter, no typecheck command** configured. `npm run build` is the sole correctness check.
+- Runtime config: `opencode.json` manages all permissions. Launcher script at `scripts/opencode-portfolio`.

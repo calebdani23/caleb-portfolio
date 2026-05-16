@@ -1,0 +1,28 @@
+---
+import { profile } from "../data/profile";
+
+const contactLinks = [
+  { label: "Email", value: "calebdani@icloud.com", href: "mailto:calebdani@icloud.com" },
+  ...profile.links,
+];
+---
+
+<section id="contacto" class="px-5 py-20 sm:px-8 lg:px-10">
+  <div class="mx-auto max-w-5xl text-center">
+    <div class="premium-card p-8 sm:p-10">
+      <p class="text-xs font-semibold uppercase tracking-[0.35em] text-cyan-300">Contacto</p>
+      <h2 class="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">Construyamos algo que se pueda probar.</h2>
+      <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+        Estoy abierto a conversaciones sobre travel tech, productos con IA, automatización, UX de reservas y proyectos que necesiten pensamiento técnico con visión de producto.
+      </p>
+
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        {contactLinks.map((link) => (
+          <a href={link.href} target={link.href.startsWith("http") ? "_blank" : undefined} rel={link.href.startsWith("http") ? "noreferrer" : undefined} class="rounded-full border border-white/10 bg-white/[0.05] px-5 py-3 text-sm font-semibold text-slate-200 transition hover:-translate-y-1 hover:border-cyan-300/30 hover:text-cyan-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300" aria-label={`${link.label}: ${link.value}`}>
+            <span class="text-cyan-300">{link.label}:</span> {link.value}
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

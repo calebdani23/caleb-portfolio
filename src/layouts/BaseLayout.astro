@@ -4,7 +4,12 @@ import "../styles/global.css";
 const {
   title = "Caleb Perez — AI Product Builder",
   description = "Portafolio personal de Caleb Perez: IA, travel tech, automatización, servidores y desarrollo de producto.",
+  canonical,
 } = Astro.props;
+
+const canonicalUrl = Astro.site
+  ? new URL(canonical ?? Astro.url.pathname, Astro.site)
+  : undefined;
 ---
 
 <!doctype html>
@@ -13,10 +18,27 @@ const {
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#06141b" />
+    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Caleb Perez Portfolio" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
     <title>{title}</title>
   </head>
-  <body>
-    <main class="min-h-screen">
+  <body class="antialiased">
+    <a
+      href="#contenido-principal"
+      class="sr-only fixed left-4 top-4 z-50 rounded-full border border-white/15 bg-[#06141b]/95 px-4 py-2 text-sm font-medium text-white shadow-lg shadow-black/30 transition focus:not-sr-only"
+    >
+      Saltar al contenido
+    </a>
+    <main id="contenido-principal" class="min-h-screen">
       <slot />
     </main>
   </body>

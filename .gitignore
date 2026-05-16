@@ -9,3 +9,10 @@ npm-debug.log*
 # OpenCode local binary/runtime
 .opencode-bin/
 .opencode-runtime/
+
+# Gentle-AI local binary/runtime
+.gentle-ai-bin/
+.gentle-ai-runtime/
+
+# Gentle-AI repo-local HOME/runtime
+.gentle-home/

@@ -1,0 +1,159 @@
+---
+import Footer from "../components/Footer.astro";
+import Navigation from "../components/Navigation.astro";
+import BaseLayout from "./BaseLayout.astro";
+import type { CaseStudy } from "../data/caseStudies";
+
+type Props = {
+  caseStudy: CaseStudy;
+  previous?: CaseStudy;
+  next?: CaseStudy;
+};
+
+const { caseStudy, previous, next } = Astro.props;
+const title = `${caseStudy.title} — Case study de Caleb Perez`;
+const sections = [
+  caseStudy.sections.problem,
+  caseStudy.sections.solution,
+  caseStudy.sections.architecture,
+  caseStudy.sections.challenges,
+  caseStudy.sections.decisions,
+  caseStudy.sections.result,
+  caseStudy.sections.learnings,
+  caseStudy.sections.nextSteps,
+];
+---
+
+<BaseLayout title={title} description={caseStudy.summary} canonical={`/proyectos/${caseStudy.slug}`}>
+  <Navigation />
+
+  <article class="px-5 py-16 sm:px-8 sm:py-20 lg:px-10">
+    <div class="mx-auto max-w-7xl">
+      <a href="/#proyectos" class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-semibold text-cyan-100 transition hover:-translate-y-0.5 hover:border-cyan-300/30 hover:bg-white/[0.07] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300">
+        <span aria-hidden="true">←</span> Volver a proyectos
+      </a>
+
+      <header class="mt-10 grid gap-10 lg:grid-cols-[1fr_0.78fr] lg:items-end">
+        <div class="section-reveal">
+          <p class="text-xs font-semibold uppercase tracking-[0.35em] text-cyan-300">{caseStudy.eyebrow}</p>
+          <h1 class="mt-5 max-w-5xl text-5xl font-semibold tracking-[-0.04em] text-white sm:text-7xl">
+            {caseStudy.title}
+          </h1>
+          <p class="mt-7 max-w-3xl text-lg leading-8 text-slate-300 sm:text-xl">{caseStudy.description}</p>
+        </div>
+
+        <aside class="premium-card section-reveal p-6" aria-label="Resumen del case study">
+          <div class="flex items-center justify-between gap-4 border-b border-white/10 pb-4">
+            <p class="text-sm font-semibold text-white">Estado</p>
+            <span class="rounded-full bg-cyan-300 px-3 py-1 text-xs font-bold text-slate-950">{caseStudy.status}</span>
+          </div>
+          <p class="mt-5 text-sm leading-6 text-slate-300">{caseStudy.summary}</p>
+          <div class="mt-6 flex flex-wrap gap-2">
+            {caseStudy.highlights.map((highlight) => (
+              <span class="rounded-full border border-white/10 bg-white/[0.05] px-3 py-1 text-xs text-slate-200">{highlight}</span>
+            ))}
+          </div>
+        </aside>
+      </header>
+
+      <section class="mt-12 grid gap-5 lg:grid-cols-[0.74fr_1.26fr]" aria-labelledby="role-stack">
+        <div class="premium-card p-6">
+          <h2 id="role-stack" class="text-xl font-semibold text-white">Mi rol</h2>
+          <p class="mt-4 leading-7 text-slate-300">{caseStudy.role}</p>
+        </div>
+        <div class="premium-card p-6">
+          <h2 class="text-xl font-semibold text-white">Stack y conceptos</h2>
+          <div class="mt-5 flex flex-wrap gap-2">
+            {caseStudy.stack.map((item) => (
+              <span class="rounded-full bg-cyan-300/10 px-3 py-1.5 text-sm text-cyan-100">{item}</span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="mt-12 rounded-[2rem] border border-white/10 bg-white/[0.035] p-5 sm:p-6" aria-labelledby="case-flow">
+        <h2 id="case-flow" class="text-2xl font-semibold text-white">Arquitectura del flujo</h2>
+        <div class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7">
+          {caseStudy.flow.map((step, index) => (
+            <div class="rounded-3xl border border-white/10 bg-slate-950/40 p-4">
+              <span class="text-xs font-semibold text-cyan-300">{String(index + 1).padStart(2, "0")}</span>
+              <p class="mt-3 text-sm font-semibold text-white">{step}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {(caseStudy.gallery || caseStudy.documents) && (
+        <section class="mt-12" aria-labelledby="evidencias">
+          <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-[0.35em] text-cyan-300">Evidencia real</p>
+              <h2 id="evidencias" class="mt-3 text-3xl font-semibold tracking-tight text-white">Visuales y documentos del proyecto</h2>
+            </div>
+            {caseStudy.documents && (
+              <div class="flex flex-wrap gap-3">
+                {caseStudy.documents.map((document) => (
+                  <div class="flex flex-wrap gap-2">
+                    <a href={document.href} target="_blank" rel="noreferrer" class="rounded-full border border-cyan-300/25 bg-cyan-300/10 px-4 py-2 text-sm font-semibold text-cyan-100 transition hover:-translate-y-0.5 hover:bg-cyan-300/15 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300" title={document.description} aria-label={`Abrir ${document.label}`}>
+                      Ver {document.label}
+                    </a>
+                    <a href={document.href} download class="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-semibold text-slate-200 transition hover:-translate-y-0.5 hover:border-cyan-300/25 hover:text-cyan-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300" title={document.description} aria-label={`Descargar ${document.label}`}>
+                      Descargar PDF
+                    </a>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {caseStudy.gallery && (
+            <div class="mt-8 grid gap-5 md:grid-cols-2">
+              {caseStudy.gallery.map((item) => (
+                <figure class="group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-3 transition hover:-translate-y-1 hover:border-cyan-300/25">
+                  <img src={item.src} alt={item.alt} loading="lazy" decoding="async" class="aspect-[16/10] w-full rounded-2xl object-cover object-top" />
+                  <figcaption class="px-2 py-4 text-sm leading-6 text-slate-300">{item.caption}</figcaption>
+                </figure>
+              ))}
+            </div>
+          )}
+        </section>
+      )}
+
+      <div class="mt-12 grid gap-5 md:grid-cols-2">
+        {sections.map((section) => (
+          <section class="section-reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6 transition hover:border-cyan-300/25 hover:bg-white/[0.06]">
+            <h2 class="text-2xl font-semibold text-white">{section.title}</h2>
+            <p class="mt-4 leading-8 text-slate-300">{section.body}</p>
+            {section.bullets && (
+              <ul class="mt-5 space-y-3">
+                {section.bullets.map((bullet) => (
+                  <li class="flex gap-3 text-sm leading-6 text-slate-300">
+                    <span class="mt-2 size-1.5 shrink-0 rounded-full bg-cyan-300"></span>
+                    <span>{bullet}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </section>
+        ))}
+      </div>
+
+      <nav class="mt-14 grid gap-4 sm:grid-cols-2" aria-label="Navegación entre case studies">
+        {previous ? (
+          <a href={`/proyectos/${previous.slug}`} class="rounded-3xl border border-white/10 bg-white/[0.04] p-5 transition hover:-translate-y-1 hover:border-cyan-300/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300">
+            <span class="text-sm text-slate-400">Anterior</span>
+            <span class="mt-2 block text-lg font-semibold text-white">{previous.title}</span>
+          </a>
+        ) : <div></div>}
+        {next && (
+          <a href={`/proyectos/${next.slug}`} class="rounded-3xl border border-white/10 bg-white/[0.04] p-5 text-left transition hover:-translate-y-1 hover:border-cyan-300/30 sm:text-right focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300">
+            <span class="text-sm text-slate-400">Siguiente</span>
+            <span class="mt-2 block text-lg font-semibold text-white">{next.title}</span>
+          </a>
+        )}
+      </nav>
+    </div>
+  </article>
+
+  <Footer />
+</BaseLayout>
