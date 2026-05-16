@@ -1,4 +1,6 @@
 ---
+import { withBase } from "../utils/paths";
+
 const year = new Date().getFullYear();
 ---
 
@@ -6,7 +8,7 @@ const year = new Date().getFullYear();
   <div class="mx-auto flex max-w-7xl flex-col gap-4 text-sm text-slate-400 sm:flex-row sm:items-center sm:justify-between">
     <p>© {year} Caleb Perez. Portfolio construido con Astro, TypeScript y Tailwind CSS.</p>
     <div class="flex flex-wrap gap-3 text-slate-500">
-      <a href="/#proyectos" class="transition hover:text-cyan-200">Case studies</a>
+      <a href={withBase("/#proyectos")} class="transition hover:text-cyan-200">Case studies</a>
       <span aria-hidden="true">·</span>
       <span>IA · Travel tech · Product builder</span>
     </div>

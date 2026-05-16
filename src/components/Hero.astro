@@ -1,5 +1,6 @@
 ---
 import { profile } from "../data/profile";
+import { withBase } from "../utils/paths";
 
 const badges = ["AI Product Builder", "Explorador full-stack", "Constructor travel tech"];
 ---
@@ -47,7 +48,7 @@ const badges = ["AI Product Builder", "Explorador full-stack", "Constructor trav
       <div class="grid gap-5">
         <figure class="group relative mx-auto w-full max-w-[21rem] sm:max-w-[27rem] lg:max-w-[32rem]">
           <img
-            src={profile.photo.src}
+            src={withBase(profile.photo.src)}
             alt={profile.photo.alt}
             width="640"
             height="800"

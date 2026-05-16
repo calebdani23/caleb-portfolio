@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { withBase, withoutBase } from "../utils/paths";
 
 const {
   title = "Caleb Perez — AI Product Builder",
@@ -8,7 +9,7 @@ const {
 } = Astro.props;
 
 const canonicalUrl = Astro.site
-  ? new URL(canonical ?? Astro.url.pathname, Astro.site)
+  ? new URL(withBase(canonical ?? withoutBase(Astro.url.pathname)), Astro.site)
   : undefined;
 ---
 
@@ -20,7 +21,7 @@ const canonicalUrl = Astro.site
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#06141b" />
     {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href={withBase("/favicon.svg")} type="image/svg+xml" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Caleb Perez Portfolio" />
     <meta property="og:title" content={title} />

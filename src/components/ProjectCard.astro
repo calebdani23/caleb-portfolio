@@ -1,5 +1,6 @@
 ---
 import type { Project } from "../data/projects";
+import { withBase } from "../utils/paths";
 
 type Props = {
   project: Project;
@@ -30,7 +31,7 @@ const visualTone = toneClasses[project.previewTone ?? "cyan"];
     project.previewImage ? (
       <figure class="browser-frame mb-6">
         <img
-          src={project.previewImage}
+          src={withBase(project.previewImage)}
           alt={project.previewAlt ?? project.visualLabel}
           loading="lazy"
           decoding="async"
@@ -71,7 +72,7 @@ const visualTone = toneClasses[project.previewTone ?? "cyan"];
 
   {
     project.href ? (
-      <a href={project.href} class="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-cyan-200 transition group-hover:gap-3 group-hover:text-cyan-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300">
+      <a href={withBase(project.href)} class="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-cyan-200 transition group-hover:gap-3 group-hover:text-cyan-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300">
         Leer case study <span aria-hidden="true">→</span>
       </a>
     ) : (

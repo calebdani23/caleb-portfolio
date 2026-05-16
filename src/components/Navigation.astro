@@ -1,6 +1,8 @@
 ---
-const isHome = Astro.url.pathname === "/";
-const sectionHref = (hash: string) => (isHome ? hash : `/${hash}`);
+import { withBase, withoutBase } from "../utils/paths";
+
+const isHome = withoutBase(Astro.url.pathname) === "/";
+const sectionHref = (hash: string) => (isHome ? hash : withBase(`/${hash}`));
 const links = [
   { label: "Sobre mí", href: sectionHref("#sobre-mi"), sectionId: "sobre-mi" },
   { label: "Proyectos", href: sectionHref("#proyectos"), sectionId: "proyectos" },

@@ -1,6 +1,7 @@
 ---
 import type { SportsHighlight } from "../data/sports";
 import SectionHeader from "./SectionHeader.astro";
+import { withBase } from "../utils/paths";
 
 type Props = {
   highlights: SportsHighlight[];
@@ -28,8 +29,8 @@ const { highlights } = Astro.props;
             <div id={`sports-carousel-${highlightIndex}`} class="sports-carousel flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-smooth rounded-[1.5rem]" aria-label={`Videos de ${highlight.title}`} tabindex="0">
               {highlight.videos.map((video, videoIndex) => (
                 <figure class="video-frame min-w-full snap-center p-2">
-                  <video controls preload="metadata" playsinline poster={video.poster} class="aspect-video w-full rounded-[1.1rem] bg-slate-950 object-cover" aria-label={`${video.label} de ${highlight.title}`}>
-                    <source src={video.src} type="video/mp4" />
+                  <video controls preload="metadata" playsinline poster={withBase(video.poster)} class="aspect-video w-full rounded-[1.1rem] bg-slate-950 object-cover" aria-label={`${video.label} de ${highlight.title}`}>
+                    <source src={withBase(video.src)} type="video/mp4" />
                     Tu navegador no soporta video HTML5.
                   </video>
                   <figcaption class="media-caption flex flex-col gap-1 px-2 pt-3 sm:flex-row sm:items-center sm:justify-between">

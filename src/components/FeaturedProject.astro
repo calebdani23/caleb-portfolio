@@ -1,5 +1,6 @@
 ---
 import type { Project } from "../data/projects";
+import { withBase } from "../utils/paths";
 
 type Props = {
   project: Project;
@@ -29,7 +30,7 @@ const featuredImage = project.featuredImage ?? project.previewImage;
         ))}
       </div>
       {project.href && (
-        <a href={project.href} class="mt-8 inline-flex rounded-full bg-cyan-300 px-5 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-950/30 transition hover:-translate-y-1 hover:bg-cyan-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300">
+        <a href={withBase(project.href)} class="mt-8 inline-flex rounded-full bg-cyan-300 px-5 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-950/30 transition hover:-translate-y-1 hover:bg-cyan-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300">
           Leer case study completo
         </a>
       )}
@@ -75,7 +76,7 @@ const featuredImage = project.featuredImage ?? project.previewImage;
           {featuredImage && (
             <figure class="browser-frame">
               <img
-                src={featuredImage}
+                src={withBase(featuredImage)}
                 alt={project.previewAlt ?? `Captura de ${project.title}`}
                 loading="lazy"
                 decoding="async"

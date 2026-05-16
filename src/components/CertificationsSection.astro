@@ -1,6 +1,7 @@
 ---
 import type { CertificationProgram } from "../data/certifications";
 import SectionHeader from "./SectionHeader.astro";
+import { withBase } from "../utils/paths";
 
 type Props = {
   certifications: CertificationProgram[];
@@ -42,7 +43,7 @@ const { certifications } = Astro.props;
                   <figure class="certificate-preview-frame relative overflow-hidden rounded-[1.2rem] border border-cyan-300/15 bg-slate-950/70 shadow-inner shadow-cyan-950/30">
                     {certification.previewImage ? (
                       <img
-                        src={certification.previewImage}
+                        src={withBase(certification.previewImage)}
                         alt={certification.previewAlt ?? `Vista previa renderizada del certificado ${certification.title}`}
                         loading="lazy"
                         decoding="async"
@@ -50,7 +51,7 @@ const { certifications } = Astro.props;
                       />
                     ) : (
                       <a
-                        href={certification.href}
+                        href={withBase(certification.href)}
                         target="_blank"
                         rel="noreferrer"
                         class="flex aspect-[1801/1391] w-full items-center justify-center p-6 text-center text-sm font-semibold text-cyan-100"
@@ -68,10 +69,10 @@ const { certifications } = Astro.props;
                     <h4 class="mt-2 text-xl font-semibold text-white">{certification.title}</h4>
                     <p class="mt-3 text-sm leading-6 text-slate-300">{certification.focus}</p>
                     <div class="mt-5 flex flex-wrap gap-2">
-                      <a href={certification.href} target="_blank" rel="noreferrer" class="btn-primary px-4 py-2 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300" aria-label={`Abrir certificado principal ${certification.title} en PDF`}>
+                      <a href={withBase(certification.href)} target="_blank" rel="noreferrer" class="btn-primary px-4 py-2 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300" aria-label={`Abrir certificado principal ${certification.title} en PDF`}>
                         Ver principal
                       </a>
-                      <a href={certification.href} download class="btn-secondary px-4 py-2 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300" aria-label={`Descargar PDF del certificado principal ${certification.title}`}>
+                      <a href={withBase(certification.href)} download class="btn-secondary px-4 py-2 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300" aria-label={`Descargar PDF del certificado principal ${certification.title}`}>
                         Descargar
                       </a>
                     </div>
@@ -96,10 +97,10 @@ const { certifications } = Astro.props;
                   <h4 class="font-semibold text-white">{certification.title}</h4>
                   <p class="mt-2 text-sm leading-6 text-slate-300">{certification.focus}</p>
                   <div class="mt-4 flex flex-wrap gap-2">
-                    <a href={certification.href} target="_blank" rel="noreferrer" class="link-cta border border-cyan-300/20 bg-cyan-300/5 px-3 py-1.5 text-xs focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300" aria-label={`Abrir certificado de curso ${certification.title} en PDF`}>
+                    <a href={withBase(certification.href)} target="_blank" rel="noreferrer" class="link-cta border border-cyan-300/20 bg-cyan-300/5 px-3 py-1.5 text-xs focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300" aria-label={`Abrir certificado de curso ${certification.title} en PDF`}>
                       Ver PDF
                     </a>
-                    <a href={certification.href} download class="btn-secondary px-3 py-1.5 text-xs focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300" aria-label={`Descargar PDF del certificado de curso ${certification.title}`}>
+                    <a href={withBase(certification.href)} download class="btn-secondary px-3 py-1.5 text-xs focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300" aria-label={`Descargar PDF del certificado de curso ${certification.title}`}>
                       Descargar
                     </a>
                   </div>
