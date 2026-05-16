@@ -28,3 +28,4 @@ Single-page Astro 6 portfolio for Caleb Perez.
 - **Design**: Dark background `#06141b`, text `#f8fafc`, accent `cyan-300`/`#06b6d4`, radial gradient highlights
 - **No tests, no linter, no typecheck command** configured. `npm run build` is the sole correctness check.
 - Runtime config: `opencode.json` manages all permissions. Launcher script at `scripts/opencode-portfolio`.
+- For any local change that must sync to GitHub and GitHub Pages, consult `docs/LOCAL_GITHUB_SYNC_WORKFLOW.md` before modifying deploy-sensitive files or pushing.

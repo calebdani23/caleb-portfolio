@@ -16,3 +16,6 @@ npm-debug.log*
 
 # Gentle-AI repo-local HOME/runtime
 .gentle-home/
+
+# Local review/reference screenshots
+docs/screenshots-help/
