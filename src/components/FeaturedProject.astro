@@ -35,82 +35,88 @@ const featuredImage = project.featuredImage ?? project.previewImage;
       )}
     </div>
 
-    <div class="section-reveal surface-elevated p-4 sm:p-5">
-      {featuredImage && (
-        <figure class="browser-frame mb-5">
-          <img
-            src={featuredImage}
-            alt={project.previewAlt ?? `Captura de ${project.title}`}
-            loading="lazy"
-            decoding="async"
-            class="aspect-[16/10] w-full bg-slate-950 object-cover"
-            style={`object-fit: ${project.previewObjectFit ?? "cover"}; object-position: ${project.previewObjectPosition ?? "top center"};`}
-          />
-          <figcaption class="media-caption flex flex-col gap-2 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
-            <span>Vista de producto existente usada como evidencia visual del case study.</span>
-            <span class="w-fit rounded-full bg-cyan-300/10 px-3 py-1 text-xs font-semibold text-cyan-100">{project.visualLabel}</span>
-          </figcaption>
-        </figure>
-      )}
-
-      <div class="mb-5 rounded-[1.75rem] border border-cyan-300/15 bg-slate-950/60 p-5 shadow-inner shadow-cyan-950/20">
-        <div class="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-4">
-          <div>
-            <p class="text-xs uppercase tracking-[0.22em] text-cyan-200/80">Consola operativa</p>
-            <p class="mt-2 text-2xl font-semibold text-white">Zalmar Travel</p>
-          </div>
-          <span class="rounded-full bg-emerald-300/10 px-3 py-1 text-xs font-semibold text-emerald-200">en construcción</span>
-        </div>
-
-        <p class="mt-4 text-sm leading-6 text-slate-300">
-          Planificación con IA, cotización, booking y vouchers reunidos en un plan maestro para operar el viaje completo.
-        </p>
-
-        <div class="mt-5 grid gap-3 sm:grid-cols-2">
-          <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
-            <p class="text-3xl font-semibold text-white">API</p>
-            <p class="mt-2 text-sm text-slate-400">Hotelbeds · Duffel · REST</p>
-          </div>
-          <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
-            <p class="text-3xl font-semibold text-white">AI</p>
-            <p class="mt-2 text-sm text-slate-400">Agentes por viaje y validación</p>
-          </div>
-        </div>
-
-        <div class="mt-4 rounded-2xl border border-white/10 bg-white/[0.04] p-4">
-          <div class="mb-3 flex items-center justify-between text-xs text-slate-400">
-            <span>Idea</span><span>UX</span><span>API</span><span>Booking</span>
-          </div>
-          <div class="h-2 rounded-full bg-white/10">
-            <div class="h-2 w-4/5 rounded-full bg-gradient-to-r from-cyan-300 to-sky-400"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="mb-5 flex items-center justify-between gap-4 border-b border-white/10 pb-4">
+    <div class="rounded-[1.75rem] border border-cyan-300/15 bg-slate-950/70 p-5 shadow-2xl shadow-cyan-950/20 ring-1 ring-white/5 sm:p-6">
+      <div class="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-4">
         <div>
-          <p class="text-sm font-semibold text-white">Workspace de plan maestro</p>
-          <p class="mt-1 text-xs text-slate-400">Vuelos · Hoteles · Actividades · Traslados</p>
+          <p class="text-xs uppercase tracking-[0.22em] text-cyan-200/80">Consola operativa</p>
+          <p class="mt-2 text-2xl font-semibold text-white">Progreso</p>
         </div>
-        <span class="rounded-full bg-cyan-300 px-3 py-1 text-xs font-bold text-slate-950">Asistido por IA</span>
+        <span class="rounded-full bg-emerald-300/10 px-3 py-1 text-xs font-semibold text-emerald-200">en construcción</span>
       </div>
 
-      <div class="grid gap-3">
-        {project.highlights?.map((highlight, index) => (
-          <div class="flex gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-4 transition hover:border-cyan-300/20">
-            <span class="grid size-8 shrink-0 place-items-center rounded-full bg-cyan-300/15 text-sm font-semibold text-cyan-200">
-              {String(index + 1).padStart(2, "0")}
-            </span>
-            <p class="text-sm leading-6 text-slate-300">{highlight}</p>
+      <p class="mt-4 text-sm leading-6 text-slate-300">
+        Planificación con IA, cotización, booking y vouchers reunidos en un plan maestro para operar el viaje completo.
+      </p>
+
+      <div class="mt-5 grid gap-3 sm:grid-cols-2">
+        <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
+          <p class="text-3xl font-semibold text-white">API</p>
+          <p class="mt-2 text-sm text-slate-400">Hotelbeds · Duffel · REST</p>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
+          <p class="text-3xl font-semibold text-white">AI</p>
+          <p class="mt-2 text-sm text-slate-400">Agentes por viaje y validación</p>
+        </div>
+      </div>
+
+      <div class="mt-4 rounded-2xl border border-white/10 bg-white/[0.04] p-4">
+        <div class="mb-3 flex items-center justify-between text-xs text-slate-400">
+          <span>Idea</span><span>UX</span><span>API</span><span>Booking</span>
+        </div>
+        <div class="h-2 rounded-full bg-white/10">
+          <div class="h-2 w-4/5 rounded-full bg-gradient-to-r from-cyan-300 to-sky-400"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-reveal grid gap-5 lg:col-span-2">
+      <div class="surface-elevated p-4 sm:p-5 lg:p-6">
+        <div class="grid gap-5 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.25fr)] lg:items-start">
+          {featuredImage && (
+            <figure class="browser-frame">
+              <img
+                src={featuredImage}
+                alt={project.previewAlt ?? `Captura de ${project.title}`}
+                loading="lazy"
+                decoding="async"
+                class="aspect-[16/10] w-full bg-slate-950 object-cover"
+                style={`object-fit: ${project.previewObjectFit ?? "cover"}; object-position: ${project.previewObjectPosition ?? "top center"};`}
+              />
+              <figcaption class="media-caption flex flex-col gap-2 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
+                <span>Vista de producto existente usada como evidencia visual del case study.</span>
+                <span class="w-fit rounded-full bg-cyan-300/10 px-3 py-1 text-xs font-semibold text-cyan-100">{project.visualLabel}</span>
+              </figcaption>
+            </figure>
+          )}
+
+          <div class="grid gap-4">
+            <div class="flex flex-col gap-3 border-b border-white/10 pb-4 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p class="text-sm font-semibold text-white">Workspace de plan maestro</p>
+                <p class="mt-1 text-xs text-slate-400">Vuelos · Hoteles · Actividades · Traslados</p>
+              </div>
+              <span class="w-fit rounded-full bg-cyan-300 px-3 py-1 text-xs font-bold text-slate-950">Asistido por IA</span>
+            </div>
+
+            <div class="grid gap-3 md:grid-cols-2">
+              {project.highlights?.map((highlight, index) => (
+                <div class="flex gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-4 transition hover:border-cyan-300/20">
+                  <span class="grid size-8 shrink-0 place-items-center rounded-full bg-cyan-300/15 text-sm font-semibold text-cyan-200">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <p class="text-sm leading-6 text-slate-300">{highlight}</p>
+                </div>
+              ))}
+            </div>
+
+            <div class="rounded-2xl border border-amber-200/10 bg-amber-200/5 p-4">
+              <p class="text-sm font-medium text-amber-100">Estado actual</p>
+              <p class="mt-2 text-sm leading-6 text-slate-300">
+                En construcción como producto central del portafolio; el case study documenta arquitectura, decisiones y próximos pasos.
+              </p>
+            </div>
           </div>
-        ))}
-      </div>
-
-      <div class="mt-5 rounded-2xl border border-amber-200/10 bg-amber-200/5 p-4">
-        <p class="text-sm font-medium text-amber-100">Estado actual</p>
-        <p class="mt-2 text-sm leading-6 text-slate-300">
-          En construcción como producto central del portafolio; el case study documenta arquitectura, decisiones y próximos pasos.
-        </p>
+        </div>
       </div>
     </div>
   </div>
