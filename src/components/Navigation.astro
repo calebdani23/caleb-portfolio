@@ -4,7 +4,6 @@ const sectionHref = (hash: string) => (isHome ? hash : `/${hash}`);
 const links = [
   { label: "Sobre mí", href: sectionHref("#sobre-mi"), sectionId: "sobre-mi" },
   { label: "Proyectos", href: sectionHref("#proyectos"), sectionId: "proyectos" },
-  { label: "Zalmar", href: sectionHref("#zalmar-travel"), sectionId: "zalmar-travel" },
   { label: "Camino", href: sectionHref("#journey"), sectionId: "journey" },
   { label: "Certificados", href: sectionHref("#certificados"), sectionId: "certificados" },
   { label: "Fútbol", href: sectionHref("#trayectoria-deportiva"), sectionId: "trayectoria-deportiva" },
@@ -92,9 +91,34 @@ const links = [
       return sectionIds.includes(hash) ? hash : "";
     };
 
-    const chooseNearestSection = () => {
-      const readingLine = window.innerHeight * 0.38;
+    const chooseViewportSection = () => {
+      const headerHeight = document.querySelector("header")?.getBoundingClientRect().height ?? 0;
+      const viewportHeight = window.innerHeight;
+      const readingLine = headerHeight + (viewportHeight - headerHeight) * 0.34;
       let selected = sections[0]?.id ?? "";
+      let bestScore = Number.POSITIVE_INFINITY;
+
+      sections.forEach((section) => {
+        const { top, bottom } = section.getBoundingClientRect();
+        const visibleTop = Math.max(top, headerHeight);
+        const visibleBottom = Math.min(bottom, viewportHeight);
+        const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+
+        if (visibleHeight <= 0) return;
+
+        const containsReadingLine = top <= readingLine && bottom >= readingLine;
+        const distanceToReadingLine = containsReadingLine
+          ? 0
+          : Math.min(Math.abs(top - readingLine), Math.abs(bottom - readingLine));
+        const score = distanceToReadingLine - Math.min(visibleHeight, 360) / 10000;
+
+        if (score < bestScore) {
+          bestScore = score;
+          selected = section.id;
+        }
+      });
+
+      if (Number.isFinite(bestScore)) return selected;
 
       sections.forEach((section) => {
         const { top } = section.getBoundingClientRect();
@@ -105,7 +129,7 @@ const links = [
     };
 
     const updateFromViewport = () => {
-      setActive(getHashSection() || chooseNearestSection());
+      setActive(chooseViewportSection());
     };
 
     const requestViewportUpdate = () => {
@@ -118,39 +142,17 @@ const links = [
     };
 
     const initialHash = getHashSection();
-    if (initialHash) {
-      setActive(initialHash);
-    } else {
-      updateFromViewport();
-    }
+    if (initialHash) setActive(initialHash);
+    requestViewportUpdate();
 
     window.addEventListener("hashchange", () => {
       const hashSection = getHashSection();
       if (hashSection) setActive(hashSection);
+      window.setTimeout(requestViewportUpdate, 120);
     });
 
-    if (!("IntersectionObserver" in window)) {
-      window.addEventListener("scroll", requestViewportUpdate, { passive: true });
-      window.addEventListener("resize", requestViewportUpdate, { passive: true });
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleEntries = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-
-        if (visibleEntries[0]?.target instanceof HTMLElement) {
-          setActive(visibleEntries[0].target.id);
-        } else {
-          requestViewportUpdate();
-        }
-      },
-      { rootMargin: "-28% 0px -55% 0px", threshold: 0 }
-    );
-
-    sections.forEach((section) => observer.observe(section));
+    window.addEventListener("scroll", requestViewportUpdate, { passive: true });
+    window.addEventListener("resize", requestViewportUpdate, { passive: true });
   };
 
   if (document.readyState === "loading") {
