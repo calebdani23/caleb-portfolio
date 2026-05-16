@@ -2,18 +2,18 @@
 const isHome = Astro.url.pathname === "/";
 const sectionHref = (hash: string) => (isHome ? hash : `/${hash}`);
 const links = [
-  { label: "Sobre mí", href: sectionHref("#sobre-mi") },
-  { label: "Proyectos", href: sectionHref("#proyectos") },
-  { label: "Zalmar", href: sectionHref("#zalmar-travel") },
-  { label: "Camino", href: sectionHref("#journey") },
-  { label: "Certificados", href: sectionHref("#certificados") },
-  { label: "Fútbol", href: sectionHref("#trayectoria-deportiva") },
-  { label: "Stack", href: sectionHref("#stack") },
-  { label: "Contacto", href: sectionHref("#contacto") },
+  { label: "Sobre mí", href: sectionHref("#sobre-mi"), sectionId: "sobre-mi" },
+  { label: "Proyectos", href: sectionHref("#proyectos"), sectionId: "proyectos" },
+  { label: "Zalmar", href: sectionHref("#zalmar-travel"), sectionId: "zalmar-travel" },
+  { label: "Camino", href: sectionHref("#journey"), sectionId: "journey" },
+  { label: "Certificados", href: sectionHref("#certificados"), sectionId: "certificados" },
+  { label: "Fútbol", href: sectionHref("#trayectoria-deportiva"), sectionId: "trayectoria-deportiva" },
+  { label: "Stack", href: sectionHref("#stack"), sectionId: "stack" },
+  { label: "Contacto", href: sectionHref("#contacto"), sectionId: "contacto" },
 ];
 ---
 
-<header class="fixed inset-x-0 top-0 z-50 border-b border-cyan-300/10 bg-[#06141b]/86 shadow-2xl shadow-black/20 backdrop-blur-2xl">
+<header class="fixed inset-x-0 top-0 z-50 border-b border-cyan-300/10 bg-[#06141b]/82 shadow-2xl shadow-black/20 backdrop-blur-2xl">
   <div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-300/50 to-transparent"></div>
   <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8 lg:px-10" aria-label="Principal">
     <a href={sectionHref("#inicio")} class="group inline-flex items-center gap-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300" aria-label="Ir al inicio">
@@ -23,23 +23,23 @@ const links = [
       <span class="hidden text-sm font-semibold text-white sm:block">Caleb Perez</span>
     </a>
 
-    <div class="hidden items-center gap-1 rounded-full border border-white/10 bg-white/[0.03] p-1 lg:flex">
+    <div class="hidden items-center gap-0.5 rounded-full border border-white/10 bg-white/[0.03] p-1 lg:flex">
       {links.map((link) => (
-        <a href={link.href} class="rounded-full px-4 py-2 text-sm text-slate-300 transition duration-300 hover:bg-white/10 hover:text-white hover:shadow-inner hover:shadow-cyan-300/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300">
+        <a href={link.href} data-nav-section={link.sectionId} class="nav-pill rounded-full px-3.5 py-2 text-sm text-slate-300 transition duration-300 hover:bg-white/10 hover:text-white hover:shadow-inner hover:shadow-cyan-300/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300">
           {link.label}
         </a>
       ))}
     </div>
 
-    <a href="mailto:calebdani@icloud.com" class="rounded-full bg-cyan-300 px-4 py-2 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-950/30 transition hover:-translate-y-0.5 hover:bg-cyan-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300">
+    <a href="mailto:calebdani@icloud.com" class="btn-primary px-4 py-2 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300">
       Hablemos
     </a>
   </nav>
 
-  <div class="border-t border-white/5 px-5 pb-3 lg:hidden">
-    <div class="flex gap-2 overflow-x-auto pt-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" aria-label="Navegación móvil">
+  <div class="border-t border-white/5 px-5 pb-2 lg:hidden">
+    <div class="flex gap-2 overflow-x-auto pt-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" aria-label="Navegación móvil">
       {links.map((link) => (
-        <a href={link.href} class="shrink-0 rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-xs font-medium text-slate-300 transition hover:border-cyan-300/30 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300">
+        <a href={link.href} data-nav-section={link.sectionId} class="nav-pill-mobile shrink-0 rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-xs font-medium text-slate-300 transition hover:border-cyan-300/30 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300">
           {link.label}
         </a>
       ))}
@@ -47,3 +47,115 @@ const links = [
   </div>
 </header>
 <div class="h-[7.25rem] lg:h-[4.5rem]" aria-hidden="true"></div>
+
+<script>
+  const initActiveNavigation = () => {
+    const navLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>("[data-nav-section]"));
+    if (navLinks.length === 0) return;
+
+    const sectionIds = Array.from(new Set(navLinks.map((link) => link.dataset.navSection).filter((id): id is string => Boolean(id))));
+    const sections = sectionIds
+      .map((id) => document.getElementById(id ?? ""))
+      .filter((section): section is HTMLElement => Boolean(section));
+
+    if (sections.length === 0) return;
+
+    let activeSectionId = "";
+    let ticking = false;
+
+    const centerMobilePill = (sectionId: string) => {
+      const escapedSectionId = window.CSS?.escape ? CSS.escape(sectionId) : sectionId;
+      const activeMobileLink = document.querySelector<HTMLAnchorElement>(`.nav-pill-mobile[data-nav-section="${escapedSectionId}"]`);
+      if (!activeMobileLink) return;
+      activeMobileLink.scrollIntoView({ block: "nearest", inline: "center" });
+    };
+
+    const setActive = (sectionId: string) => {
+      if (!sectionId || sectionId === activeSectionId) return;
+      activeSectionId = sectionId;
+
+      navLinks.forEach((link) => {
+        const isActive = link.dataset.navSection === sectionId;
+        link.toggleAttribute("data-active", isActive);
+        if (isActive) {
+          link.setAttribute("aria-current", "location");
+        } else {
+          link.removeAttribute("aria-current");
+        }
+      });
+
+      centerMobilePill(sectionId);
+    };
+
+    const getHashSection = () => {
+      const hash = window.location.hash.replace("#", "");
+      return sectionIds.includes(hash) ? hash : "";
+    };
+
+    const chooseNearestSection = () => {
+      const readingLine = window.innerHeight * 0.38;
+      let selected = sections[0]?.id ?? "";
+
+      sections.forEach((section) => {
+        const { top } = section.getBoundingClientRect();
+        if (top <= readingLine) selected = section.id;
+      });
+
+      return selected;
+    };
+
+    const updateFromViewport = () => {
+      setActive(getHashSection() || chooseNearestSection());
+    };
+
+    const requestViewportUpdate = () => {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(() => {
+        updateFromViewport();
+        ticking = false;
+      });
+    };
+
+    const initialHash = getHashSection();
+    if (initialHash) {
+      setActive(initialHash);
+    } else {
+      updateFromViewport();
+    }
+
+    window.addEventListener("hashchange", () => {
+      const hashSection = getHashSection();
+      if (hashSection) setActive(hashSection);
+    });
+
+    if (!("IntersectionObserver" in window)) {
+      window.addEventListener("scroll", requestViewportUpdate, { passive: true });
+      window.addEventListener("resize", requestViewportUpdate, { passive: true });
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleEntries = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+
+        if (visibleEntries[0]?.target instanceof HTMLElement) {
+          setActive(visibleEntries[0].target.id);
+        } else {
+          requestViewportUpdate();
+        }
+      },
+      { rootMargin: "-28% 0px -55% 0px", threshold: 0 }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initActiveNavigation, { once: true });
+  } else {
+    window.requestAnimationFrame(initActiveNavigation);
+  }
+</script>

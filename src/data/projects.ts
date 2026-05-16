@@ -10,6 +10,13 @@ export type Project = {
   href?: string;
   featured?: boolean;
   visualLabel: string;
+  visualKind?: "screenshot" | "orchestration" | "server" | "ux-map" | "portfolio";
+  previewImage?: string;
+  featuredImage?: string;
+  previewAlt?: string;
+  previewTone?: "cyan" | "sky" | "amber" | "emerald";
+  previewObjectFit?: "cover" | "contain";
+  previewObjectPosition?: string;
   highlights?: string[];
   metrics?: Array<{
     value: string;
@@ -29,6 +36,13 @@ export const projects: Project[] = [
     href: "/proyectos/zalmar-travel",
     featured: true,
     visualLabel: "Producto principal",
+    visualKind: "screenshot",
+    previewImage: "/images/projects/zalmar-travel/01-public-inicio.png",
+    featuredImage: "/images/projects/zalmar-travel/10-auth-booking-plan-final.png",
+    previewAlt: "Interfaz pública y workspace de Zalmar Travel enmarcados como producto travel tech",
+    previewTone: "cyan",
+    previewObjectFit: "cover",
+    previewObjectPosition: "top center",
     highlights: [
       "Plan maestro para agrupar vuelos, hoteles, actividades y traslados en una sola experiencia.",
       "Workspace operativo para cotización, hold, booking, vouchers y seguimiento del viaje.",
@@ -51,6 +65,8 @@ export const projects: Project[] = [
     slug: "ai-booking-orchestrator",
     href: "/proyectos/ai-booking-orchestrator",
     visualLabel: "Sistema de flujo",
+    visualKind: "orchestration",
+    previewTone: "sky",
   },
   {
     title: "Visual Runner Server",
@@ -62,6 +78,8 @@ export const projects: Project[] = [
     slug: "visual-runner-server",
     href: "/proyectos/visual-runner-server",
     visualLabel: "Laboratorio server",
+    visualKind: "server",
+    previewTone: "emerald",
   },
   {
     title: "Travel Booking UX System",
@@ -73,6 +91,13 @@ export const projects: Project[] = [
     slug: "travel-booking-ux-system",
     href: "/proyectos/travel-booking-ux-system",
     visualLabel: "Mapa UX",
+    visualKind: "screenshot",
+    previewImage: "/images/projects/travel-booking-ux-system/08-auth-viaje-comparar-final.png",
+    featuredImage: "/images/projects/travel-booking-ux-system/10-auth-booking-plan-final.png",
+    previewAlt: "Pantallas de comparación y plan de reserva del Travel Booking UX System",
+    previewTone: "amber",
+    previewObjectFit: "cover",
+    previewObjectPosition: "top center",
   },
   {
     title: "Personal Portfolio System",
@@ -82,6 +107,8 @@ export const projects: Project[] = [
     status: "MVP",
     tags: ["Astro", "TypeScript", "Tailwind", "Arquitectura de contenido"],
     visualLabel: "Sitio vivo",
+    visualKind: "portfolio",
+    previewTone: "cyan",
   },
 ];
 

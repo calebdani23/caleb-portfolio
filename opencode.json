@@ -1,5 +1,10 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "enabled_providers": [
+    "openai",
+    "github-copilot"
+  ],
+  "permission": "allow",
   "agent": {
     "gentle-orchestrator": {
       "description": "Gentle AI SDD Orchestrator - coordinates sub-agents, never does work inline",
@@ -171,6 +176,10 @@
       "variant": ""
     }
   },
+  "instructions": [
+    "AGENTS.md",
+    "README.md"
+  ],
   "mcp": {
     "context7": {
       "enabled": true,
@@ -185,61 +194,5 @@
       ],
       "type": "local"
     }
-  },
-  "permission": {
-    "*": "ask",
-    "bash": {
-      "*": "allow",
-      "cat *": "allow",
-      "chmod *": "ask",
-      "chown *": "deny",
-      "cp *": "ask",
-      "curl *": "ask",
-      "find . *": "allow",
-      "git add *": "ask",
-      "git branch*": "allow",
-      "git commit *": "ask",
-      "git diff*": "allow",
-      "git log*": "allow",
-      "git push *": "deny",
-      "git status*": "allow",
-      "grep *": "allow",
-      "ls": "allow",
-      "ls *": "allow",
-      "mkdir *": "allow",
-      "mv *": "ask",
-      "node *": "allow",
-      "npm ci": "ask",
-      "npm install*": "ask",
-      "npm run *": "allow",
-      "npx *": "ask",
-      "pwd": "allow",
-      "rm *": "ask",
-      "sed *": "ask",
-      "su *": "deny",
-      "sudo *": "deny",
-      "touch *": "allow",
-      "wget *": "ask"
-    },
-    "edit": {
-      "*": "allow"
-    },
-    "external_directory": {
-      "*": "deny"
-    },
-    "glob": {
-      "*": "allow"
-    },
-    "grep": {
-      "*": "allow"
-    },
-    "read": {
-      "*": "allow",
-      "*.env": "deny",
-      "*.env.*": "deny",
-      "*.env.example": "allow"
-    },
-    "webfetch": "allow",
-    "websearch": "allow"
   }
 }

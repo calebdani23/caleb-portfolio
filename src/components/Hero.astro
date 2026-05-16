@@ -8,7 +8,7 @@ const badges = ["AI Product Builder", "Explorador full-stack", "Constructor trav
   <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_18%_12%,rgba(34,211,238,0.22),transparent_32%),radial-gradient(circle_at_85%_35%,rgba(14,165,233,0.16),transparent_34%),linear-gradient(180deg,rgba(255,255,255,0.03),transparent_45%)]"></div>
   <div class="ambient-orb absolute left-1/2 top-14 -z-10 h-72 w-72 -translate-x-1/2 rounded-full bg-cyan-300/10 blur-3xl"></div>
 
-  <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.96fr_1.04fr]">
+  <div class="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[1.04fr_0.96fr] lg:gap-14">
     <div class="section-reveal">
       <div class="flex flex-wrap gap-2">
         {badges.map((badge) => (
@@ -18,23 +18,23 @@ const badges = ["AI Product Builder", "Explorador full-stack", "Constructor trav
         ))}
       </div>
 
-      <p class="mt-8 text-sm font-semibold uppercase tracking-[0.35em] text-cyan-300/90">{profile.name} · {profile.location}</p>
-      <h1 class="mt-5 max-w-5xl text-5xl font-semibold tracking-[-0.04em] text-white sm:text-7xl lg:text-8xl">
+      <p class="mt-8 text-sm font-semibold uppercase tracking-[0.24em] text-cyan-300/90">{profile.name} · {profile.location}</p>
+      <h1 class="mt-5 max-w-5xl text-5xl font-semibold tracking-[-0.03em] text-white sm:text-7xl lg:text-8xl">
         Construyo productos digitales con IA, automatización y criterio de producto.
       </h1>
       <p class="mt-8 max-w-2xl text-lg leading-8 text-slate-300 sm:text-xl">
         Combino desarrollo web, APIs, servidores propios, diseño UX/UI y agentes de IA para convertir ideas complejas en experiencias digitales reales, especialmente en travel tech.
       </p>
 
-      <div class="mt-10 flex flex-wrap gap-4">
-        <a href="#proyectos" class="rounded-full bg-cyan-300 px-6 py-3 text-sm font-semibold text-slate-950 shadow-xl shadow-cyan-950/40 transition hover:-translate-y-1 hover:bg-cyan-200">
+      <div class="mt-10 flex flex-wrap gap-3 sm:gap-4">
+        <a href="#proyectos" class="btn-primary px-6 py-3 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300">
           Ver proyectos
         </a>
-        <a href="mailto:calebdani@icloud.com" class="rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-1 hover:bg-white/10">
+        <a href="mailto:calebdani@icloud.com" class="btn-secondary px-6 py-3 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300">
           Contactarme
         </a>
         {profile.links.map((link) => (
-          <a href={link.href} target="_blank" rel="noreferrer" class="rounded-full border border-cyan-300/20 bg-cyan-300/5 px-6 py-3 text-sm font-semibold text-cyan-100 transition hover:-translate-y-1 hover:bg-cyan-300/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300" aria-label={`Abrir ${link.label} de ${profile.name}`}>
+          <a href={link.href} target="_blank" rel="noreferrer" class="btn-secondary border-cyan-300/20 bg-cyan-300/5 px-5 py-3 text-sm text-cyan-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300" aria-label={`Abrir ${link.label} de ${profile.name}`}>
             {link.label}
           </a>
         ))}
@@ -48,8 +48,8 @@ const badges = ["AI Product Builder", "Explorador full-stack", "Constructor trav
         <div class="premium-card group relative overflow-hidden p-4 sm:p-5">
           <div class="absolute inset-0 bg-[linear-gradient(135deg,rgba(103,232,249,0.12),transparent_38%),radial-gradient(circle_at_50%_90%,rgba(250,204,21,0.08),transparent_38%)]"></div>
           <div class="pointer-events-none absolute -right-16 -top-16 size-44 rounded-full bg-cyan-300/10 blur-3xl transition duration-700 group-hover:bg-cyan-200/15"></div>
-          <div class="relative grid gap-4 lg:grid-cols-[0.92fr_0.58fr] lg:items-end">
-            <div class="relative mx-auto aspect-[4/5] w-full max-w-[22rem] overflow-hidden rounded-[2rem] border border-cyan-300/30 bg-slate-950/65 p-3 shadow-2xl shadow-cyan-950/30 sm:max-w-[26rem] lg:max-w-none">
+          <div class="relative grid gap-4 lg:grid-cols-[1fr_0.52fr] lg:items-end">
+            <div class="relative mx-auto aspect-[4/5] w-full max-w-[20rem] overflow-hidden rounded-[2rem] border border-cyan-300/30 bg-slate-950/65 p-3 shadow-2xl shadow-cyan-950/30 sm:max-w-[23rem] lg:max-w-none">
               <div class="absolute inset-3 rounded-[1.55rem] border border-white/10 bg-[radial-gradient(circle_at_50%_18%,rgba(103,232,249,0.16),transparent_45%)]"></div>
               <img
                 src={profile.photo.src}
@@ -76,7 +76,7 @@ const badges = ["AI Product Builder", "Explorador full-stack", "Constructor trav
           </div>
         </div>
 
-        <div class="premium-card overflow-hidden p-5 sm:p-6">
+        <div class="surface-outline overflow-hidden p-5 sm:p-6">
           <div class="rounded-[1.75rem] border border-white/10 bg-slate-950/60 p-5">
           <div class="flex items-center justify-between gap-4 border-b border-white/10 pb-4">
             <span class="text-sm font-medium text-slate-300">Consola de producto</span>
@@ -85,7 +85,7 @@ const badges = ["AI Product Builder", "Explorador full-stack", "Constructor trav
 
           <div class="mt-6 grid gap-4">
             <div class="rounded-2xl border border-cyan-300/20 bg-cyan-300/10 p-4">
-              <p class="text-xs uppercase tracking-[0.28em] text-cyan-200/80">Foco</p>
+                <p class="text-xs uppercase tracking-[0.18em] text-cyan-200/80">Foco</p>
               <p class="mt-2 text-2xl font-semibold text-white">Zalmar Travel</p>
               <p class="mt-2 text-sm leading-6 text-slate-300">Planificación con IA, cotización, booking y vouchers en un solo plan maestro.</p>
             </div>

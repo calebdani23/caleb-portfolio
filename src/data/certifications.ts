@@ -3,6 +3,8 @@ export type CertificationItem = {
   issuer: string;
   focus: string;
   href: string;
+  previewImage?: string;
+  previewAlt?: string;
 };
 
 export type CertificationProgram = {
@@ -25,6 +27,8 @@ export const certificationPrograms: CertificationProgram[] = [
         issuer: "Google",
         focus: "Certificado principal del programa profesional de soporte IT.",
         href: "/docs/certificados/google-it-support/google-it-support-professional-certificate-caleb.pdf",
+        previewImage: "/images/certificates/google-it-support-professional-certificate-caleb.png",
+        previewAlt: "Primera página renderizada del certificado Google IT Support Professional Certificate de Caleb Perez.",
       },
     ],
     courseCertificates: [
@@ -77,6 +81,8 @@ export const certificationPrograms: CertificationProgram[] = [
         issuer: "Oracle ONE / Alura",
         focus: "Constancia principal correcta del programa de formación Oracle + Alura.",
         href: "/docs/certificados/oracle-alura/programa-oracle-alura-caleb-perez.pdf",
+        previewImage: "/images/certificates/programa-oracle-alura-caleb-perez.png",
+        previewAlt: "Primera página renderizada del certificado principal del programa Oracle + Alura de Caleb Perez.",
       },
     ],
     courseCertificates: [
