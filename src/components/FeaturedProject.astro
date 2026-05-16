@@ -9,76 +9,75 @@ const { project } = Astro.props;
 const featuredImage = project.featuredImage ?? project.previewImage;
 ---
 
-<section id="zalmar-travel" class="px-5 py-20 sm:px-8 lg:px-10">
-  <div class="mx-auto max-w-7xl">
-    <div class="premium-card relative overflow-hidden p-6 sm:p-8 lg:p-10">
-      <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_20%,rgba(34,211,238,0.18),transparent_35%),radial-gradient(circle_at_85%_80%,rgba(250,204,21,0.08),transparent_34%)]"></div>
-      <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-        <div class="section-reveal">
-          <p class="text-xs font-semibold uppercase tracking-[0.24em] text-cyan-300">Proyecto principal</p>
-          <h2 class="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">{project.title}</h2>
-          <p class="mt-6 text-lg leading-8 text-slate-300">{project.description}</p>
+<article id="zalmar-travel" class="premium-card relative overflow-hidden p-6 sm:p-8 lg:p-10 scroll-mt-24">
+  <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_20%,rgba(34,211,238,0.18),transparent_35%),radial-gradient(circle_at_85%_80%,rgba(250,204,21,0.08),transparent_34%)]"></div>
+  <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+    <div class="section-reveal">
+      <div class="flex flex-wrap items-center gap-3">
+        <p class="text-xs font-semibold uppercase tracking-[0.24em] text-cyan-300">Proyecto principal</p>
+        <span class="rounded-full border border-amber-200/20 bg-amber-200/10 px-3 py-1 text-xs font-semibold text-amber-100">En curso</span>
+      </div>
+      <h2 class="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">{project.title}</h2>
+      <p class="mt-6 text-lg leading-8 text-slate-300">{project.description}</p>
 
-          <div class="mt-8 grid gap-4 sm:grid-cols-3">
-            {project.metrics?.map((metric) => (
-              <div class="rounded-3xl border border-white/10 bg-white/[0.05] p-4">
-                <p class="text-2xl font-semibold text-white">{metric.value}</p>
-                <p class="mt-1 text-sm text-slate-400">{metric.label}</p>
-              </div>
-            ))}
+      <div class="mt-8 grid gap-4 sm:grid-cols-3">
+        {project.metrics?.map((metric) => (
+          <div class="rounded-3xl border border-white/10 bg-white/[0.05] p-4">
+            <p class="text-2xl font-semibold text-white">{metric.value}</p>
+            <p class="mt-1 text-sm text-slate-400">{metric.label}</p>
           </div>
-          {project.href && (
-            <a href={project.href} class="mt-8 inline-flex rounded-full bg-cyan-300 px-5 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-950/30 transition hover:-translate-y-1 hover:bg-cyan-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300">
-              Leer case study completo
-            </a>
-          )}
+        ))}
+      </div>
+      {project.href && (
+        <a href={project.href} class="mt-8 inline-flex rounded-full bg-cyan-300 px-5 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-950/30 transition hover:-translate-y-1 hover:bg-cyan-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300">
+          Leer case study completo
+        </a>
+      )}
+    </div>
+
+    <div class="section-reveal surface-elevated p-4 sm:p-5">
+      {featuredImage && (
+        <figure class="browser-frame mb-5">
+          <img
+            src={featuredImage}
+            alt={project.previewAlt ?? `Captura de ${project.title}`}
+            loading="lazy"
+            decoding="async"
+            class="aspect-[16/10] w-full bg-slate-950 object-cover"
+            style={`object-fit: ${project.previewObjectFit ?? "cover"}; object-position: ${project.previewObjectPosition ?? "top center"};`}
+          />
+          <figcaption class="media-caption flex flex-col gap-2 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
+            <span>Vista de producto existente usada como evidencia visual del case study.</span>
+            <span class="w-fit rounded-full bg-cyan-300/10 px-3 py-1 text-xs font-semibold text-cyan-100">{project.visualLabel}</span>
+          </figcaption>
+        </figure>
+      )}
+
+      <div class="mb-5 flex items-center justify-between gap-4 border-b border-white/10 pb-4">
+        <div>
+          <p class="text-sm font-semibold text-white">Workspace de plan maestro</p>
+          <p class="mt-1 text-xs text-slate-400">Vuelos · Hoteles · Actividades · Traslados</p>
         </div>
+        <span class="rounded-full bg-cyan-300 px-3 py-1 text-xs font-bold text-slate-950">Asistido por IA</span>
+      </div>
 
-        <div class="section-reveal surface-elevated p-4 sm:p-5">
-          {featuredImage && (
-            <figure class="browser-frame mb-5">
-              <img
-                src={featuredImage}
-                alt={project.previewAlt ?? `Captura de ${project.title}`}
-                loading="lazy"
-                decoding="async"
-                class="aspect-[16/10] w-full bg-slate-950 object-cover"
-                style={`object-fit: ${project.previewObjectFit ?? "cover"}; object-position: ${project.previewObjectPosition ?? "top center"};`}
-              />
-              <figcaption class="media-caption flex flex-col gap-2 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
-                <span>Vista de producto existente usada como evidencia visual del case study.</span>
-                <span class="w-fit rounded-full bg-cyan-300/10 px-3 py-1 text-xs font-semibold text-cyan-100">{project.visualLabel}</span>
-              </figcaption>
-            </figure>
-          )}
-
-          <div class="mb-5 flex items-center justify-between gap-4 border-b border-white/10 pb-4">
-            <div>
-              <p class="text-sm font-semibold text-white">Workspace de plan maestro</p>
-              <p class="mt-1 text-xs text-slate-400">Vuelos · Hoteles · Actividades · Traslados</p>
-            </div>
-            <span class="rounded-full bg-cyan-300 px-3 py-1 text-xs font-bold text-slate-950">Asistido por IA</span>
+      <div class="grid gap-3">
+        {project.highlights?.map((highlight, index) => (
+          <div class="flex gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-4 transition hover:border-cyan-300/20">
+            <span class="grid size-8 shrink-0 place-items-center rounded-full bg-cyan-300/15 text-sm font-semibold text-cyan-200">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <p class="text-sm leading-6 text-slate-300">{highlight}</p>
           </div>
+        ))}
+      </div>
 
-          <div class="grid gap-3">
-            {project.highlights?.map((highlight, index) => (
-              <div class="flex gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-4 transition hover:border-cyan-300/20">
-                <span class="grid size-8 shrink-0 place-items-center rounded-full bg-cyan-300/15 text-sm font-semibold text-cyan-200">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <p class="text-sm leading-6 text-slate-300">{highlight}</p>
-              </div>
-            ))}
-          </div>
-
-          <div class="mt-5 rounded-2xl border border-amber-200/10 bg-amber-200/5 p-4">
-            <p class="text-sm font-medium text-amber-100">Estado actual</p>
-            <p class="mt-2 text-sm leading-6 text-slate-300">
-              En construcción como producto central del portafolio; el case study documenta arquitectura, decisiones y próximos pasos.
-            </p>
-          </div>
-        </div>
+      <div class="mt-5 rounded-2xl border border-amber-200/10 bg-amber-200/5 p-4">
+        <p class="text-sm font-medium text-amber-100">Estado actual</p>
+        <p class="mt-2 text-sm leading-6 text-slate-300">
+          En construcción como producto central del portafolio; el case study documenta arquitectura, decisiones y próximos pasos.
+        </p>
       </div>
     </div>
   </div>
-</section>
+</article>
