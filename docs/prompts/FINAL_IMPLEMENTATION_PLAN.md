@@ -93,12 +93,12 @@ Reordenar proyectos
 Orden recomendado:
 
 Zalmar Travel — producto principal.
-AI Booking Orchestrator — arquitectura para reservas multi-servicio.
+Booking orchestration — ángulo interno de Zalmar Travel, no proyecto standalone.
 AI Agent Observability Dashboard — si lo agregamos como proyecto público.
 AI Codebase Explainer — proyecto público conectado a AI/dev tools.
 Visual Runner Server — servidor para validación visual y agentes.
 Family Home Server / Private Cloud — infraestructura real aplicada.
-Travel Booking UX System — UX/product system.
+Travel booking UX — ángulo interno de Zalmar Travel, no proyecto standalone.
 5. Camino / Trayectoria
 
 Renombrar de Camino a:

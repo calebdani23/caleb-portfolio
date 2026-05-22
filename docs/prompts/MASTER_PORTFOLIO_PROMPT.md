@@ -95,10 +95,10 @@ No hacerlo demasiado largo. Debe ser claro, elegante y humano.
 3. Proyectos destacados
 Crear cards para:
 - Zalmar Travel
-- AI Booking Orchestrator
 - Visual Runner Server
-- Travel Booking UX System
 - Personal Portfolio System
+
+Nota editorial actual: AI Booking Orchestrator y Travel Booking UX System no deben tratarse como cards standalone; son capacidades/ángulos internos de Zalmar Travel.
 
 Cada card debe tener:
 - Nombre
@@ -162,9 +162,9 @@ Páginas internas recomendadas:
 Crear rutas para case studies:
 
 /proyectos/zalmar-travel
-/proyectos/ai-booking-orchestrator
 /proyectos/visual-runner-server
-/proyectos/travel-booking-ux-system
+
+Nota editorial actual: no crear rutas separadas para AI Booking Orchestrator ni Travel Booking UX System; consolidar su contenido en Zalmar Travel.
 
 Cada case study debe tener:
 - Resumen

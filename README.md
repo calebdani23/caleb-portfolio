@@ -2,7 +2,7 @@
 
 Portafolio personal de Caleb Perez: una experiencia single-page con case studies internos para comunicar trabajo en IA, travel tech, automatización, servidores propios, UX/UI y desarrollo de producto.
 
-El sitio está pensado como un portfolio narrativo, no como CV genérico. La home presenta el perfil y los proyectos destacados; las rutas internas documentan case studies concretos como Zalmar Travel, AI Booking Orchestrator, Visual Runner Server y Travel Booking UX System.
+El sitio está pensado como un portfolio narrativo, no como CV genérico. La home presenta el perfil y los proyectos destacados; las rutas internas documentan case studies concretos como Zalmar Travel y Visual Runner Server. Los ángulos de orquestación con IA y UX de reservas viven dentro de Zalmar Travel, no como proyectos independientes.
 
 ## Stack
 
@@ -90,6 +90,6 @@ src/
 
 - Los enlaces sociales se mantienen como placeholders honestos hasta tener URLs reales.
 - La foto del hero se controla desde `src/data/profile.ts`; por defecto usa `public/images/profile-placeholder.svg`, que puede reemplazarse por un asset local real. El campo `photo.objectFit` está en `contain` para respetar mejor retratos SVG sin recorte agresivo.
-- Los visuales de proyectos son intencionalmente abstractos por ahora; pueden reemplazarse con capturas o assets en una iteración futura.
+- Los visuales de proyectos combinan assets públicos revisados para Zalmar Travel con representaciones abstractas para proyectos sin capturas públicas.
 - `src/content/projects` existe como espacio futuro, pero el contenido actual vive en `src/data` para mantener edición simple.
 - Dominio gratis: usa Vercel con el nombre recomendado `caleb-perez-portfolio`. Cuando Vercel confirme el subdominio final, conviene actualizar la configuración `site`/canonicals si se desea una URL absoluta de producción.

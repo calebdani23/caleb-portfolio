@@ -27,11 +27,11 @@ export type Project = {
 export const projects: Project[] = [
   {
     title: "Zalmar Travel",
-    category: "Travel tech · AI · Booking flows",
+    category: "Travel tech · AI orchestration · Booking UX",
     description:
-      "AI-powered travel platform for complete trip planning and management — combining a master itinerary, booking workspace, provider integrations and plan-based AI assistants.",
+      "AI-powered travel platform for complete trip planning and management — unifying orchestration, booking UX, provider integrations and plan-based AI assistants inside one Zalmar product.",
     status: "In development",
-    tags: ["AI travel platform", "Private MVP", "Travel tech", "Plan-based AI assistant", "Hotelbeds", "Duffel"],
+    tags: ["AI travel platform", "Private MVP", "Booking orchestration", "Booking UX", "Hotelbeds", "Duffel"],
     slug: "zalmar-travel",
     href: "/proyectos/zalmar-travel",
     featured: true,
@@ -47,26 +47,13 @@ export const projects: Project[] = [
       "Master itinerary to group flights, hotels, activities and transfers inside one decision space.",
       "Operational workspace for quoting, holds, booking, vouchers and trip follow-up.",
       "Provider-aware architecture designed around Hotelbeds and Duffel-style availability flows.",
-      "Plan-based AI assistants to compare options, explain tradeoffs and reduce operational friction.",
+      "Plan-based AI assistants and UX patterns to compare options, explain tradeoffs and reduce operational friction.",
     ],
     metrics: [
       { value: "4", label: "travel verticals" },
       { value: "AI", label: "per trip plan" },
       { value: "End-to-end", label: "quote to voucher" },
     ],
-  },
-  {
-    title: "AI Booking Orchestrator",
-    category: "Architecture · Multi-service booking",
-    description:
-      "Orchestration design for booking travel services as a coordinated flow instead of disconnected API actions without context.",
-    status: "Concept",
-    tags: ["Orchestration", "REST APIs", "Travel plans", "Automation"],
-    slug: "ai-booking-orchestrator",
-    href: "/proyectos/ai-booking-orchestrator",
-    visualLabel: "Flow system",
-    visualKind: "orchestration",
-    previewTone: "sky",
   },
   {
     title: "AI Agent Observability Dashboard",
@@ -113,24 +100,6 @@ export const projects: Project[] = [
     visualLabel: "Private family cloud",
     visualKind: "server",
     previewTone: "emerald",
-  },
-  {
-    title: "Travel Booking UX System",
-    category: "UX/UI · Product design",
-    description:
-      "Conceptual system of screens, states and decisions that makes searching, quoting and booking travel feel modern, clear and trustworthy.",
-    status: "Case study",
-    tags: ["Wireframes", "User flows", "Design systems", "Booking UX"],
-    slug: "travel-booking-ux-system",
-    href: "/proyectos/travel-booking-ux-system",
-    visualLabel: "UX map",
-    visualKind: "screenshot",
-    previewImage: "/images/projects/travel-booking-ux-system/08-auth-viaje-comparar-final.png",
-    featuredImage: "/images/projects/travel-booking-ux-system/10-auth-booking-plan-final.png",
-    previewAlt: "Travel Booking UX System comparison and booking-plan screens",
-    previewTone: "amber",
-    previewObjectFit: "cover",
-    previewObjectPosition: "top center",
   },
 ];
 

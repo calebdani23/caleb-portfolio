@@ -24,10 +24,8 @@ docs/intake/
 ├── profile/                              # Portrait/profile source image candidates
 ├── proyectos/                            # Project-specific source assets and notes
 │   ├── ai-agent-observability-dashboard/
-│   ├── ai-booking-orchestrator/
 │   ├── ai-codebase-explainer/
 │   ├── family-home-server-private-cloud/
-│   ├── travel-booking-ux-system/
 │   ├── visual-runner-server/
 │   └── zalmar-travel/
 ├── reconocimientos/                      # Awards, programs, volunteer/event recognition proof
@@ -78,3 +76,7 @@ docs/intake/
 - A pitch deck should only be linked if a real public-ready PDF exists in `public/docs/`. Otherwise the UI should say “Pitch deck available on request.”
 - Recognition proof for FIFA 2026, SuperCupNI, Atlante or similar programs should stay text-only until a public-ready asset is approved.
 - For home server/private cloud material, prefer abstract architecture diagrams over screenshots exposing private paths, device names or network details.
+
+## Project intake scope note
+
+`AI Booking Orchestrator` and `Travel Booking UX System` are no longer standalone portfolio projects or active intake folders. Treat orchestration, agent/tool behavior, booking states and booking UX references as Zalmar Travel material and place future related evidence under `docs/intake/proyectos/zalmar-travel/`.
