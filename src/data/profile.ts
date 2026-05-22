@@ -8,10 +8,10 @@ export const profile = {
   ],
   photo: {
     src: "/images/profile/caleb-profile.svg",
-    alt: "Retrato SVG de Caleb Perez",
-    note: "Asset real curado desde docs/intake/profile/profile-picture.svg y publicado como imagen del hero.",
+    alt: "SVG portrait of Caleb Perez",
+    note: "Curated asset from docs/intake/profile/profile-picture.svg and published as the hero profile image.",
     objectFit: "contain",
     objectPosition: "center bottom",
-    badge: "Retrato / perfil",
+    badge: "Portrait / profile",
   },
 };

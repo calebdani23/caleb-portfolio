@@ -12,7 +12,7 @@ type Props = {
 };
 
 const { caseStudy, previous, next } = Astro.props;
-const title = `${caseStudy.title} — Case study de Caleb Perez`;
+const title = `${caseStudy.title} — Caleb Perez case study`;
 const sections = [
   caseStudy.sections.problem,
   caseStudy.sections.solution,
@@ -31,7 +31,7 @@ const sections = [
   <article class="px-5 py-16 sm:px-8 sm:py-20 lg:px-10">
     <div class="mx-auto max-w-7xl">
       <a href={withBase("/#proyectos")} class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-semibold text-cyan-100 transition hover:-translate-y-0.5 hover:border-cyan-300/30 hover:bg-white/[0.07] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300">
-        <span aria-hidden="true">←</span> Volver a proyectos
+        <span aria-hidden="true">←</span> Back to projects
       </a>
 
       <header class="mt-10 grid gap-10 lg:grid-cols-[1fr_0.78fr] lg:items-end">
@@ -43,9 +43,9 @@ const sections = [
           <p class="mt-7 max-w-3xl text-lg leading-8 text-slate-300 sm:text-xl">{caseStudy.description}</p>
         </div>
 
-        <aside class="premium-card section-reveal p-6" aria-label="Resumen del case study">
+        <aside class="premium-card section-reveal p-6" aria-label="Case study summary">
           <div class="flex items-center justify-between gap-4 border-b border-white/10 pb-4">
-            <p class="text-sm font-semibold text-white">Estado</p>
+            <p class="text-sm font-semibold text-white">Status</p>
             <span class="rounded-full bg-cyan-300 px-3 py-1 text-xs font-bold text-slate-950">{caseStudy.status}</span>
           </div>
           <p class="mt-5 text-sm leading-6 text-slate-300">{caseStudy.summary}</p>
@@ -59,11 +59,11 @@ const sections = [
 
       <section class="mt-12 grid gap-5 lg:grid-cols-[0.74fr_1.26fr]" aria-labelledby="role-stack">
         <div class="surface-elevated p-6">
-          <h2 id="role-stack" class="text-xl font-semibold text-white">Mi rol</h2>
+          <h2 id="role-stack" class="text-xl font-semibold text-white">My role</h2>
           <p class="mt-4 leading-7 text-slate-300">{caseStudy.role}</p>
         </div>
         <div class="surface-soft p-6">
-          <h2 class="text-xl font-semibold text-white">Stack y conceptos</h2>
+          <h2 class="text-xl font-semibold text-white">Stack and concepts</h2>
           <div class="mt-5 flex flex-wrap gap-2">
             {caseStudy.stack.map((item) => (
               <span class="rounded-full bg-cyan-300/10 px-3 py-1.5 text-sm text-cyan-100">{item}</span>
@@ -73,7 +73,7 @@ const sections = [
       </section>
 
       <section class="surface-outline mt-12 p-5 sm:p-6" aria-labelledby="case-flow">
-        <h2 id="case-flow" class="text-2xl font-semibold text-white">Arquitectura del flujo</h2>
+        <h2 id="case-flow" class="text-2xl font-semibold text-white">Flow architecture</h2>
         <div class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7">
           {caseStudy.flow.map((step, index) => (
             <div class="rounded-3xl border border-white/10 bg-slate-950/40 p-4">
@@ -85,11 +85,11 @@ const sections = [
       </section>
 
       {(caseStudy.gallery || caseStudy.documents) && (
-        <section class="mt-12" aria-labelledby="evidencias">
+        <section class="mt-12" aria-labelledby="evidence">
           <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p class="text-xs font-semibold uppercase tracking-[0.24em] text-cyan-300">Evidencia real</p>
-              <h2 id="evidencias" class="mt-3 text-3xl font-semibold tracking-tight text-white">Visuales y documentos del proyecto</h2>
+              <p class="text-xs font-semibold uppercase tracking-[0.24em] text-cyan-300">Real evidence</p>
+              <h2 id="evidence" class="mt-3 text-3xl font-semibold tracking-tight text-white">Project visuals and documents</h2>
             </div>
             {caseStudy.documents && (
               <div class="grid gap-3 sm:min-w-80">
@@ -98,11 +98,11 @@ const sections = [
                     <p class="text-sm font-semibold text-white">{document.label}</p>
                     <p class="mt-1 text-xs leading-5 text-slate-400">{document.description}</p>
                     <div class="mt-3 flex flex-wrap gap-2">
-                    <a href={withBase(document.href)} target="_blank" rel="noreferrer" class="btn-primary px-4 py-2 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300" title={document.description} aria-label={`Abrir ${document.label}`}>
-                      Ver PDF
+                    <a href={withBase(document.href)} target="_blank" rel="noreferrer" class="btn-primary px-4 py-2 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300" title={document.description} aria-label={`Open ${document.label}`}>
+                      View PDF
                     </a>
-                    <a href={withBase(document.href)} download class="btn-secondary px-4 py-2 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300" title={document.description} aria-label={`Descargar ${document.label}`}>
-                      Descargar
+                    <a href={withBase(document.href)} download class="btn-secondary px-4 py-2 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300" title={document.description} aria-label={`Download ${document.label}`}>
+                      Download
                     </a>
                     </div>
                   </div>
@@ -143,16 +143,16 @@ const sections = [
         ))}
       </div>
 
-      <nav class="mt-14 grid gap-4 sm:grid-cols-2" aria-label="Navegación entre case studies">
+        <nav class="mt-14 grid gap-4 sm:grid-cols-2" aria-label="Case study navigation">
         {previous ? (
           <a href={withBase(`/proyectos/${previous.slug}`)} class="rounded-3xl border border-white/10 bg-white/[0.04] p-5 transition hover:-translate-y-1 hover:border-cyan-300/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300">
-            <span class="text-sm text-slate-400">Anterior</span>
+            <span class="text-sm text-slate-400">Previous</span>
             <span class="mt-2 block text-lg font-semibold text-white">{previous.title}</span>
           </a>
         ) : <div></div>}
         {next && (
           <a href={withBase(`/proyectos/${next.slug}`)} class="rounded-3xl border border-white/10 bg-white/[0.04] p-5 text-left transition hover:-translate-y-1 hover:border-cyan-300/30 sm:text-right focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300">
-            <span class="text-sm text-slate-400">Siguiente</span>
+            <span class="text-sm text-slate-400">Next</span>
             <span class="mt-2 block text-lg font-semibold text-white">{next.title}</span>
           </a>
         )}

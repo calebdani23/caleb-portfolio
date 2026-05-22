@@ -2,7 +2,7 @@
 import { profile } from "../data/profile";
 import { withBase } from "../utils/paths";
 
-const badges = ["AI Product Builder", "Explorador full-stack", "Constructor travel tech"];
+const badges = ["AI Product Builder", "Travel Tech Founder", "Systems / Full-stack Explorer"];
 ---
 
 <section id="inicio" class="relative overflow-hidden px-5 pb-20 pt-12 sm:px-8 sm:pb-28 sm:pt-18 lg:px-10">
@@ -21,21 +21,24 @@ const badges = ["AI Product Builder", "Explorador full-stack", "Constructor trav
 
       <p class="mt-8 text-sm font-semibold uppercase tracking-[0.24em] text-cyan-300/90">{profile.name} · {profile.location}</p>
       <h1 class="mt-5 max-w-5xl text-5xl font-semibold tracking-[-0.03em] text-white sm:text-7xl lg:text-8xl">
-        Construyo productos digitales con IA, automatización y criterio de producto.
+        I build AI-enabled product experiences for travel, systems and real-world operations.
       </h1>
       <p class="mt-8 max-w-2xl text-lg leading-8 text-slate-300 sm:text-xl">
-        Combino desarrollo web, APIs, servidores propios, diseño UX/UI y agentes de IA para convertir ideas complejas en experiencias digitales reales, especialmente en travel tech.
+        I connect software, automation, UX and practical AI agents — currently focused on Zalmar Travel, an AI-powered travel platform for complete trip planning and management.
       </p>
 
       <div class="mt-10 flex flex-wrap gap-3 sm:gap-4">
-        <a href="#proyectos" class="btn-primary px-6 py-3 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300">
-          Ver proyectos
+        <a href="#zalmar-travel" class="btn-primary px-6 py-3 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300">
+          View Zalmar Travel
         </a>
+        <span class="btn-secondary cursor-default px-6 py-3 text-sm text-slate-300" title="A public-ready pitch deck has not been published in this repository yet.">
+          Pitch deck available on request
+        </span>
         <a href="mailto:calebdani@icloud.com" class="btn-secondary px-6 py-3 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300">
-          Contactarme
+          Contact me
         </a>
         {profile.links.map((link) => (
-          <a href={link.href} target="_blank" rel="noreferrer" class="btn-secondary border-cyan-300/20 bg-cyan-300/5 px-5 py-3 text-sm text-cyan-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300" aria-label={`Abrir ${link.label} de ${profile.name}`}>
+            <a href={link.href} target="_blank" rel="noreferrer" class="btn-secondary border-cyan-300/20 bg-cyan-300/5 px-5 py-3 text-sm text-cyan-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300" aria-label={`Open ${link.label} for ${profile.name}`}>
             {link.label}
           </a>
         ))}
@@ -63,30 +66,30 @@ const badges = ["AI Product Builder", "Explorador full-stack", "Constructor trav
           <div class="pointer-events-none absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-cyan-200/45 to-transparent"></div>
           <div class="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-4">
             <div>
-              <span class="text-sm font-medium text-slate-300">Microperfil</span>
-              <p class="mt-1 text-xs uppercase tracking-[0.24em] text-cyan-300/80">{profile.location} · producto · software · sistemas</p>
+              <span class="text-sm font-medium text-slate-300">Micro profile</span>
+              <p class="mt-1 text-xs uppercase tracking-[0.24em] text-cyan-300/80">{profile.location} · product · software · systems</p>
             </div>
-            <span class="rounded-full bg-emerald-300/10 px-3 py-1 text-xs font-semibold text-emerald-200">disponible para producto</span>
+            <span class="rounded-full bg-emerald-300/10 px-3 py-1 text-xs font-semibold text-emerald-200">open to product conversations</span>
           </div>
 
           <div class="mt-5">
             <p class="text-sm font-semibold text-white">{profile.name}</p>
             <p class="mt-3 text-base leading-7 text-slate-200">
-              Builder enfocado en IA, travel tech, automatización y experiencias de producto con criterio visual.
+              Builder focused on AI, travel tech, automation and product experiences with visual judgment.
             </p>
           </div>
 
           <div class="mt-6 grid gap-3 border-t border-white/10 pt-5 sm:grid-cols-3">
             <div>
-              <p class="text-xs uppercase tracking-[0.18em] text-slate-500">Criterio</p>
-              <p class="mt-2 text-sm font-semibold text-white">Producto + UX</p>
+               <p class="text-xs uppercase tracking-[0.18em] text-slate-500">Judgment</p>
+              <p class="mt-2 text-sm font-semibold text-white">Product + UX</p>
             </div>
             <div>
               <p class="text-xs uppercase tracking-[0.18em] text-slate-500">Stack</p>
               <p class="mt-2 text-sm font-semibold text-white">Web + APIs</p>
             </div>
             <div>
-              <p class="text-xs uppercase tracking-[0.18em] text-slate-500">Foco</p>
+               <p class="text-xs uppercase tracking-[0.18em] text-slate-500">Focus</p>
               <p class="mt-2 text-sm font-semibold text-white">Travel tech</p>
             </div>
           </div>

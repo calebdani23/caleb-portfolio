@@ -12,7 +12,7 @@ import TechStack from "../components/TechStack.astro";
 import Timeline from "../components/Timeline.astro";
 import WorkMethod from "../components/WorkMethod.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { certifications } from "../data/certifications";
+import { certifications, recognitionItems } from "../data/certifications";
 import { featuredProject, projects } from "../data/projects";
 import { sportsHighlights } from "../data/sports";
 import { stackGroups } from "../data/stack";
@@ -24,7 +24,7 @@ const secondaryProjects = projects.filter((project) => project !== featuredProje
 
 <BaseLayout
   title="Caleb Perez — AI Product Builder & Travel Tech Builder"
-  description="Portafolio de Caleb Perez: productos digitales con IA, travel tech, automatización, servidores propios, UX/UI y desarrollo de software."
+  description="Caleb Perez portfolio: AI product building, travel tech, automation, self-hosted systems, UX/UI and software development."
 >
   <Navigation />
   <Hero />
@@ -32,26 +32,31 @@ const secondaryProjects = projects.filter((project) => project !== featuredProje
   <section id="sobre-mi" class="px-5 py-20 sm:px-8 lg:px-10">
     <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
       <SectionHeader
-        eyebrow="Sobre mí"
-        title="No vengo de un camino lineal; por eso construyo con más contexto."
-        description="Soy de Playa del Carmen, México. Mi camino pasó por Finanzas, Ingeniería Civil, tecnología, aprendizaje autodidacta y una etapa viviendo en Nueva Zelanda; esa mezcla me enseñó a moverme con incertidumbre y a construir con visión práctica."
+        eyebrow="About me"
+        title="My path has not been linear — that is why I build with more context."
+        description="I am from Playa del Carmen, Mexico. I explored business and finance, moved into engineering looking for challenge, found my strongest direction in technology, and grew through self-learning and a year living independently in New Zealand."
       />
 
       <div class="section-reveal grid gap-5 md:grid-cols-2">
         <article class="premium-card p-6 md:col-span-2">
           <p class="text-lg leading-8 text-slate-300">
-            Hoy estoy construyendo Zalmar Travel conectando dos mundos muy reales en mi vida: la operación de viajes que he visto de cerca durante años por el trabajo de mi mamá en agencias, y mi compromiso actual con software, IA y producto digital.
+            Today I am focused on Zalmar Travel, a travel-tech platform that combines my exposure to real travel agency operations with my commitment to software, AI agents, UX and product systems.
           </p>
         </article>
         <article class="rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-          <p class="text-sm font-semibold text-cyan-300">Mentalidad</p>
-          <h3 class="mt-3 text-xl font-semibold text-white">Aprender construyendo</h3>
-          <p class="mt-3 leading-7 text-slate-300">Google, Oracle/Alura y proyectos propios reforzaron algo clave: puedo avanzar por mi cuenta cuando el objetivo es suficientemente real.</p>
+          <p class="text-sm font-semibold text-cyan-300">Self-driven learning</p>
+          <h3 class="mt-3 text-xl font-semibold text-white">Learning by building</h3>
+          <p class="mt-3 leading-7 text-slate-300">Google, Oracle/Alura and independent projects reinforced a key habit: I can move forward on my own when the goal is real enough.</p>
         </article>
         <article class="rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-          <p class="text-sm font-semibold text-cyan-300">Foco actual</p>
-          <h3 class="mt-3 text-xl font-semibold text-white">Travel tech con IA</h3>
-          <p class="mt-3 leading-7 text-slate-300">Zalmar Travel concentra mi interés por booking, automatización, UX, APIs y agentes que acompañan decisiones.</p>
+          <p class="text-sm font-semibold text-cyan-300">Global independence</p>
+          <h3 class="mt-3 text-xl font-semibold text-white">Adaptability under uncertainty</h3>
+          <p class="mt-3 leading-7 text-slate-300">Living and working abroad in New Zealand strengthened independence, resilience and the ability to make decisions without perfect conditions.</p>
+        </article>
+        <article class="rounded-3xl border border-white/10 bg-white/[0.04] p-6 md:col-span-2">
+          <p class="text-sm font-semibold text-cyan-300">AI + travel tech focus</p>
+          <h3 class="mt-3 text-xl font-semibold text-white">A product direction with real operational roots</h3>
+          <p class="mt-3 leading-7 text-slate-300">Zalmar Travel concentrates my interest in booking flows, automation, UX, APIs and agents that support decisions instead of hiding them.</p>
         </article>
       </div>
     </div>
@@ -61,14 +66,14 @@ const secondaryProjects = projects.filter((project) => project !== featuredProje
     <div class="mx-auto max-w-7xl">
       <div class="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
         <SectionHeader
-          eyebrow="Proyectos destacados"
-          title="Un sistema principal en curso, rodeado por piezas que explican cómo pienso producto."
-          description="Zalmar Travel es el proyecto central: concentra travel tech, IA, UX, APIs y operación real. Alrededor viven otros case studies que muestran arquitectura, infraestructura, automatización y diseño de experiencias."
+          eyebrow="Featured projects"
+          title="One main product, supported by projects that show how I think about systems."
+          description="Zalmar Travel is the central project: it brings together travel tech, AI, UX, APIs and real operational context. The surrounding projects show architecture, infrastructure, automation and experience design."
         />
         <div class="section-reveal rounded-3xl border border-white/10 bg-white/[0.04] p-5 sm:p-6">
-          <p class="text-sm font-semibold text-cyan-300">Cómo se organiza</p>
+            <p class="text-sm font-semibold text-cyan-300">How to read this section</p>
           <p class="mt-3 leading-7 text-slate-300">
-            Zalmar abre la sección como producto principal; después aparecen piezas que amplían el contexto técnico sin repetir el mismo caso.
+             Zalmar leads as the main product. The following projects expand the technical context without pretending every asset is public-ready yet.
           </p>
         </div>
       </div>
@@ -80,11 +85,11 @@ const secondaryProjects = projects.filter((project) => project !== featuredProje
       <div class="mt-14 border-t border-white/10 pt-10">
         <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p class="text-xs font-semibold uppercase tracking-[0.24em] text-cyan-300">Más proyectos</p>
-            <h3 class="mt-3 text-3xl font-semibold tracking-tight text-white">Exploraciones que amplían el mismo criterio.</h3>
+             <p class="text-xs font-semibold uppercase tracking-[0.24em] text-cyan-300">Supporting projects</p>
+             <h3 class="mt-3 text-3xl font-semibold tracking-tight text-white">Explorations that extend the same product judgment.</h3>
           </div>
           <p class="max-w-2xl leading-7 text-slate-300">
-            Arquitectura de reservas, servidores propios, sistemas UX y el portfolio como plataforma viva: proyectos conectados al mismo enfoque de construir con claridad y evidencia.
+             Booking architecture, AI tooling concepts, self-hosted infrastructure and UX systems — each one connected to building with clarity and honest evidence.
           </p>
         </div>
 
@@ -98,24 +103,24 @@ const secondaryProjects = projects.filter((project) => project !== featuredProje
   <section id="journey" class="px-5 py-20 sm:px-8 lg:px-10">
     <div class="mx-auto max-w-6xl">
       <SectionHeader
-        eyebrow="Camino"
-        title="Una línea de tiempo de curiosidad, práctica y producto."
-        description="Mi experiencia no está definida por un solo título, sino por la suma de exploraciones que hoy aterrizan en productos digitales reales."
+        eyebrow="Journey / Trajectory"
+        title="A chronological path from curiosity to product building."
+        description="My experience is not defined by a single title, but by a sequence of explorations that now converge in practical digital products."
       />
       <Timeline items={timelineItems} />
     </div>
   </section>
 
-  <CertificationsSection certifications={certifications} />
+  <CertificationsSection certifications={certifications} recognitions={recognitionItems} />
 
   <SportsSection highlights={sportsHighlights} />
 
   <section id="stack" class="px-5 py-20 sm:px-8 lg:px-10">
     <div class="mx-auto max-w-7xl">
       <SectionHeader
-        eyebrow="Stack técnico"
-        title="Tecnología elegida por lo que permite construir, no por moda."
-        description="Mi stack mezcla frontend moderno, APIs, IA, infraestructura propia y diseño de producto para cubrir el ciclo completo: idea, flujo, integración, validación y operación."
+          eyebrow="Technical stack"
+          title="Technology chosen for what it helps me build — not for trend value."
+          description="My stack combines modern frontend, APIs, AI, self-hosted infrastructure and product design to cover the full cycle: idea, flow, integration, validation and operation."
       />
       <TechStack groups={stackGroups} />
     </div>
@@ -124,9 +129,9 @@ const secondaryProjects = projects.filter((project) => project !== featuredProje
   <section id="forma-de-trabajo" class="px-5 py-20 sm:px-8 lg:px-10">
     <div class="mx-auto max-w-7xl">
       <SectionHeader
-        eyebrow="Forma de trabajo"
-        title="De problema a producto, con flujos que se pueden tocar."
-        description="Me gusta avanzar con criterio: entender, diseñar, construir, integrar, automatizar y validar. La meta no es solo que compile, sino que el producto comunique confianza."
+        eyebrow="Work process"
+        title="From problem to product, with flows people can actually use."
+        description="I move through understanding, designing, building, integrating, automating and validating. The goal is not only that it compiles, but that the product communicates trust."
       />
       <WorkMethod steps={workSteps} />
     </div>

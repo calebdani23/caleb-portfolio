@@ -4,20 +4,20 @@ import { withBase, withoutBase } from "../utils/paths";
 const isHome = withoutBase(Astro.url.pathname) === "/";
 const sectionHref = (hash: string) => (isHome ? hash : withBase(`/${hash}`));
 const links = [
-  { label: "Sobre mí", href: sectionHref("#sobre-mi"), sectionId: "sobre-mi" },
-  { label: "Proyectos", href: sectionHref("#proyectos"), sectionId: "proyectos" },
-  { label: "Camino", href: sectionHref("#journey"), sectionId: "journey" },
-  { label: "Certificados", href: sectionHref("#certificados"), sectionId: "certificados" },
-  { label: "Fútbol", href: sectionHref("#trayectoria-deportiva"), sectionId: "trayectoria-deportiva" },
+  { label: "About", href: sectionHref("#sobre-mi"), sectionId: "sobre-mi" },
+  { label: "Projects", href: sectionHref("#proyectos"), sectionId: "proyectos" },
+  { label: "Journey", href: sectionHref("#journey"), sectionId: "journey" },
+  { label: "Evidence", href: sectionHref("#certificados"), sectionId: "certificados" },
+  { label: "Sports", href: sectionHref("#trayectoria-deportiva"), sectionId: "trayectoria-deportiva" },
   { label: "Stack", href: sectionHref("#stack"), sectionId: "stack" },
-  { label: "Contacto", href: sectionHref("#contacto"), sectionId: "contacto" },
+  { label: "Contact", href: sectionHref("#contacto"), sectionId: "contacto" },
 ];
 ---
 
 <header class="fixed inset-x-0 top-0 z-50 border-b border-cyan-300/10 bg-[#06141b]/82 shadow-2xl shadow-black/20 backdrop-blur-2xl">
   <div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-300/50 to-transparent"></div>
-  <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8 lg:px-10" aria-label="Principal">
-    <a href={sectionHref("#inicio")} class="group inline-flex items-center gap-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300" aria-label="Ir al inicio">
+  <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8 lg:px-10" aria-label="Primary">
+    <a href={sectionHref("#inicio")} class="group inline-flex items-center gap-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300" aria-label="Go to home">
       <span class="grid size-9 place-items-center rounded-2xl border border-cyan-300/30 bg-cyan-300/10 text-sm font-bold text-cyan-200 shadow-lg shadow-cyan-950/30 transition duration-300 group-hover:scale-105 group-hover:border-cyan-200/60 group-hover:shadow-cyan-500/10">
         CP
       </span>
@@ -33,12 +33,12 @@ const links = [
     </div>
 
     <a href="mailto:calebdani@icloud.com" class="btn-primary px-4 py-2 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300">
-      Hablemos
+      Let’s talk
     </a>
   </nav>
 
   <div class="border-t border-white/5 px-5 pb-2 lg:hidden">
-    <div class="flex gap-2 overflow-x-auto pt-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" aria-label="Navegación móvil">
+    <div class="flex gap-2 overflow-x-auto pt-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" aria-label="Mobile navigation">
       {links.map((link) => (
         <a href={link.href} data-nav-section={link.sectionId} class="nav-pill-mobile shrink-0 rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-xs font-medium text-slate-300 transition hover:border-cyan-300/30 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300">
           {link.label}

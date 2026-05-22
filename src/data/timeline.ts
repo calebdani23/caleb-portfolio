@@ -6,45 +6,63 @@ export type TimelineItem = {
 
 export const timelineItems: TimelineItem[] = [
   {
-    period: "Inicio",
-    title: "Curiosidad por negocios y tecnología",
+    period: "Before university",
+    title: "Early curiosity for technology",
     description:
-      "Empecé mirando la tecnología como una forma práctica de construir ideas, entender mercados y convertir problemas en sistemas.",
+      "Early experiences with digital creativity made me see technology as a practical way to turn ideas into systems.",
   },
   {
-    period: "Exploración",
-    title: "Un camino académico no lineal",
+    period: "Finance & Accounting",
+    title: "Business foundation",
     description:
-      "Empecé en Finanzas y Contabilidad durante COVID, después pasé por Ingeniería Civil buscando más reto, y terminé entendiendo que mi dirección real estaba en tecnología.",
+      "My first university stage during COVID gave me exposure to business, numbers and how organizations make decisions.",
   },
   {
-    period: "Mundo",
-    title: "Nueva Zelanda y madurez personal",
+    period: "Civil Engineering",
+    title: "Challenge and systems thinking",
     description:
-      "Vivir un año en Nueva Zelanda, trabajar y adaptarme desde cero me dio independencia, tolerancia a la incertidumbre y una mentalidad más emprendedora.",
+      "I moved toward engineering looking for a stronger challenge, structure, mathematics and analytical thinking.",
   },
   {
-    period: "Práctica",
-    title: "Aprender construyendo",
+    period: "IT & Digital Business",
+    title: "Finding the right direction",
     description:
-      "Cursos, documentación, pruebas y proyectos propios se volvieron mi forma de avanzar: menos teoría aislada, más prototipos funcionando.",
+      "Technology, software and digital systems became the direction where my curiosity and product mindset felt most aligned.",
   },
   {
-    period: "Producto",
-    title: "Primeros sistemas digitales",
+    period: "Self-learning phase",
+    title: "Google + Oracle/Alura",
     description:
-      "Comencé a unir UX, APIs, automatización y arquitectura para que las ideas no se quedaran en pantallas bonitas.",
+      "Structured programs outside traditional university helped me strengthen technical foundations and self-directed learning habits.",
   },
   {
-    period: "Ahora",
-    title: "Zalmar Travel como proyecto principal",
+    period: "United States",
+    title: "Exploration and personal direction",
     description:
-      "Estoy construyendo una plataforma travel tech con IA inspirada por más de diez años de experiencia cercana al mundo de agencias de viaje a través del trabajo de mi mamá.",
+      "Academic exploration, personal branding and time abroad helped me clarify what kind of builder I wanted to become.",
   },
   {
-    period: "Lab",
-    title: "Servidores propios y agentes",
+    period: "New Zealand",
+    title: "Independence and maturity",
     description:
-      "Uso infraestructura propia, automatización y agentes de IA para acelerar desarrollo, validar interfaces y operar mejor mis proyectos.",
+      "Living and working on my own, adapting from scratch and traveling across the country strengthened independence and resilience.",
+  },
+  {
+    period: "First ventures",
+    title: "E-commerce and digital experiments",
+    description:
+      "Experiments around minimal chairs, YouTube and personal brand projects taught me to test ideas instead of only planning them.",
+  },
+  {
+    period: "Zalmar Travel",
+    title: "Main AI product",
+    description:
+      "I am building a travel-tech platform with AI, inspired by years of close exposure to real travel agency operations through my mother’s work.",
+  },
+  {
+    period: "Current stage",
+    title: "Seeking higher challenge",
+    description:
+      "I am looking for an environment with stronger entrepreneurial, AI and global product challenges while continuing to build practical evidence.",
   },
 ];

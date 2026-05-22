@@ -2,37 +2,51 @@ export type StackGroup = {
   title: string;
   description: string;
   items: string[];
+  icon: string;
+  tone: "frontend" | "backend" | "ai" | "travel" | "infra" | "ux";
 };
 
 export const stackGroups: StackGroup[] = [
   {
     title: "Frontend",
-    description: "Interfaces rápidas, limpias y pensadas para contar una historia de producto.",
+    description: "Fast, clean interfaces designed to communicate a product story.",
     items: ["Astro", "React", "TypeScript", "Tailwind CSS"],
+    icon: "✦",
+    tone: "frontend",
   },
   {
     title: "Backend / APIs",
-    description: "Conexión entre flujos de negocio, datos externos y experiencias útiles.",
-    items: ["FastAPI", "REST APIs", "Integraciones", "Flujos transaccionales"],
+    description: "Connections between business flows, external data and useful experiences.",
+    items: ["FastAPI", "REST APIs", "Python", "Integrations"],
+    icon: "⌁",
+    tone: "backend",
   },
   {
     title: "AI / Agents",
-    description: "Agentes como copilotos de operación, validación y construcción de producto.",
-    items: ["OpenCode", "Gentle-AI", "OpenAI", "Agentes por flujo"],
+    description: "Agents as copilots for operations, validation and product construction.",
+    items: ["OpenAI", "OpenCode", "AI Agents", "Automation workflows"],
+    icon: "◇",
+    tone: "ai",
   },
   {
     title: "Travel Tech",
-    description: "Diseño de experiencias complejas para búsqueda, cotización y reserva.",
+    description: "Complex experiences for search, quoting, booking and post-booking clarity.",
     items: ["Hotelbeds", "Duffel", "Booking flows", "Vouchers"],
+    icon: "✈",
+    tone: "travel",
   },
   {
-    title: "Infraestructura",
-    description: "Servidores propios y redes privadas para aprender con sistemas reales.",
-    items: ["Ubuntu Server", "CasaOS", "Tailscale", "SMB", "Docker"],
+    title: "Infrastructure",
+    description: "Self-hosted servers and private networks for learning with real systems.",
+    items: ["Ubuntu Server", "Docker", "CasaOS", "Tailscale", "SMB", "Linux"],
+    icon: "▣",
+    tone: "infra",
   },
   {
-    title: "Producto / UX",
-    description: "Del problema a flujos claros: wireframes, estados, decisiones y validación.",
-    items: ["Wireframes", "Design systems", "User flows", "Booking UX"],
+    title: "Product / UX",
+    description: "From problem to clear flows: wireframes, states, decisions and validation.",
+    items: ["Figma / Canva", "Wireframes", "Design systems", "User flows", "Booking UX"],
+    icon: "◒",
+    tone: "ux",
   },
 ];

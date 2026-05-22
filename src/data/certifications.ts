@@ -15,57 +15,64 @@ export type CertificationProgram = {
   courseCertificates: CertificationItem[];
 };
 
+export type RecognitionItem = {
+  title: string;
+  context: string;
+  description: string;
+  evidenceNote: string;
+};
+
 export const certificationPrograms: CertificationProgram[] = [
   {
     title: "Google IT Support",
     issuer: "Google",
     summary:
-      "Programa completo orientado a soporte técnico, redes, sistemas operativos, administración de infraestructura y seguridad IT.",
+      "Complete program focused on technical support, networking, operating systems, infrastructure administration and IT security.",
     mainCertificates: [
       {
         title: "Google IT Support Professional Certificate",
         issuer: "Google",
-        focus: "Certificado principal del programa profesional de soporte IT.",
+        focus: "Main certificate for the IT Support Professional Certificate program.",
         href: "/docs/certificados/google-it-support/google-it-support-professional-certificate-caleb.pdf",
         previewImage: "/images/certificates/google-it-support-professional-certificate-caleb.png",
-        previewAlt: "Primera página renderizada del certificado Google IT Support Professional Certificate de Caleb Perez.",
+        previewAlt: "Rendered first page of Caleb Perez's Google IT Support Professional Certificate.",
       },
     ],
     courseCertificates: [
       {
         title: "Technical Support Fundamentals",
         issuer: "Google",
-        focus: "Fundamentos de asistencia técnica y resolución estructurada de incidencias.",
+        focus: "Technical support fundamentals and structured incident resolution.",
         href: "/docs/certificados/google-it-support/technical-support-fundamentals-caleb-perez.pdf",
       },
       {
-        title: "Aspectos básicos de la asistencia técnica",
+        title: "Technical support fundamentals · Spanish certificate",
         issuer: "Google",
-        focus: "Versión/constancia en español de fundamentos de soporte técnico.",
+        focus: "Spanish-language certificate for technical support fundamentals.",
         href: "/docs/certificados/google-it-support/aspectos-basicos-asistencia-tecnica-caleb-perez.pdf",
       },
       {
         title: "The Bits and Bytes of Computer Networking",
         issuer: "Google",
-        focus: "Redes, protocolos, conectividad y diagnóstico de infraestructura básica.",
+        focus: "Networking, protocols, connectivity and basic infrastructure diagnostics.",
         href: "/docs/certificados/google-it-support/bits-and-bytes-networking-caleb-perez.pdf",
       },
       {
         title: "Operating Systems and You: Becoming a Power User",
         issuer: "Google",
-        focus: "Sistemas operativos, línea de comandos, usuarios, permisos y operación diaria.",
+        focus: "Operating systems, command line, users, permissions and daily operations.",
         href: "/docs/certificados/google-it-support/operating-systems-power-user-caleb-perez.pdf",
       },
       {
         title: "System Administration and IT Infrastructure Services",
         issuer: "Google",
-        focus: "Administración de servicios, infraestructura, operación y soporte a sistemas.",
+        focus: "Service administration, infrastructure, operations and systems support.",
         href: "/docs/certificados/google-it-support/system-administration-it-infrastructure-caleb-perez.pdf",
       },
       {
         title: "IT Security: Defense against the digital dark arts",
         issuer: "Google",
-        focus: "Seguridad, amenazas, defensa, autenticación y protección de entornos digitales.",
+        focus: "Security, threats, defense, authentication and protection of digital environments.",
         href: "/docs/certificados/google-it-support/it-security-caleb-perez.pdf",
       },
     ],
@@ -74,34 +81,34 @@ export const certificationPrograms: CertificationProgram[] = [
     title: "Oracle Next Education + Alura",
     issuer: "Oracle ONE / Alura",
     summary:
-      "Programa de formación y cursos asociados para fortalecer autodesarrollo, aprendizaje continuo, Git y colaboración técnica.",
+      "Training program and associated courses that strengthened self-development, continuous learning, Git and technical collaboration.",
     mainCertificates: [
       {
         title: "Programa Oracle + Alura",
         issuer: "Oracle ONE / Alura",
-        focus: "Constancia principal correcta del programa de formación Oracle + Alura.",
+        focus: "Main certificate for the Oracle + Alura training program.",
         href: "/docs/certificados/oracle-alura/programa-oracle-alura-caleb-perez.pdf",
         previewImage: "/images/certificates/programa-oracle-alura-caleb-perez.png",
-        previewAlt: "Primera página renderizada del certificado principal del programa Oracle + Alura de Caleb Perez.",
+        previewAlt: "Rendered first page of Caleb Perez's main Oracle + Alura certificate.",
       },
     ],
     courseCertificates: [
       {
-        title: "Aprender a aprender: técnicas para tu autodesarrollo",
+        title: "Learning to learn: techniques for self-development",
         issuer: "Alura + Oracle ONE",
-        focus: "Autodesarrollo, disciplina de aprendizaje y hábitos para avanzar de forma independiente.",
+        focus: "Self-development, learning discipline and habits for independent progress.",
         href: "/docs/certificados/oracle-alura/aprender-a-aprender-caleb-perez.pdf",
       },
       {
-        title: "Aprender a aprender · certificado de curso",
+        title: "Learning to learn · course certificate",
         issuer: "Alura + Oracle ONE",
-        focus: "Certificado adicional del curso de técnicas de autodesarrollo.",
+        focus: "Additional certificate for the self-development techniques course.",
         href: "/docs/certificados/oracle-alura/curso-aprender-a-aprender-alura-caleb-perez.pdf",
       },
       {
         title: "Git y GitHub",
         issuer: "Alura + Oracle ONE",
-        focus: "Control de versiones, repositorios y colaboración técnica con GitHub.",
+        focus: "Version control, repositories and technical collaboration with GitHub.",
         href: "/docs/certificados/oracle-alura/git-github-caleb-perez.pdf",
       },
     ],
@@ -109,3 +116,27 @@ export const certificationPrograms: CertificationProgram[] = [
 ];
 
 export const certifications = certificationPrograms;
+
+export const recognitionItems: RecognitionItem[] = [
+  {
+    title: "FIFA World Cup 2026 Volunteer Process",
+    context: "Global event · Registration stage",
+    description:
+      "Volunteer registration/selection-stage material included as a conservative signal of service mindset, international collaboration and interest in event-level operations.",
+    evidenceNote: "Text-only card; it does not claim a confirmed volunteer role until public-ready confirmation is available.",
+  },
+  {
+    title: "Road Trip Around New Zealand",
+    context: "Independence · Adaptability",
+    description:
+      "Personal milestone from living abroad: planning, navigating and adapting across a country while working and making decisions independently.",
+    evidenceNote: "Personal recognition; no private documents or IDs are published.",
+  },
+  {
+    title: "SuperCupNI International Youth Football Tournament",
+    context: "International competition · Team discipline",
+    description:
+      "International football experience included as evidence of competitive discipline, teamwork and performance in unfamiliar environments.",
+    evidenceNote: "Text-only card until public-ready proof or media is provided.",
+  },
+];

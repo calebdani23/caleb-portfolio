@@ -1,31 +1,45 @@
 export type WorkStep = {
   title: string;
   description: string;
+  outcome: string;
+  icon: string;
 };
 
 export const workSteps: WorkStep[] = [
   {
-    title: "Entiendo el problema",
-    description: "Antes de abrir el editor, defino qué decisión o fricción real debe resolver el producto.",
+    title: "Understand the problem",
+    description: "Define the real user friction before writing code.",
+    outcome: "A sharper product target.",
+    icon: "?",
   },
   {
-    title: "Diseño la experiencia",
-    description: "Mapeo pantallas, estados y momentos de confianza para que el flujo se sienta claro desde el primer uso.",
+    title: "Design the experience",
+    description: "Map screens, states and trust moments so the flow feels clear from the first use.",
+    outcome: "A navigable mental model.",
+    icon: "□",
   },
   {
-    title: "Construyo flujos funcionales",
-    description: "Prefiero prototipos conectados y navegables sobre documentación que nunca se prueba.",
+    title: "Build functional flows",
+    description: "Prefer connected, navigable prototypes over documentation that is never tested.",
+    outcome: "Something real to evaluate.",
+    icon: "↗",
   },
   {
-    title: "Integro APIs reales",
-    description: "Busco que la arquitectura soporte datos, proveedores y restricciones de negocio desde temprano.",
+    title: "Connect real APIs",
+    description: "Make the architecture account for data, providers and business constraints early.",
+    outcome: "Fewer fake assumptions.",
+    icon: "⌁",
   },
   {
-    title: "Automatizo e itero con IA",
-    description: "Uso agentes y scripts para acelerar validaciones, revisar UI y reducir trabajo repetitivo.",
+    title: "Automate and iterate with AI",
+    description: "Use agents and scripts to speed up validation, review UI and reduce repetitive work.",
+    outcome: "Faster learning loops.",
+    icon: "◇",
   },
   {
-    title: "Valido con pruebas reales",
-    description: "Cierro el ciclo navegando, rompiendo flujos y ajustando hasta que el producto se sienta usable.",
+    title: "Validate with real usage",
+    description: "Close the loop by navigating, breaking flows and adjusting until the product feels usable.",
+    outcome: "Confidence before presentation.",
+    icon: "✓",
   },
 ];

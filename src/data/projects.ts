@@ -1,4 +1,4 @@
-export type ProjectStatus = "En desarrollo" | "Concepto" | "MVP" | "Infraestructura" | "Case study";
+export type ProjectStatus = "In development" | "Concept" | "MVP" | "Infrastructure" | "Case study" | "Private lab" | "Text-first";
 
 export type Project = {
   title: string;
@@ -10,7 +10,7 @@ export type Project = {
   href?: string;
   featured?: boolean;
   visualLabel: string;
-  visualKind?: "screenshot" | "orchestration" | "server" | "ux-map" | "portfolio";
+  visualKind?: "screenshot" | "orchestration" | "server" | "ux-map" | "portfolio" | "dashboard" | "code";
   previewImage?: string;
   featuredImage?: string;
   previewAlt?: string;
@@ -27,57 +27,90 @@ export type Project = {
 export const projects: Project[] = [
   {
     title: "Zalmar Travel",
-    category: "Travel tech · IA · Flujos de reserva",
+    category: "Travel tech · AI · Booking flows",
     description:
-      "Plataforma AI-enabled para planear, cotizar y reservar viajes con plan maestro, workspace operativo, integraciones reales y agentes por viaje.",
-    status: "En desarrollo",
-    tags: ["Hotelbeds", "Duffel", "Agentes IA", "UX/UI", "Reservas"],
+      "AI-powered travel platform for complete trip planning and management — combining a master itinerary, booking workspace, provider integrations and plan-based AI assistants.",
+    status: "In development",
+    tags: ["AI travel platform", "Private MVP", "Travel tech", "Plan-based AI assistant", "Hotelbeds", "Duffel"],
     slug: "zalmar-travel",
     href: "/proyectos/zalmar-travel",
     featured: true,
-    visualLabel: "Producto principal",
+    visualLabel: "Main product",
     visualKind: "screenshot",
     previewImage: "/images/projects/zalmar-travel/01-public-inicio.png",
     featuredImage: "/images/projects/zalmar-travel/10-auth-booking-plan-final.png",
-    previewAlt: "Interfaz pública y workspace de Zalmar Travel enmarcados como producto travel tech",
+    previewAlt: "Zalmar Travel public interface and authenticated travel planning workspace",
     previewTone: "cyan",
     previewObjectFit: "cover",
     previewObjectPosition: "top center",
     highlights: [
-      "Plan maestro para agrupar vuelos, hoteles, actividades y traslados en una sola experiencia.",
-      "Workspace operativo para cotización, hold, booking, vouchers y seguimiento del viaje.",
-      "Integración conceptual con Hotelbeds y Duffel para conectar disponibilidad real con una UX clara.",
-      "Agentes de IA por plan para asistir decisiones, comparar opciones y acelerar operación.",
+      "Master itinerary to group flights, hotels, activities and transfers inside one decision space.",
+      "Operational workspace for quoting, holds, booking, vouchers and trip follow-up.",
+      "Provider-aware architecture designed around Hotelbeds and Duffel-style availability flows.",
+      "Plan-based AI assistants to compare options, explain tradeoffs and reduce operational friction.",
     ],
     metrics: [
-      { value: "4", label: "verticales de viaje" },
-      { value: "IA", label: "por plan/viaje" },
-      { value: "End-to-end", label: "cotización a voucher" },
+      { value: "4", label: "travel verticals" },
+      { value: "AI", label: "per trip plan" },
+      { value: "End-to-end", label: "quote to voucher" },
     ],
   },
   {
     title: "AI Booking Orchestrator",
-    category: "Arquitectura · Reservas multi-servicio",
+    category: "Architecture · Multi-service booking",
     description:
-      "Diseño de orquestación para reservar servicios de viaje como un flujo coordinado, no como piezas aisladas sin contexto.",
-    status: "Concepto",
-    tags: ["Orquestación", "REST APIs", "Planes de viaje", "Automatización"],
+      "Orchestration design for booking travel services as a coordinated flow instead of disconnected API actions without context.",
+    status: "Concept",
+    tags: ["Orchestration", "REST APIs", "Travel plans", "Automation"],
     slug: "ai-booking-orchestrator",
     href: "/proyectos/ai-booking-orchestrator",
-    visualLabel: "Sistema de flujo",
+    visualLabel: "Flow system",
     visualKind: "orchestration",
     previewTone: "sky",
   },
   {
-    title: "Visual Runner Server",
-    category: "Infraestructura · Automatización visual",
+    title: "AI Agent Observability Dashboard",
+    category: "AI systems · Monitoring",
     description:
-      "Servidor propio en Ubuntu para navegación real, validaciones visuales y soporte a agentes que prueban experiencias web.",
-    status: "Infraestructura",
-    tags: ["Ubuntu Server", "Tailscale", "Automatización", "Agentes"],
+      "Text-first concept for tracking AI agent runs, decisions, failures and human review points so automation remains understandable and accountable.",
+    status: "Text-first",
+    tags: ["AI agents", "Observability", "Human review", "Product telemetry"],
+    visualLabel: "Observability layer",
+    visualKind: "dashboard",
+    previewTone: "cyan",
+  },
+  {
+    title: "AI Codebase Explainer",
+    category: "Developer tools · AI",
+    description:
+      "AI/dev-tooling project idea focused on helping people understand codebases through structured summaries, architecture maps and safer onboarding notes.",
+    status: "Text-first",
+    tags: ["Code understanding", "AI tooling", "Architecture maps", "Documentation"],
+    visualLabel: "Code intelligence",
+    visualKind: "code",
+    previewTone: "sky",
+  },
+  {
+    title: "Visual Runner Server",
+    category: "Infrastructure · Visual automation",
+    description:
+      "Self-hosted Ubuntu server for real browser navigation, visual validation and agent-assisted checks across web product experiences.",
+    status: "Infrastructure",
+    tags: ["Ubuntu Server", "Tailscale", "Automation", "Agents"],
     slug: "visual-runner-server",
     href: "/proyectos/visual-runner-server",
-    visualLabel: "Laboratorio server",
+    visualLabel: "Server lab",
+    visualKind: "server",
+    previewTone: "emerald",
+  },
+  {
+    title: "Family Home Server / Private Family Cloud",
+    category: "Home lab · Private cloud",
+    description:
+      "Repurposed an old laptop into a private family server for cloud storage, local file access, SMB shares and secure remote access through Tailscale.",
+    status: "Private lab",
+    tags: ["Ubuntu Server", "CasaOS", "SMB", "Tailscale", "Home Lab", "Private Cloud"],
+    visualLabel: "Private family cloud",
     visualKind: "server",
     previewTone: "emerald",
   },
@@ -85,30 +118,19 @@ export const projects: Project[] = [
     title: "Travel Booking UX System",
     category: "UX/UI · Product design",
     description:
-      "Sistema conceptual de pantallas, estados y decisiones para que buscar, cotizar y reservar viajes se sienta moderno y confiable.",
+      "Conceptual system of screens, states and decisions that makes searching, quoting and booking travel feel modern, clear and trustworthy.",
     status: "Case study",
-    tags: ["Wireframes", "Flujos de usuario", "Design systems", "UX de reservas"],
+    tags: ["Wireframes", "User flows", "Design systems", "Booking UX"],
     slug: "travel-booking-ux-system",
     href: "/proyectos/travel-booking-ux-system",
-    visualLabel: "Mapa UX",
+    visualLabel: "UX map",
     visualKind: "screenshot",
     previewImage: "/images/projects/travel-booking-ux-system/08-auth-viaje-comparar-final.png",
     featuredImage: "/images/projects/travel-booking-ux-system/10-auth-booking-plan-final.png",
-    previewAlt: "Pantallas de comparación y plan de reserva del Travel Booking UX System",
+    previewAlt: "Travel Booking UX System comparison and booking-plan screens",
     previewTone: "amber",
     previewObjectFit: "cover",
     previewObjectPosition: "top center",
-  },
-  {
-    title: "Personal Portfolio System",
-    category: "Astro · Narrativa técnica",
-    description:
-      "Este portafolio como sistema vivo: una home narrativa, modular y preparada para convertirse en case studies editables.",
-    status: "MVP",
-    tags: ["Astro", "TypeScript", "Tailwind", "Arquitectura de contenido"],
-    visualLabel: "Sitio vivo",
-    visualKind: "portfolio",
-    previewTone: "cyan",
   },
 ];
 

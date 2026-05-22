@@ -40,7 +40,7 @@ const visualTone = toneClasses[project.previewTone ?? "cyan"];
         />
         <figcaption class="media-caption flex items-center justify-between gap-3 px-4 py-3">
           <span>{project.visualLabel}</span>
-          <span class="rounded-full bg-cyan-300/10 px-2.5 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-cyan-100">captura real</span>
+          <span class="rounded-full bg-cyan-300/10 px-2.5 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-cyan-100">real screen</span>
         </figcaption>
       </figure>
     ) : (
@@ -73,12 +73,12 @@ const visualTone = toneClasses[project.previewTone ?? "cyan"];
   {
     project.href ? (
       <a href={withBase(project.href)} class="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-cyan-200 transition group-hover:gap-3 group-hover:text-cyan-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300">
-        Leer case study <span aria-hidden="true">→</span>
+        Read case study <span aria-hidden="true">→</span>
       </a>
     ) : (
       <div class="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-cyan-100/90">
         <span class="size-2 rounded-full bg-cyan-300/70"></span>
-        <span>Case study pendiente</span>
+        <span>Polished text-first card</span>
       </div>
     )
   }
