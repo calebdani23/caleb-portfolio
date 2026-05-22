@@ -37,6 +37,11 @@ const sections = [
       <header class="mt-10 grid gap-10 lg:grid-cols-[1fr_0.78fr] lg:items-end">
         <div class="section-reveal">
           <p class="text-xs font-semibold uppercase tracking-[0.24em] text-cyan-300">{caseStudy.eyebrow}</p>
+          {caseStudy.brandImage && (
+            <div class="mt-6 inline-flex rounded-3xl border border-white/10 bg-white/[0.04] p-3 shadow-lg shadow-slate-950/20">
+              <img src={withBase(caseStudy.brandImage)} alt={caseStudy.brandAlt ?? `${caseStudy.title} brand mark`} loading="lazy" decoding="async" class="h-14 w-14 object-contain" />
+            </div>
+          )}
           <h1 class="mt-5 max-w-5xl text-5xl font-semibold tracking-[-0.03em] text-white sm:text-7xl">
             {caseStudy.title}
           </h1>
@@ -84,43 +89,23 @@ const sections = [
         </div>
       </section>
 
-      {(caseStudy.gallery || caseStudy.documents) && (
+      {caseStudy.gallery && (
         <section class="mt-12" aria-labelledby="evidence">
           <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p class="text-xs font-semibold uppercase tracking-[0.24em] text-cyan-300">Real evidence</p>
-              <h2 id="evidence" class="mt-3 text-3xl font-semibold tracking-tight text-white">Project visuals and documents</h2>
+              <h2 id="evidence" class="mt-3 text-3xl font-semibold tracking-tight text-white">Project visuals</h2>
             </div>
-            {caseStudy.documents && (
-              <div class="grid gap-3 sm:min-w-80">
-                {caseStudy.documents.map((document) => (
-                  <div class="document-card rounded-3xl p-4">
-                    <p class="text-sm font-semibold text-white">{document.label}</p>
-                    <p class="mt-1 text-xs leading-5 text-slate-400">{document.description}</p>
-                    <div class="mt-3 flex flex-wrap gap-2">
-                    <a href={withBase(document.href)} target="_blank" rel="noreferrer" class="btn-primary px-4 py-2 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300" title={document.description} aria-label={`Open ${document.label}`}>
-                      View PDF
-                    </a>
-                    <a href={withBase(document.href)} download class="btn-secondary px-4 py-2 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300" title={document.description} aria-label={`Download ${document.label}`}>
-                      Download
-                    </a>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
           </div>
 
-          {caseStudy.gallery && (
-            <div class="mt-8 grid gap-5 md:grid-cols-2">
-              {caseStudy.gallery.map((item, index) => (
-                <figure class:list={["group browser-frame transition hover:-translate-y-1 hover:border-cyan-300/25", index === 0 ? "md:col-span-2" : ""]}>
-                  <img src={withBase(item.src)} alt={item.alt} loading="lazy" decoding="async" class:list={["w-full bg-slate-950 object-cover object-top", index === 0 ? "aspect-[16/8]" : "aspect-[16/10]"]} />
-                  <figcaption class="media-caption px-4 py-4">{item.caption}</figcaption>
-                </figure>
-              ))}
-            </div>
-          )}
+          <div class="mt-8 grid gap-5 md:grid-cols-2">
+            {caseStudy.gallery.map((item, index) => (
+              <figure class:list={["group browser-frame transition hover:-translate-y-1 hover:border-cyan-300/25", index === 0 ? "md:col-span-2" : ""]}>
+                <img src={withBase(item.src)} alt={item.alt} loading="lazy" decoding="async" class:list={["w-full bg-slate-950 object-cover object-top", index === 0 ? "aspect-[16/8]" : "aspect-[16/10]"]} />
+                <figcaption class="media-caption px-4 py-4">{item.caption}</figcaption>
+              </figure>
+            ))}
+          </div>
         </section>
       )}
 

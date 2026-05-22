@@ -13,6 +13,8 @@ export type Project = {
   visualKind?: "screenshot" | "orchestration" | "server" | "ux-map" | "portfolio" | "dashboard" | "code";
   previewImage?: string;
   featuredImage?: string;
+  brandImage?: string;
+  brandAlt?: string;
   previewAlt?: string;
   previewTone?: "cyan" | "sky" | "amber" | "emerald";
   previewObjectFit?: "cover" | "contain";
@@ -29,7 +31,7 @@ export const projects: Project[] = [
     title: "Zalmar Travel",
     category: "Travel tech · AI orchestration · Booking UX",
     description:
-      "AI-powered travel platform for complete trip planning and management — unifying orchestration, booking UX, provider integrations and plan-based AI assistants inside one Zalmar product.",
+      "Plan-first travel platform in development: search starts the journey, then workspace, quotes, booking readiness, payment and reservations bring multi-provider travel into one operational flow.",
     status: "In development",
     tags: ["AI travel platform", "Private MVP", "Booking orchestration", "Booking UX", "Hotelbeds", "Duffel"],
     slug: "zalmar-travel",
@@ -39,20 +41,22 @@ export const projects: Project[] = [
     visualKind: "screenshot",
     previewImage: "/images/projects/zalmar-travel/01-public-inicio.png",
     featuredImage: "/images/projects/zalmar-travel/10-auth-booking-plan-final.png",
+    brandImage: "/images/projects/zalmar-travel/zalmar-logo-fuerte.svg",
+    brandAlt: "Zalmar Travel logo",
     previewAlt: "Zalmar Travel public interface and authenticated travel planning workspace",
     previewTone: "cyan",
     previewObjectFit: "cover",
     previewObjectPosition: "top center",
     highlights: [
-      "Master itinerary to group flights, hotels, activities and transfers inside one decision space.",
-      "Operational workspace for quoting, holds, booking, vouchers and trip follow-up.",
-      "Provider-aware architecture designed around Hotelbeds and Duffel-style availability flows.",
-      "Plan-based AI assistants and UX patterns to compare options, explain tradeoffs and reduce operational friction.",
+      "Plan-first journey that turns search into an entry point, not the final product.",
+      "Workspace for comparing quotes, validating services, preparing booking and following reservations.",
+      "Multi-provider complexity across flights, hotels, activities and transfers handled in one journey.",
+      "MVP screens in Spanish used intentionally to move faster on product decisions and operational trust.",
     ],
     metrics: [
       { value: "4", label: "travel verticals" },
-      { value: "AI", label: "per trip plan" },
-      { value: "End-to-end", label: "quote to voucher" },
+      { value: "1", label: "plan workspace" },
+      { value: "End-to-end", label: "search to reservation" },
     ],
   },
   {

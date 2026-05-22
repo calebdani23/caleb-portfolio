@@ -18,6 +18,11 @@ const featuredImage = project.featuredImage ?? project.previewImage;
         <p class="text-xs font-semibold uppercase tracking-[0.24em] text-cyan-300">Main project</p>
         <span class="rounded-full border border-amber-200/20 bg-amber-200/10 px-3 py-1 text-xs font-semibold text-amber-100">In development</span>
       </div>
+      {project.brandImage && (
+        <div class="mt-5 inline-flex rounded-3xl border border-white/10 bg-white/[0.04] p-3 shadow-lg shadow-slate-950/20">
+          <img src={withBase(project.brandImage)} alt={project.brandAlt ?? `${project.title} brand mark`} loading="lazy" decoding="async" class="h-12 w-12 object-contain" />
+        </div>
+      )}
       <h2 class="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">{project.title}</h2>
       <p class="mt-6 text-lg leading-8 text-slate-300">{project.description}</p>
 
@@ -49,23 +54,23 @@ const featuredImage = project.featuredImage ?? project.previewImage;
       </div>
 
       <p class="mt-4 text-sm leading-6 text-slate-300">
-        AI planning, quoting, booking and vouchers gathered inside a master plan for operating the complete trip.
+        Search opens the journey; plan, workspace, quote, booking and reservation states carry the product value.
       </p>
 
       <div class="mt-5 grid gap-3 sm:grid-cols-2">
         <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
-          <p class="text-3xl font-semibold text-white">API</p>
-          <p class="mt-2 text-sm text-slate-400">Hotelbeds · Duffel · REST</p>
+          <p class="text-3xl font-semibold text-white">Plan</p>
+          <p class="mt-2 text-sm text-slate-400">Workspace · quotes · readiness</p>
         </div>
         <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
-          <p class="text-3xl font-semibold text-white">AI</p>
-          <p class="mt-2 text-sm text-slate-400">Trip agents and validation</p>
+          <p class="text-3xl font-semibold text-white">Trust</p>
+          <p class="mt-2 text-sm text-slate-400">Providers · payment · reservation</p>
         </div>
       </div>
 
       <div class="mt-4 rounded-2xl border border-white/10 bg-white/[0.04] p-4">
         <div class="mb-3 flex items-center justify-between text-xs text-slate-400">
-          <span>Idea</span><span>UX</span><span>API</span><span>Booking</span>
+          <span>Search</span><span>Plan</span><span>Quote</span><span>Booking</span>
         </div>
         <div class="h-2 rounded-full bg-white/10">
           <div class="h-2 w-4/5 rounded-full bg-gradient-to-r from-cyan-300 to-sky-400"></div>
@@ -87,7 +92,7 @@ const featuredImage = project.featuredImage ?? project.previewImage;
                 style={`object-fit: ${project.previewObjectFit ?? "cover"}; object-position: ${project.previewObjectPosition ?? "top center"};`}
               />
               <figcaption class="media-caption flex flex-col gap-2 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
-                 <span>Existing product view used as visual evidence for the case study.</span>
+                 <span>Spanish-language MVP evidence used to validate the plan-first booking journey.</span>
                 <span class="w-fit rounded-full bg-cyan-300/10 px-3 py-1 text-xs font-semibold text-cyan-100">{project.visualLabel}</span>
               </figcaption>
             </figure>
@@ -97,7 +102,7 @@ const featuredImage = project.featuredImage ?? project.previewImage;
             <div class="flex flex-col gap-3 border-b border-white/10 pb-4 sm:flex-row sm:items-center sm:justify-between">
               <div>
                  <p class="text-sm font-semibold text-white">Master-plan workspace</p>
-                 <p class="mt-1 text-xs text-slate-400">Flights · Hotels · Activities · Transfers</p>
+                 <p class="mt-1 text-xs text-slate-400">Search · Plan · Workspace · Quote · Booking · Reservation</p>
               </div>
                <span class="w-fit rounded-full bg-cyan-300 px-3 py-1 text-xs font-bold text-slate-950">AI-assisted</span>
             </div>
@@ -116,7 +121,7 @@ const featuredImage = project.featuredImage ?? project.previewImage;
             <div class="rounded-2xl border border-amber-200/10 bg-amber-200/5 p-4">
               <p class="text-sm font-medium text-amber-100">Current state</p>
               <p class="mt-2 text-sm leading-6 text-slate-300">
-                In construction as the central product of the portfolio; the case study documents architecture, decisions and next steps.
+                In development as the central product of the portfolio; the case study is careful to show MVP evidence without exposing internal implementation references.
               </p>
             </div>
           </div>
