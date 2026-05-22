@@ -1,0 +1,390 @@
+Arbol de archivos main repo de zalmar travel:
+
+├── backend
+│   ├── app
+│   ├── backend.egg-info
+│   ├── docs
+│   ├── examples
+│   ├── migrations
+│   ├── scripts
+│   ├── tests
+│   ├── AGENTS.md
+│   ├── Dockerfile
+│   ├── README.md
+│   ├── pyproject.toml
+│   └── uv.lock
+├── docs
+│   ├── adr
+│   ├── frontend
+│   ├── plan
+│   ├── plans
+│   ├── uat
+│   ├── visual-runner
+│   ├── ABOUT_US.md
+│   ├── AGENTS_MAINTENANCE.md
+│   ├── ARCHITECTURE.md
+│   ├── BACKEND.md
+│   ├── BROWSER_AUTOMATION.md
+│   ├── COMMANDS.md
+│   ├── FRONTEND.md
+│   ├── HOME_POSITIONING.md
+│   ├── MCP_SERVERS.md
+│   ├── POLICY_SKILLS_MCP_ENFORCEMENT.md
+│   ├── PRODUCT_CONTEXT.md
+│   ├── SKILLS_PATHS.md
+│   ├── UAT_FINAL_MATRIX_SERVICES.md
+│   ├── WORKFLOWS.md
+│   └── WORKFLOW_CANON_RUNBOOK.md
+├── frontend
+│   ├── docs
+│   ├── node_modules
+│   ├── out
+│   ├── public
+│   ├── scripts
+│   ├── src
+│   ├── test-results
+│   ├── README.md
+│   ├── eslint.config.mjs
+│   ├── next-env.d.ts
+│   ├── next.config.ts
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── postcss.config.mjs
+│   ├── tsconfig.json
+│   └── tsconfig.tsbuildinfo
+├── media
+│   └── screenshots
+├── policy
+│   ├── examples
+│   ├── agent_task_matrix.yaml
+│   └── compliance_block.schema.json
+├── scripts
+│   ├── __pycache__
+│   ├── opencode
+│   ├── visual-runner
+│   ├── browser-auth-demo.sh
+│   ├── browser-auth-open.sh
+│   ├── browser-close.sh
+│   ├── browser-dev-up.sh
+│   ├── browser-runtime-contract.sh
+│   ├── dev-bootstrap.sh
+│   ├── dev-shell.sh
+│   ├── go-env.sh
+│   ├── skills-add.sh
+│   ├── skills-find.sh
+│   ├── sync_agents_skills_table.sh
+│   ├── uat-services.sh
+│   └── validate_agent_policy.py
+├── test-results
+│   ├── browser
+│   └── browser-activity-fresh
+├── tests
+│   ├── __pycache__
+│   ├── test_browser_close_guardrail.py
+│   ├── test_codex_wrapper_deprecation.py
+│   ├── test_visual_runner_batch10_transactional_sandbox_readiness.py
+│   ├── test_visual_runner_batch11_controlled_transactional_dry_run.py
+│   ├── test_visual_runner_batch12_optional_authorize_reconcile_dry_run.py
+│   ├── test_visual_runner_batch13_book_boundary_planning.py
+│   ├── test_visual_runner_batch14_book_execution_gate.py
+│   ├── test_visual_runner_batch14_stage2_live_execution.py
+│   ├── test_visual_runner_batch16_success_path_execution.py
+│   ├── test_visual_runner_batch5_readiness_contract.py
+│   ├── test_visual_runner_batch6_negative_readiness.py
+│   ├── test_visual_runner_batch7_robustness_matrix.py
+│   ├── test_visual_runner_batch8_transaction_boundary_shadow.py
+│   └── test_visual_runner_batch9_operational_hardening.py
+├── AGENTS.md
+├── Brewfile
+├── OPENCODE_SKILLS_INVENTORY.md
+├── README
+├── agent-browser.json
+├── codex.sh
+├── opencode.json
+├── opencode.json.bak-20260506-222539
+├── opencode.json.bak.20260426-220731
+├── package-lock.json
+└── package.json
+
+
+
+Arbol de archivo del Backend app:
+.
+├── __init__.py
+├── __pycache__
+│   ├── __init__.cpython-311.pyc
+│   ├── __init__.cpython-312.pyc
+│   ├── __init__.cpython-314.pyc
+│   ├── config.cpython-311.pyc
+│   ├── config.cpython-312.pyc
+│   ├── config.cpython-314.pyc
+│   ├── logging.cpython-311.pyc
+│   ├── logging.cpython-312.pyc
+│   ├── main.cpython-311.pyc
+│   └── main.cpython-312.pyc
+├── clients
+│   ├── __init__.py
+│   ├── __pycache__
+│   ├── amadeus_client.py
+│   ├── n8n.py
+│   ├── supabase_async.py
+│   └── supabase_client.py
+├── config.py
+├── dependencies
+│   ├── __init__.py
+│   ├── __pycache__
+│   ├── auth.py
+│   ├── internal_auth.py
+│   └── roles.py
+├── logging.py
+├── main.py
+├── repositories
+│   ├── __pycache__
+│   ├── catalog_repo.py
+│   ├── hotel_discovery_repo.py
+│   ├── price_repo.py
+│   └── providers_repo.py
+├── routers
+│   ├── __init__.py
+│   ├── __pycache__
+│   ├── admin_provider_sync.py
+│   ├── admin_providers.py
+│   ├── advisors_portal.py
+│   ├── ai_agent
+│   ├── appointments.py
+│   ├── auth
+│   ├── booking_orders.py
+│   ├── bookings.py
+│   ├── catalog.py
+│   ├── checkout.py
+│   ├── conversations.py
+│   ├── customers.py
+│   ├── flights_v2.py
+│   ├── internal.py
+│   ├── invoices.py
+│   ├── itineraries.py
+│   ├── payments
+│   ├── payments_list.py
+│   ├── plans.py
+│   ├── pricing.py
+│   ├── profiles
+│   ├── public.py
+│   ├── public_plans.py
+│   ├── quotes.py
+│   ├── quotes_services.py
+│   ├── search.py
+│   ├── sync.py
+│   ├── sync_stripe.py
+│   ├── system.py
+│   ├── trip_requests.py
+│   ├── utils.py
+│   └── webhooks
+├── schemas
+│   ├── __init__.py
+│   ├── __pycache__
+│   ├── activity_readiness.py
+│   ├── admin_provider_sync.py
+│   ├── admin_providers.py
+│   ├── advisors.py
+│   ├── ai_agent.py
+│   ├── appointments.py
+│   ├── auth.py
+│   ├── booking_orders.py
+│   ├── bookings.py
+│   ├── catalog.py
+│   ├── conversations.py
+│   ├── customers.py
+│   ├── flights_v2.py
+│   ├── internal.py
+│   ├── invoices.py
+│   ├── owner.py
+│   ├── payments.py
+│   ├── plans.py
+│   ├── pricing.py
+│   ├── profiles.py
+│   ├── provider_confirmations.py
+│   ├── quotes.py
+│   ├── search.py
+│   ├── search_services.py
+│   └── trip_requests.py
+├── services
+│   ├── __pycache__
+│   ├── activity_readiness.py
+│   ├── ai_agent_catalog.py
+│   ├── ai_agent_checkout_session.py
+│   ├── ai_agent_hotel_search.py
+│   ├── ai_agent_itinerary_create.py
+│   ├── ai_agent_plan_add_item.py
+│   ├── ai_agent_quote_create.py
+│   ├── booking_financial_reconciliation.py
+│   ├── booking_order_state.py
+│   ├── booking_provider_adapters.py
+│   ├── booking_recovery.py
+│   ├── booking_rollout.py
+│   ├── booking_settlement_profiles.py
+│   ├── booking_window_state.py
+│   ├── catalog_service.py
+│   ├── customers_service.py
+│   ├── duffel_cancelability.py
+│   ├── duffel_cancellation_preview.py
+│   ├── duffel_lifecycle.py
+│   ├── duffel_order_changes.py
+│   ├── exceptions.py
+│   ├── external
+│   ├── hotel_discovery_ingest_service.py
+│   ├── hotel_discovery_search_service.py
+│   ├── hotel_voucher_artifact.py
+│   ├── mappers
+│   ├── openai_assistant.py
+│   ├── plan_booking_orchestrator_view.py
+│   ├── plan_booking_read_model_shared.py
+│   ├── plan_consistency.py
+│   ├── plan_cover_storage.py
+│   ├── plan_reservation_view.py
+│   ├── plan_service_booking_view.py
+│   ├── plan_support_window.py
+│   ├── pricing_cache_service.py
+│   ├── pricing_service.py
+│   ├── pricing_service_sync.py
+│   ├── profile_service.py
+│   ├── provider_confirmation_view.py
+│   ├── provider_error_messages.py
+│   ├── provider_ref.py
+│   ├── quote_service_state.py
+│   ├── quotes_service.py
+│   ├── sandbox_filter_service.py
+│   ├── service_booking_drafts.py
+│   ├── service_booking_store.py
+│   ├── service_booking_updates.py
+│   ├── service_booking_validation.py
+│   ├── sync_service.py
+│   ├── transport_readiness.py
+│   └── zal_plan_context.py
+└── utils
+    ├── __init__.py
+    ├── __pycache__
+    ├── auth_helpers.py
+    ├── request_id.py
+    └── retries.py
+
+
+Arbol de archivo del Frontend src:
+
+.
+├── app
+│   ├── (advisor)
+│   ├── (auth)
+│   ├── (panel)
+│   ├── (site)
+│   ├── favicon.ico
+│   ├── globals.css
+│   ├── layout.tsx
+│   ├── page.tsx
+│   ├── providers.tsx
+│   ├── v1
+│   └── vouchers
+├── components
+│   ├── advisor
+│   ├── auth
+│   ├── common
+│   ├── hoteles
+│   ├── inicio
+│   ├── layout
+│   ├── panel
+│   ├── quotes
+│   ├── services
+│   ├── site
+│   ├── theme
+│   └── trip
+├── features
+│   ├── advisor
+│   ├── appointments
+│   ├── booking-order-confirmation
+│   ├── cart-confirmation
+│   ├── experiences
+│   ├── flight-booking
+│   ├── flights
+│   ├── flow-ui
+│   ├── hotel-search-offline-first
+│   ├── hotels
+│   ├── panel-dashboard
+│   ├── plan-booking
+│   ├── plan-options
+│   ├── plan-quotes
+│   ├── plan-workspace
+│   ├── public-site
+│   ├── quotes
+│   ├── reservations
+│   ├── service-booking
+│   ├── service-discovery-ui
+│   ├── service-entry
+│   ├── transfers
+│   ├── tripRequests
+│   ├── workspace
+│   └── zal
+├── hooks
+│   ├── tripCartAutosync.test.ts
+│   ├── tripCartAutosync.ts
+│   ├── tripCartDirectPersistSuppression.ts
+│   ├── useAuthSnapshot.ts
+│   ├── useCurrentUser.ts
+│   ├── useDraftTripCart.test.ts
+│   ├── useDraftTripCart.ts
+│   ├── useTripCart.test.ts
+│   └── useTripCart.ts
+├── lib
+│   ├── activeTripContext.ts
+│   ├── analytics.test.ts
+│   ├── analytics.ts
+│   ├── api
+│   ├── apiClient.ts
+│   ├── appError.ts
+│   ├── appointmentTripLink.ts
+│   ├── appointments.ts
+│   ├── authClient.ts
+│   ├── authRedirect.ts
+│   ├── authenticatedJourney.test.ts
+│   ├── authenticatedJourney.ts
+│   ├── canonicalBookingTruth.test.ts
+│   ├── canonicalBookingTruth.ts
+│   ├── cart
+│   ├── chatTripLink.ts
+│   ├── checkoutFlow.ts
+│   ├── currentUser.ts
+│   ├── documentAnalytics.test.ts
+│   ├── documentAnalytics.ts
+│   ├── draftTripCart.ts
+│   ├── errors.ts
+│   ├── format.ts
+│   ├── linkedPlanContext.test.ts
+│   ├── linkedPlanContext.ts
+│   ├── migrationSmoke.test.ts
+│   ├── openapi
+│   ├── planStatus.ts
+│   ├── primaryQuote.ts
+│   ├── primaryQuoteResolver.ts
+│   ├── publicSiteFraming.test.ts
+│   ├── publicSiteFraming.ts
+│   ├── serviceState.test.ts
+│   ├── serviceState.ts
+│   ├── travelerFacingPlanTitle.ts
+│   ├── travelerPlanTitle.test.ts
+│   ├── travelerPlanTitle.ts
+│   ├── tripBuilder.tsx
+│   ├── tripDrawerBus.ts
+│   ├── tripRequests.ts
+│   ├── viajeAgendaContinuity.test.ts
+│   ├── viajeAgendaContinuity.ts
+│   ├── viajeStage.test.ts
+│   ├── viajeStage.ts
+│   ├── viajeUtilityContinuity.test.ts
+│   └── viajeUtilityContinuity.ts
+├── store
+│   └── useLastQuoteStore.ts
+└── types
+    ├── catalog.ts
+    ├── chat.ts
+    ├── quotes.ts
+    ├── search.ts
+    ├── tripRequests.ts
+    └── user.ts
