@@ -61,7 +61,7 @@ export const caseStudies: CaseStudy[] = [
       {
         src: "/images/projects/zalmar-travel/10-auth-booking-plan-final.png",
         alt: "Authenticated Spanish-language Zalmar Travel booking plan",
-        caption: "Product evidence from the MVP: the master plan groups services and states to operate the trip from one place while keeping iteration fast.",
+        caption: "Product evidence from the MVP: the trip workspace groups services and states to operate the journey from one place while keeping iteration fast.",
       },
       {
         src: "/images/projects/zalmar-travel/11-auth-panel-reservas-final.png",
@@ -77,7 +77,7 @@ export const caseStudies: CaseStudy[] = [
       },
       solution: {
            title: "Solution",
-        body: "I designed Zalmar around a plan-first workspace: search feeds the plan, quotes compare alternatives, service-level booking screens prepare provider-specific requirements, and the master booking flow moves the user toward one payment and a consolidated reservation view. The current MVP is intentionally written in Spanish because it is Caleb's primary language for fast product iteration and technical validation.",
+        body: "I designed Zalmar around a plan-first workspace: search feeds the plan, quotes compare alternatives, service-level booking screens prepare provider-specific requirements, and the consolidated booking flow moves the user toward one payment and a unified reservation view. The current MVP is intentionally written in Spanish because it is Caleb's primary language for fast product iteration and technical validation.",
       },
       architecture: {
           title: "Architecture / flow",
@@ -102,7 +102,7 @@ export const caseStudies: CaseStudy[] = [
       },
       nextSteps: {
           title: "Next steps",
-        body: "Deepen integrations, document plan states, create navigable prototypes and keep orchestration/UX evidence consolidated under the Zalmar product story.",
+        body: "Deepen integrations, clarify plan states, create navigable prototypes and keep orchestration/UX evidence consolidated under the Zalmar product story.",
       },
     },
   },

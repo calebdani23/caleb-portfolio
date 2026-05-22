@@ -13,6 +13,8 @@ type Props = {
 
 const { caseStudy, previous, next } = Astro.props;
 const title = `${caseStudy.title} — Caleb Perez case study`;
+const isZalmarTravel = caseStudy.slug === "zalmar-travel";
+const zalmarLightLogo = "/images/projects/zalmar-travel/zalmar-logo-claro.svg";
 const sections = [
   caseStudy.sections.problem,
   caseStudy.sections.solution,
@@ -28,7 +30,7 @@ const sections = [
 <BaseLayout title={title} description={caseStudy.summary} canonical={`/proyectos/${caseStudy.slug}`}>
   <Navigation />
 
-  <article class="px-5 py-16 sm:px-8 sm:py-20 lg:px-10">
+  <article class:list={["px-5 py-16 sm:px-8 sm:py-20 lg:px-10", isZalmarTravel && "zalmar-case-study"]}>
     <div class="mx-auto max-w-7xl">
       <a href={withBase("/#proyectos")} class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-semibold text-cyan-100 transition hover:-translate-y-0.5 hover:border-cyan-300/30 hover:bg-white/[0.07] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300">
         <span aria-hidden="true">←</span> Back to projects
@@ -38,8 +40,8 @@ const sections = [
         <div class="section-reveal">
           <p class="text-xs font-semibold uppercase tracking-[0.24em] text-cyan-300">{caseStudy.eyebrow}</p>
           {caseStudy.brandImage && (
-            <div class="mt-6 inline-flex rounded-3xl border border-white/10 bg-white/[0.04] p-3 shadow-lg shadow-slate-950/20">
-              <img src={withBase(caseStudy.brandImage)} alt={caseStudy.brandAlt ?? `${caseStudy.title} brand mark`} loading="lazy" decoding="async" class="h-14 w-14 object-contain" />
+            <div class:list={["mt-6 inline-flex rounded-3xl border border-white/10 bg-white/[0.04] p-3 shadow-lg shadow-slate-950/20", isZalmarTravel && "zalmar-logo-chip"]}>
+              <img src={withBase(caseStudy.brandImage)} alt={caseStudy.brandAlt ?? `${caseStudy.title} brand mark`} loading="lazy" decoding="async" class:list={[isZalmarTravel ? "h-16 w-16" : "h-14 w-14", "object-contain"]} />
             </div>
           )}
           <h1 class="mt-5 max-w-5xl text-5xl font-semibold tracking-[-0.03em] text-white sm:text-7xl">
@@ -61,6 +63,36 @@ const sections = [
           </div>
         </aside>
       </header>
+
+      {isZalmarTravel && (
+        <section class="zalmar-brand-panel section-reveal mt-12 overflow-hidden p-6 sm:p-8" aria-labelledby="zalmar-brand-case-study">
+          <div class="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
+            <div class="rounded-[2rem] border border-[#c39f55]/25 bg-[#06141b]/70 p-6 shadow-2xl shadow-slate-950/25">
+              <img src={withBase(zalmarLightLogo)} alt="Zalmar Travel wordmark" loading="lazy" decoding="async" class="mx-auto h-32 w-32 object-contain sm:h-40 sm:w-40" />
+              <div class="mt-5 flex justify-center gap-2" aria-hidden="true">
+                <span class="h-1.5 w-10 rounded-full bg-[#c39f55]"></span>
+                <span class="h-1.5 w-10 rounded-full bg-cyan-300/80"></span>
+                <span class="h-1.5 w-10 rounded-full bg-white/70"></span>
+              </div>
+            </div>
+
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#f3d38b]">Branded product case study</p>
+              <h2 id="zalmar-brand-case-study" class="mt-3 max-w-3xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">A travel workspace shaped around trust, readiness and reservation control.</h2>
+              <p class="mt-5 max-w-3xl leading-8 text-slate-300">The product identity pairs a grounded dark travel-tech interface with warm gold and cyan accents, giving the case study a dedicated brand frame without distracting from the UX and orchestration work.</p>
+              <div class="mt-6 grid gap-3 sm:grid-cols-3">
+                {[
+                  "Plan-first brand story",
+                  "Provider-aware booking UX",
+                  "Spanish MVP evidence",
+                ].map((item) => (
+                  <span class="rounded-2xl border border-[#c39f55]/20 bg-[#c39f55]/10 px-4 py-3 text-sm font-semibold text-[#fff4cf]">{item}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       <section class="mt-12 grid gap-5 lg:grid-cols-[0.74fr_1.26fr]" aria-labelledby="role-stack">
         <div class="surface-elevated p-6">
