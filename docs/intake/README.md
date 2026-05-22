@@ -1,72 +1,80 @@
 # Portfolio content intake
 
-This folder is the private/staging intake area for source material before anything is approved for the public website. Files in `docs/intake/` are repository references only; unlike `public/`, this folder is not automatically deployed as site content.
+`docs/intake/` is the non-deployed review/staging area for portfolio source material. It can contain raw PDFs, screenshots, notes, drafts and source media, but it is not necessarily confidential if the repository is public. Only reviewed and optimized copies should be promoted into `public/` and then referenced from `src/data/*` or Astro files.
 
-Only reviewed, approved and optimized assets should later be copied into `public/` and referenced from `src/data/*`.
+Use this README as the entry point, then use the root docs below for repeatable work:
 
-## Folder map
+- [`NAMING.md`](./NAMING.md) — naming rules for new uploads and normalized intake source paths.
+- [`REVIEW_STATUS.md`](./REVIEW_STATUS.md) — status labels and publishability decisions.
+- [`PROMOTION_WORKFLOW.md`](./PROMOTION_WORKFLOW.md) — source asset → review → optimization → `public/` → site usage.
+- [`MANIFEST.md`](./MANIFEST.md) — conservative tracking notes for known promotions; not a full inventory unless explicitly maintained as one.
+- [`templates/`](./templates/) — reusable intake entries, project notes, certificate entries and checklists.
+
+## Current folder map
+
+This tree reflects the current folder names. Spanish top-level names are intentionally kept for now; do not rename them during normal intake work. Older source/provenance names with spaces, capitalization or typos are preserved in local notes/manifests instead of folder paths.
 
 ```text
 docs/intake/
-├── certificados/                         # Certificate source PDFs and verification notes
-├── profile/                              # Portraits, bios and profile image candidates
-├── proyectos/
-│   ├── zalmar-travel/
-│   │   ├── pitch-deck/                   # Public-ready deck candidates only after review
-│   │   └── screenshots/                  # Product screenshots and export candidates
-│   ├── ai-booking-orchestrator/          # Architecture notes, diagrams, API flow references
-│   ├── ai-agent-observability-dashboard/ # Dashboard screenshots, diagrams, public links if approved
-│   ├── ai-codebase-explainer/            # Screenshots, repo links, explainability examples
-│   ├── visual-runner-server/             # Homelab/server diagrams, safe screenshots
-│   ├── family-home-server-private-cloud/ # Private cloud diagrams; no sensitive network details
-│   └── travel-booking-ux-system/         # UX screenshots, mockups and design references
-├── reconocimientos/                      # Awards, event confirmations and recognition proof
-├── futbol/                               # Sports clips/source media before optimization
-├── shared/                               # Reusable brand assets, palettes, icons and diagrams
-└── whoiam/                               # About-me notes, narrative drafts and reference copy
+├── certificados/                         # Certificate source PDFs grouped by program
+│   ├── programa-google-it-support/        # Original source label: "Programa Google IT Support"
+│   └── programa-oracle-alura/             # Original source label had typo: "Programa Orcale + Alura"
+├── futbol/                               # Sports source-media notes; optimized clips live in public/media/futbol/
+├── nueva-zelanda/                        # New Zealand travel/life material for future narrative use
+├── profile/                              # Portrait/profile source image candidates
+├── proyectos/                            # Project-specific source assets and notes
+│   ├── ai-agent-observability-dashboard/
+│   ├── ai-booking-orchestrator/
+│   ├── ai-codebase-explainer/
+│   ├── family-home-server-private-cloud/
+│   ├── travel-booking-ux-system/
+│   ├── visual-runner-server/
+│   └── zalmar-travel/
+├── reconocimientos/                      # Awards, programs, volunteer/event recognition proof
+│   ├── atlante/
+│   ├── fifa-2026-volunteer/
+│   ├── new-zealand-road-trip/
+│   └── supercupni/
+├── shared/                               # Reusable intake material shared across sections
+├── templates/                            # Reusable documentation templates
+├── universidad/                          # University/education source material for future use
+├── whoiam/                               # About-me notes and narrative drafts
+├── MANIFEST.md
+├── NAMING.md
+├── PORTFOLIO_CONTENT_TEMPLATE.md
+├── PROMOTION_WORKFLOW.md
+└── REVIEW_STATUS.md
 ```
+
+## Quick workflow
+
+1. Put the original/source asset in the most specific `docs/intake/` folder.
+2. Add or update a local README/manifest entry with status from [`REVIEW_STATUS.md`](./REVIEW_STATUS.md).
+3. Review safety, privacy, ownership and portfolio relevance.
+4. Optimize only approved public assets.
+5. Copy the optimized version into the right `public/` folder.
+6. Reference the public copy from `src/data/*` or an Astro component.
+7. Record the promotion in [`MANIFEST.md`](./MANIFEST.md).
+
+## When adding a new asset
+
+- Place it in the most specific intake folder; create a short local README note if context is missing.
+- Give it a default status of `needs-review` unless it is clearly `internal-reference-only`.
+- Check privacy, ownership, portfolio relevance and metadata before any promotion.
+- Promote only optimized, public-safe copies into `public/`; never reference `docs/intake/` from app code.
+- Update [`MANIFEST.md`](./MANIFEST.md) only when tracking a known promotion or intentionally maintaining an inventory.
 
 ## Preferred formats
 
 - Screenshots/mockups: `.png` or high-quality `.jpg`; prefer 1600px+ width when possible.
 - Logos/icons: `.svg` preferred; `.png` with transparent background accepted.
 - Documents: `.pdf` for public-ready certificates/decks; `.md` for internal notes or summaries.
-- Videos: source `.mp4` or `.mov` here; optimized public versions should be compressed before copying to `public/media/`.
+- Videos: source `.mp4` or `.mov` here; compressed public copies belong in `public/media/`.
 - Diagrams: `.svg`, `.png`, `.pdf` or `.md` explaining the architecture.
-
-## Naming rules
-
-Use lowercase, descriptive, hyphen-separated names with project and purpose:
-
-```text
-zalmar-travel-pitch-deck-public-v1.pdf
-zalmar-travel-booking-plan-screenshot-2026-05.png
-ai-observability-dashboard-run-detail-v1.png
-family-home-server-network-diagram-internal-2026-05.md
-fifa-2026-volunteer-confirmation-needs-review.pdf
-```
-
-Avoid spaces, accents and vague names such as `final.pdf`, `image1.png` or `new version.png`.
-
-## Review status labels
-
-Add one of these labels to filenames or a small `README.md` note inside the folder:
-
-- `public-ready`: approved for publishing after optimization/copying into `public/`.
-- `internal-reference-only`: useful for the agent/human review but must not be published.
-- `needs-review`: unclear status; do not copy into `public/` yet.
 
 ## Safety rules
 
-- Do not publish IDs, addresses, financial-aid documents, private travel documents, private network IPs, API keys, credentials or family-private files.
-- A pitch deck should only be linked if a real public-ready PDF exists in `public/docs/`. Otherwise the UI must say “Pitch deck available on request.”
-- Recognition proof for FIFA 2026, SuperCupNI, Atlante or other programs should stay text-only until a public-ready asset is approved.
-- For home server / private cloud material, prefer abstract architecture diagrams over screenshots exposing private paths, device names or network details.
-
-## Promotion workflow
-
-1. Place raw/source material in the correct `docs/intake/` folder.
-2. Mark its status as `public-ready`, `internal-reference-only` or `needs-review`.
-3. Optimize approved public assets for size and accessibility.
-4. Copy only approved assets into `public/images`, `public/docs` or `public/media`.
-5. Reference the public copy from `src/data/*` or Astro components.
+- Never publish IDs, addresses, private travel documents, financial documents, private network/IP details, API keys, credentials or family-private files.
+- A pitch deck should only be linked if a real public-ready PDF exists in `public/docs/`. Otherwise the UI should say “Pitch deck available on request.”
+- Recognition proof for FIFA 2026, SuperCupNI, Atlante or similar programs should stay text-only until a public-ready asset is approved.
+- For home server/private cloud material, prefer abstract architecture diagrams over screenshots exposing private paths, device names or network details.
