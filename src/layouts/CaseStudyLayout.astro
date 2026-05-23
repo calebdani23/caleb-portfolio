@@ -149,11 +149,54 @@ const sections = [
         <section class="surface-outline mt-12 p-5 sm:p-6" aria-labelledby="architecture-system-view">
           <div class="grid gap-8 lg:grid-cols-[1.12fr_0.88fr] lg:items-start">
             <div>
-              <p class="text-xs font-semibold uppercase tracking-[0.24em] text-cyan-300">Architecture view</p>
-              <figure class="browser-frame mt-5 overflow-hidden border-white/12 bg-slate-950/70">
-                <img src={withBase(architectureVisual.src)} alt={architectureVisual.alt} loading="lazy" decoding="async" class="aspect-[16/10] w-full object-contain object-center bg-slate-950 p-4 sm:p-6" />
+              <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+                <p class="text-xs font-semibold uppercase tracking-[0.24em] text-cyan-300">Architecture view</p>
+                <button
+                  type="button"
+                  class="architecture-lightbox-trigger inline-flex items-center justify-center gap-2 self-start rounded-full border border-cyan-300/25 bg-cyan-300/10 px-4 py-2 text-sm font-bold text-cyan-50 transition hover:-translate-y-0.5 hover:border-cyan-200/50 hover:bg-cyan-300/16 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300 sm:self-auto"
+                  data-lightbox-target={`architecture-lightbox-${caseStudy.slug}`}
+                  aria-haspopup="dialog"
+                  aria-controls={`architecture-lightbox-${caseStudy.slug}`}
+                >
+                  <span aria-hidden="true">⤢</span>
+                  Expand view
+                </button>
+              </div>
+              <figure class="browser-frame group mt-5 overflow-hidden border-white/12 bg-slate-950/70 transition duration-300 hover:-translate-y-1 hover:border-cyan-300/30 hover:shadow-cyan-950/30">
+                <button
+                  type="button"
+                  class="architecture-lightbox-trigger relative block w-full cursor-zoom-in overflow-hidden bg-slate-950 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-6px] focus-visible:outline-cyan-300"
+                  data-lightbox-target={`architecture-lightbox-${caseStudy.slug}`}
+                  aria-haspopup="dialog"
+                  aria-controls={`architecture-lightbox-${caseStudy.slug}`}
+                  aria-label={`Expand architecture view: ${architectureVisual.alt}`}
+                >
+                  <img src={withBase(architectureVisual.src)} alt={architectureVisual.alt} loading="lazy" decoding="async" class="aspect-[16/10] w-full object-contain object-center bg-slate-950 p-4 transition duration-300 group-hover:scale-[1.035] sm:p-6" />
+                  <span class="pointer-events-none absolute right-4 top-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-slate-950/80 px-3 py-2 text-xs font-bold uppercase tracking-[0.18em] text-cyan-100 shadow-lg shadow-slate-950/40 backdrop-blur transition group-hover:border-cyan-300/45 group-hover:bg-cyan-300/15">
+                    <span aria-hidden="true">⤢</span>
+                    View larger
+                  </span>
+                </button>
                 <figcaption class="media-caption px-4 py-4">{architectureVisual.caption}</figcaption>
               </figure>
+
+              <dialog id={`architecture-lightbox-${caseStudy.slug}`} class="architecture-lightbox rounded-[1.75rem] border border-cyan-300/20 bg-slate-950/95 p-0 text-white shadow-2xl shadow-slate-950/80 backdrop:bg-slate-950/85 backdrop:backdrop-blur-sm" aria-labelledby={`architecture-lightbox-title-${caseStudy.slug}`}>
+                <div class="flex max-h-[92vh] w-[min(94vw,88rem)] flex-col overflow-hidden rounded-[1.75rem]">
+                  <div class="flex items-start justify-between gap-4 border-b border-white/10 bg-white/[0.04] px-4 py-4 sm:px-6">
+                    <div>
+                      <p class="text-xs font-semibold uppercase tracking-[0.24em] text-cyan-300">Expanded architecture view</p>
+                      <h3 id={`architecture-lightbox-title-${caseStudy.slug}`} class="mt-1 text-lg font-semibold text-white sm:text-xl">{caseStudy.title}</h3>
+                    </div>
+                    <button type="button" class="architecture-lightbox-close inline-flex size-11 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.06] text-2xl leading-none text-slate-100 transition hover:border-cyan-300/35 hover:bg-white/[0.1] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300" aria-label="Close expanded architecture view">
+                      ×
+                    </button>
+                  </div>
+                  <div class="overflow-auto bg-slate-950 p-3 sm:p-5">
+                    <img src={withBase(architectureVisual.src)} alt={architectureVisual.alt} loading="lazy" decoding="async" class="mx-auto max-h-[72vh] min-w-[52rem] rounded-2xl bg-slate-950 object-contain p-3 sm:p-5" />
+                  </div>
+                  <p class="media-caption border-t border-white/10 bg-white/[0.035] px-4 py-4 sm:px-6">{architectureVisual.caption}</p>
+                </div>
+              </dialog>
             </div>
 
             <div class="rounded-[2rem] border border-white/10 bg-white/[0.04] p-5 sm:p-6">
@@ -245,3 +288,32 @@ const sections = [
 
   <Footer />
 </BaseLayout>
+
+<script>
+  const architectureTriggers = document.querySelectorAll<HTMLButtonElement>(".architecture-lightbox-trigger");
+
+  architectureTriggers.forEach((trigger) => {
+    const targetId = trigger.dataset.lightboxTarget;
+    const dialog = targetId ? document.getElementById(targetId) : null;
+
+    if (!(dialog instanceof HTMLDialogElement)) return;
+
+    trigger.addEventListener("click", () => {
+      if (!dialog.open) {
+        dialog.showModal();
+      }
+    });
+  });
+
+  document.querySelectorAll<HTMLDialogElement>(".architecture-lightbox").forEach((dialog) => {
+    dialog.querySelector<HTMLButtonElement>(".architecture-lightbox-close")?.addEventListener("click", () => {
+      dialog.close();
+    });
+
+    dialog.addEventListener("click", (event) => {
+      if (event.target === dialog) {
+        dialog.close();
+      }
+    });
+  });
+</script>
