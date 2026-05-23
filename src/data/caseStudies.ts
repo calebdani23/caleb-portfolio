@@ -163,6 +163,95 @@ export const caseStudies: CaseStudy[] = [
       },
     },
   },
+  {
+    slug: "family-home-server-private-cloud",
+    title: "Family Home Server / Private Family Cloud",
+    eyebrow: "Home lab · Linux infrastructure · Private family cloud",
+    summary:
+      "A reused laptop turned into a practical private family cloud foundation with Ubuntu Server, CasaOS, SMB file access, Docker-managed services and private remote access through Tailscale.",
+    description:
+      "Family Home Server is a home-infrastructure project built for real family use: centralizing files at home, making shared access simpler, and keeping control of private data without publishing sensitive network, device or folder details.",
+    status: "Operational private lab",
+    role: "Home-server builder: Linux installation, networking, driver troubleshooting, CasaOS setup, SMB access, firewall posture, remote administration and public-safe documentation.",
+    stack: [
+      "Reused laptop",
+      "Ubuntu Server",
+      "CasaOS",
+      "Docker app layer",
+      "SMB shares",
+      "Tailscale",
+      "SSH",
+      "UFW",
+      "Netplan",
+      "systemd-networkd",
+    ],
+    highlights: ["Reused hardware", "Local-first storage", "CasaOS dashboard", "Private remote access", "Public-safe evidence"],
+    flow: ["Reused hardware", "Ubuntu Server", "Network setup", "CasaOS", "SMB shares", "Tailscale", "Family use"],
+    gallery: [
+      {
+        src: "/images/projects/family-home-server-private-cloud/family-home-server-architecture-v1.svg",
+        alt: "Public-safe family home server architecture diagram with no IPs, usernames, device names or sensitive paths",
+        caption:
+          "Redacted architecture view: family devices reach a reused laptop running Ubuntu Server, CasaOS and Docker-managed services, with storage exposed locally and remote access kept private through Tailscale.",
+      },
+      {
+        src: "/images/projects/family-home-server-private-cloud/casaos-dashboard-redacted-v1.png",
+        alt: "Redacted CasaOS dashboard screenshot for the family home server private cloud",
+        caption:
+          "Public-safe dashboard evidence: private names, IPs, device identifiers, paths and capacity details are intentionally removed while preserving the shape of the operational system.",
+      },
+    ],
+    sections: {
+      problem: {
+        title: "Problem",
+        body: "Family files often end up scattered across phones, laptops, accounts and commercial cloud services. That makes shared folders harder to manage, weakens ownership over private data and leaves useful older hardware unused.",
+        bullets: [
+          "The family needed one practical private place for documents, photos and shared files.",
+          "Non-technical users should not need to understand Linux administration to benefit from the server.",
+          "Remote access needed to stay private instead of exposing home services directly to the internet.",
+        ],
+      },
+      solution: {
+        title: "Solution",
+        body: "I repurposed an older laptop as an always-on home server using Ubuntu Server as the base system and CasaOS as the visual management layer. The setup focuses on local file access, shared family folders, app foundations and safer private remote access through Tailscale.",
+      },
+      architecture: {
+        title: "Architecture / flow",
+        body: "The architecture is intentionally modest and practical: family devices connect on the home network, the reused laptop hosts Ubuntu Server, CasaOS and a Docker-based app layer, SMB handles local file access, and Tailscale provides VPN-style remote access without public router exposure.",
+        bullets: [
+          "Ubuntu Server runs without a desktop environment to keep the host focused on services.",
+          "CasaOS gives the server a browser-based interface for storage, apps and status checks.",
+          "SMB supports familiar local file access for home devices.",
+          "SSH remains an administration tool, not a family-facing interface.",
+        ],
+      },
+      challenges: {
+        title: "Technical challenges",
+        body: "The hardest parts were below the dashboard: identifying network interfaces, configuring Wi-Fi with Netplan, resolving Broadcom wireless driver behavior, understanding Secure Boot blocking driver loading, and making network/service startup predictable after reboot.",
+      },
+      decisions: {
+        title: "Important decisions",
+        body: "I kept the public story privacy-first. The project can show architecture, learning and redacted operational evidence, but it should not expose private IP addresses, real usernames, device names, passwords, family folder names, capacity details or internal paths.",
+        bullets: [
+          "Use Tailscale-style private access instead of opening public ports for this family-cloud use case.",
+          "Plan storage structure before moving important family data into the system.",
+          "Treat backups as a required next layer, because private storage alone is not a complete safety plan.",
+        ],
+      },
+      result: {
+        title: "Result / current state",
+        body: "The server is operational as a local private family cloud foundation. CasaOS is accessible from a browser, SSH administration works, Wi-Fi reconnects after reboot, and the project now has public-safe evidence through a redacted dashboard visual and architecture diagram.",
+      },
+      learnings: {
+        title: "What I learned",
+        body: "A real home server is more than an installation. Reliability depends on drivers, network routes, startup behavior, service health, storage organization, access control, backups, privacy and whether family members can actually use the system without becoming administrators.",
+      },
+      nextSteps: {
+        title: "Next steps",
+        body: "Continue improving storage organization, backup planning, user permissions and maintenance routines before treating the server as the only place for important family data. Future documentation should stay redacted by default.",
+      },
+    },
+  },
 ];
 
 export const caseStudySlugs = caseStudies.map((caseStudy) => caseStudy.slug);

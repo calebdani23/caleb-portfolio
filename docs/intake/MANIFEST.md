@@ -40,6 +40,8 @@ This manifest tracks known intake assets and public promotions on a conservative
 | promoted | `docs/intake/reconocimientos/fifa-2026-volunteer/yo volunteer tryouts.jpeg` | `public/images/recognitions/fifa-volunteer-tryouts.jpg` | Public-safe recognition photo only; private FIFA PDFs/application details remain unpublished. |
 | promoted | `docs/intake/reconocimientos/new-zealand-road-trip/WhatsApp Image 2026-05-21 at 7.05.50 PM.jpeg` | `public/images/recognitions/new-zealand-road-trip.jpg` | Public-safe journey/recognition photo only; road trip PDFs remain internal. |
 | promoted | `docs/intake/reconocimientos/supercupni/foto jugando.jpeg` | `public/images/recognitions/supercupni-football.jpg` | Public-safe tournament/sports photo; no sensitive travel/registration proof published. |
+| promoted | `docs/intake/proyectos/family-home-server-private-cloud/family-home-server-architecture-v1.svg` | `public/images/projects/family-home-server-private-cloud/family-home-server-architecture-v1.svg` | Public-safe architecture diagram used in the Family Home Server case-study gallery; contains no IPs, usernames, real device names or private paths. |
+| promoted | `docs/intake/proyectos/family-home-server-private-cloud/casaos-dashboard-redacted-v1.png` | `public/images/projects/family-home-server-private-cloud/casaos-dashboard-redacted-v1.png` | Redacted CasaOS dashboard used as the project card image and case-study evidence; private names, IPs, device identifiers, paths and storage details are intentionally removed. |
 
 ## Known internal-only references
 
@@ -60,5 +62,6 @@ This manifest tracks known intake assets and public promotions on a conservative
 - Certificate source PDFs under `certificados/` should stay as source material unless the corresponding public PDF is intentionally linked.
 - Recognition folders may include private PDFs and application details; publish only conservative photos/logos after review and keep sensitive proof internal.
 - Project source packages under `proyectos/zalmar-travel/` may include internal design references, booking orchestration notes and UX source material; promote only selected public-safe outputs.
+- `family-home-server-private-cloud/` may include private infrastructure context; publish only redacted diagrams/screenshots that avoid IPs, usernames, device names, passwords, internal paths, capacity details and private family folder structures.
 - Zalmar Travel screenshots document a Spanish-language MVP; this is an intentional agile/product-development choice because Spanish is Caleb's primary working language.
 - `AI Booking Orchestrator` and `Travel Booking UX System` are retired as standalone portfolio/intake projects. Do not add active folders for them; consolidate useful future references under `proyectos/zalmar-travel/`.

@@ -104,14 +104,32 @@ export const projects: Project[] = [
   },
   {
     title: "Family Home Server / Private Family Cloud",
-    category: "Home lab · Private cloud",
+    category: "Home lab · Linux infrastructure · Private cloud",
     description:
-      "Repurposed an old laptop into a private family server for cloud storage, local file access, SMB shares and secure remote access through Tailscale.",
+      "Converted a reused laptop into an operational private family cloud with Ubuntu Server, CasaOS, SMB shares, Docker-managed services and Tailscale access without exposing private services publicly.",
     status: "Private lab",
-    tags: ["Ubuntu Server", "CasaOS", "SMB", "Tailscale", "Home Lab", "Private Cloud"],
+    tags: ["Ubuntu Server", "CasaOS", "SMB", "Tailscale", "Docker", "UFW", "Home Lab"],
+    slug: "family-home-server-private-cloud",
+    href: "/proyectos/family-home-server-private-cloud",
     visualLabel: "Private family cloud",
     visualKind: "server",
+    previewImage: "/images/projects/family-home-server-private-cloud/casaos-dashboard-redacted-v1.png",
+    featuredImage: "/images/projects/family-home-server-private-cloud/family-home-server-architecture-v1.svg",
+    previewAlt: "Redacted CasaOS dashboard for a private family home server",
     previewTone: "emerald",
+    previewObjectFit: "cover",
+    previewObjectPosition: "center",
+    highlights: [
+      "Reused existing laptop hardware as a practical always-on home server instead of leaving it unused.",
+      "Centralized family file access through local SMB shares and a browser-friendly CasaOS dashboard.",
+      "Kept remote access private through Tailscale instead of opening home services directly to the internet.",
+      "Solved lower-level reliability issues around Wi-Fi drivers, Secure Boot, auto-start and reboot behavior.",
+    ],
+    metrics: [
+      { value: "1", label: "reused host" },
+      { value: "Private", label: "remote access" },
+      { value: "Local-first", label: "family storage" },
+    ],
   },
 ];
 
