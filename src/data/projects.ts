@@ -83,16 +83,24 @@ export const projects: Project[] = [
   },
   {
     title: "Visual Runner Server",
-    category: "Infrastructure · Visual automation",
+    category: "Infrastructure · Browser validation",
     description:
-      "Self-hosted Ubuntu server for real browser navigation, visual validation and agent-assisted checks across web product experiences.",
+      "Browser-execution validation system with named flows, preflight checks and normalized evidence for products such as Zalmar Travel and this portfolio.",
     status: "Infrastructure",
-    tags: ["Ubuntu Server", "Tailscale", "Automation", "Agents"],
+    tags: ["Real browser execution", "Flow contracts", "Preflight checks", "Validation artifacts"],
     slug: "visual-runner-server",
     href: "/proyectos/visual-runner-server",
-    visualLabel: "Server lab",
+    visualLabel: "Validation layer",
     visualKind: "server",
+    previewImage: "/images/projects/visual-runner-server/visual-runner-server-architecture-v1.svg",
+    previewAlt: "Visual Runner Server validation architecture diagram",
     previewTone: "emerald",
+    previewObjectFit: "contain",
+    highlights: [
+      "Runs repeatable product flows in a real browser instead of relying only on static review.",
+      "Uses named flow contracts and readiness checks before treating a run as validated.",
+      "Returns consistent logs, summaries and artifacts that make results easier to review.",
+    ],
   },
   {
     title: "Family Home Server / Private Family Cloud",

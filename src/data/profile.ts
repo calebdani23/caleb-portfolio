@@ -9,7 +9,7 @@ export const profile = {
   photo: {
     src: "/images/profile/caleb-profile.svg",
     alt: "SVG portrait of Caleb Perez",
-    note: "Curated asset from docs/intake/profile/profile-picture.svg and published as the hero profile image.",
+    note: "Hero profile portrait used across the portfolio.",
     objectFit: "contain",
     objectPosition: "center bottom",
     badge: "Portrait / profile",

@@ -19,7 +19,6 @@ export type RecognitionItem = {
   title: string;
   context: string;
   description: string;
-  evidenceNote: string;
   image?: string;
   imageAlt?: string;
 };
@@ -77,7 +76,7 @@ export const certificationPrograms: CertificationProgram[] = [
     title: "Oracle Next Education + Alura",
     issuer: "Oracle ONE / Alura",
     summary:
-      "Official Oracle ONE / Alura program certificate plus the complete public course breakdown currently present in intake.",
+      "Official Oracle ONE / Alura program certificate with a practical course path across personal development, agility, programming foundations, Java and Spring Boot.",
     mainCertificates: [
       {
         title: "Programa Oracle + Alura",
@@ -116,7 +115,7 @@ export const certificationPrograms: CertificationProgram[] = [
       {
         title: "Java y Spring Boot",
         issuer: "Alura",
-        focus: "Additional Java and Spring Boot course certificate from the official intake set.",
+        focus: "Additional Java and Spring Boot course certificate from Alura.",
         href: "/docs/certificados/oracle-alura/Caleb_Perez_Alura_Java_y_Spring_Boot.pdf",
       },
       {
@@ -148,8 +147,7 @@ export const recognitionItems: RecognitionItem[] = [
     title: "FIFA World Cup 2026 Volunteer Process",
     context: "Global event · Registration stage",
     description:
-      "Volunteer registration/selection-stage material included as a conservative signal of service mindset, international collaboration and interest in event-level operations.",
-    evidenceNote: "Uses only a safe intake photo; private PDFs and acceptance/application details remain unpublished.",
+      "A meaningful step into global event service, international collaboration and the operational mindset behind large public experiences.",
     image: "/images/recognitions/fifa-volunteer-tryouts.jpg",
     imageAlt: "Caleb Perez at a FIFA World Cup 2026 volunteer process event.",
   },
@@ -158,7 +156,6 @@ export const recognitionItems: RecognitionItem[] = [
     context: "Independence · Adaptability",
     description:
       "Personal milestone from living abroad: planning, navigating and adapting across a country while working and making decisions independently.",
-    evidenceNote: "Uses a public-safe travel photo; road trip PDFs remain internal source material.",
     image: "/images/recognitions/new-zealand-road-trip.jpg",
     imageAlt: "New Zealand road trip photo from Caleb Perez's year abroad.",
   },
@@ -166,8 +163,7 @@ export const recognitionItems: RecognitionItem[] = [
     title: "SuperCupNI International Youth Football Tournament",
     context: "International competition · Team discipline",
     description:
-      "International football experience included as evidence of competitive discipline, teamwork and performance in unfamiliar environments.",
-    evidenceNote: "Uses a tournament/sports photo only; no sensitive travel or registration documents are published.",
+      "International football experience that shaped competitive discipline, teamwork and performance in unfamiliar environments.",
     image: "/images/recognitions/supercupni-football.jpg",
     imageAlt: "Caleb Perez playing football during the SuperCupNI international youth tournament context.",
   },

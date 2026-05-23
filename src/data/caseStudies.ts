@@ -109,49 +109,57 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "visual-runner-server",
     title: "Visual Runner Server",
-    eyebrow: "Infrastructure · Visual automation",
+    eyebrow: "Infrastructure · Browser validation",
     summary:
-      "Self-hosted server for real browser navigation, visual validations and test flows that help build products with more confidence.",
+      "A browser-execution validation layer that turns named product flows into repeatable checks with readiness gates, normalized outputs and reviewable artifacts.",
     description:
-      "An infrastructure lab where agents and tools do not only read code, but also test browser experiences.",
+      "Visual Runner Server helps product work move beyond static inspection: it executes real browser flows, checks whether expected conditions are ready, and reports evidence that can be reviewed before calling a product path validated.",
     status: "Infrastructure in use",
-    role: "Server setup, automation, private networking, validation flows and support for development agents.",
-    stack: ["Ubuntu Server", "CasaOS", "Tailscale", "SMB", "Docker", "Automation", "Agents"],
-    highlights: ["Self-hosted server", "Private network", "Visual testing", "Agent support"],
-    flow: ["Local deploy", "Navigation", "Capture", "Validation", "Feedback", "Iteration"],
+    role: "Infrastructure design, browser automation workflow, named flow contracts, validation boundaries and agent/developer support.",
+    stack: ["Real browser execution", "Named flows", "Preflight checks", "Normalized logs", "Screenshots/artifacts", "Automation", "Agents"],
+    highlights: ["Real browser execution", "Flow contracts", "Readiness checks", "Reviewable evidence"],
+    flow: ["Flow contract", "Preflight", "Browser run", "Capture", "Normalize", "Review", "Iterate"],
+    gallery: [
+      {
+        src: "/images/projects/visual-runner-server/visual-runner-server-architecture-v1.svg",
+        alt: "Visual Runner Server architecture diagram showing the validation workflow from product changes to browser execution and evidence review",
+        caption: "Public architecture view: product changes are checked through named browser flows, readiness gates and normalized validation evidence before the result is trusted.",
+      },
+    ],
     sections: {
       problem: {
           title: "Problem",
-        body: "Many product issues do not appear during a code review: they show up while navigating, seeing states, testing layouts and checking whether the flow is understandable.",
+        body: "Many product issues do not appear during code review. They show up only when a real browser navigates routes, waits for UI states, interacts with selectors and proves that a flow is understandable from the user's point of view.",
+        bullets: ["Static inspection can miss broken navigation, missing states or layout regressions.", "A run that completes technically is not automatically a validated product flow.", "Teams need evidence they can review without exposing private infrastructure details."],
       },
       solution: {
           title: "Solution",
-        body: "Create a self-hosted environment for visual testing, real navigation and interface validation with support from agents and automated tools.",
+        body: "I shaped Visual Runner Server as a validation system around repeatable browser flows. A repo can describe the flow, check readiness, execute it in a real browser and review normalized outputs such as status, logs, summaries and optional screenshots or artifacts.",
       },
       architecture: {
         title: "Architecture / flow",
-        body: "The server works as a lab accessible through a private network, with containerized services and workflows for running, observing and adjusting products in development.",
-        bullets: ["Secure access through a private network.", "Isolated services when useful.", "Visual validation as a quality step, not decoration."],
+        body: "The public architecture is intentionally simple: product work defines a named validation flow, preflight checks confirm that required conditions are ready, a browser runner executes the journey, and the result is normalized into reviewable evidence.",
+        bullets: ["Named flow contracts make validation repeatable instead of improvised.", "Readiness checks happen before riskier interpretation of results.", "Artifacts support review, while private host details stay outside the portfolio story."],
       },
       challenges: {
         title: "Technical challenges",
-        body: "Balance security, ease of access and stability without turning the environment into something more complex than the product it helps validate.",
+        body: "The key challenge is avoiding false confidence. Browser automation can click through a page and still fail the real validation contract if a required route, selector, state or boundary is missing.",
       },
       decisions: {
         title: "Important decisions",
-        body: "Keep the infrastructure simple and useful: real navigation and visual feedback first, then more sophisticated automation when the flow justifies it.",
+        body: "Keep execution and validation separate. The system should say whether the browser run completed, then separately whether the expected product evidence was strong enough to trust the flow.",
       },
       result: {
         title: "Result / current state",
-          body: "Active infrastructure as part of my personal product lab, focused on accelerating visual review and assisted manual testing.",
+          body: "Active validation infrastructure for product work where browser behavior matters, especially Zalmar Travel flows and this portfolio. It supports safer iteration by making validation evidence explicit and repeatable.",
       },
       learnings: {
           title: "What I learned",
-        body: "Running my own servers changes how I learn: it forces me to understand networking, deployment, permissions and operations, not only frontend work.",
+        body: "A healthy runner is not the same as a healthy product journey. Good validation needs clear contracts, readiness gates and honest reporting about what was actually proven.",
       },
       nextSteps: {
           title: "Next steps",
-        body: "Document repeatable flows, improve lightweight observability and connect validations to projects such as Zalmar Travel and this portfolio.",
+        body: "Continue refining named flows, lightweight observability and artifact review so validation remains useful for real product decisions without exposing unnecessary infrastructure details.",
       },
     },
   },

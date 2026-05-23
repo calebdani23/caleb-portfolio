@@ -21,25 +21,25 @@ export const sportsHighlights: SportsHighlight[] = [
     title: "Club Atlante México — Youth Academy",
     context: "Youth academy · High-performance habits",
     description:
-      "Official intake photos now document this early academy stage: a first experience with higher expectations, training discipline and the seriousness of competing in structured environments.",
+      "An early academy stage that introduced higher expectations, training discipline and the seriousness of competing in structured environments.",
     photos: [
       {
         label: "Atlante academy · Training environment",
         src: "/media/futbol/atlante/atlante-academy-01.jpg",
         alt: "Caleb Perez during his Club Atlante youth academy stage.",
-        note: "Public-ready photo promoted from the official Atlante intake folder.",
+        note: "Training environment from an early stage of Caleb's football path.",
       },
       {
         label: "Atlante academy · Formation stage",
         src: "/media/futbol/atlante/atlante-academy-02.jpg",
         alt: "Club Atlante youth academy photo from Caleb Perez's football path.",
-        note: "Selected as current official media because no Atlante video was found in intake.",
+        note: "A formation-stage moment connected to discipline and consistency.",
       },
       {
         label: "Atlante academy · Competitive habits",
         src: "/media/futbol/atlante/atlante-academy-03.jpg",
         alt: "Atlante youth academy memory connected to Caleb Perez's sports discipline.",
-        note: "Used conservatively as a sports milestone visual, not as private proof.",
+        note: "A sports milestone that reflects early competitive habits.",
       },
     ],
     videos: [],
