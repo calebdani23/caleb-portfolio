@@ -107,6 +107,150 @@ export const caseStudies: CaseStudy[] = [
     },
   },
   {
+    slug: "ai-agent-observability-dashboard",
+    title: "AI Agent Observability Dashboard",
+    eyebrow: "AI systems · Observability · Human review",
+    summary:
+      "A redacted observability dashboard concept for understanding AI agent runs beyond the final answer: steps, events, tool usage, retries, failures, latency, reliability signals and human-review states.",
+    description:
+      "AI Agent Observability Dashboard explores how agentic systems can become more understandable and accountable when every run is represented as a reviewable execution story instead of a black-box response.",
+    status: "Public-safe case study with redacted dashboard evidence",
+    role: "Product and systems design: observability model, dashboard narrative, reliability signals, human-review boundaries and public-safe documentation.",
+    stack: ["AI agents", "Observability", "Event traces", "Tool usage", "Reliability signals", "Human review", "Redacted dashboards"],
+    highlights: ["Run-level traces", "Tool/event visibility", "Reliability vs execution", "Human review", "Public-safe evidence"],
+    flow: ["Task", "Agent run", "Events", "Tool usage", "Retries/errors", "Reliability signals", "Human review", "Summary"],
+    gallery: [
+      {
+        src: "/images/projects/ai-agent-observability-dashboard/observability-dashboard-redacted-v1.png",
+        alt: "Redacted AI agent observability dashboard showing public-safe run and reliability signals",
+        caption:
+          "Public-safe dashboard evidence: the interface communicates recent runs, states, events, warnings, latency and review points without publishing real traces, prompts, payloads, endpoints or sensitive IDs.",
+      },
+      {
+        src: "/images/projects/ai-agent-observability-dashboard/ai-agent-observability-architecture-v1.svg",
+        alt: "AI agent observability architecture diagram with redacted public-safe telemetry flow",
+        caption:
+          "Architecture view: agent activity is converted into safe, reviewable telemetry so engineers can understand behavior without exposing private operational data.",
+      },
+    ],
+    sections: {
+      problem: {
+        title: "Problem",
+        body: "AI agents can appear successful while hiding important intermediate behavior. A final response does not show which tools were used, where retries happened, whether warnings appeared, or whether a person should review the result before trusting it.",
+        bullets: [
+          "Logs alone answer what happened, but often not why the agent behaved that way.",
+          "A success state can still include weak signals such as excessive retries, missing validation or low-confidence output.",
+          "Observability dashboards can become risky if they expose prompts, payloads, customer data, endpoints or secrets.",
+        ],
+      },
+      solution: {
+        title: "Solution",
+        body: "I shaped the project as a dashboard for public-safe agent observability. It organizes runs, events, tool usage, warnings, errors, retries, duration, summaries and review states so a developer can inspect the execution story without needing sensitive raw traces.",
+      },
+      architecture: {
+        title: "Architecture / flow",
+        body: "The model treats each run as a sequence of inspectable events. Agent tasks produce step-level telemetry, tool calls, warnings, error categories and review flags; the dashboard turns those signals into a timeline and aggregate reliability view.",
+        bullets: [
+          "Execution status and reliability signals are separate concepts.",
+          "Human review is modeled as a normal lifecycle state, not only as an emergency fallback.",
+          "Public visuals are redacted by design and avoid private traces, prompts, payloads, endpoints and identifiers.",
+        ],
+      },
+      challenges: {
+        title: "Technical challenges",
+        body: "The main challenge is showing enough context to debug and improve an agent without turning the dashboard into a sensitive-data leak. Useful observability needs clear summaries, categories and trace structure, not unrestricted raw data exposure.",
+      },
+      decisions: {
+        title: "Important decisions",
+        body: "I kept the case study focused on operability and safety. The portfolio story emphasizes run-level visibility, reliability signals and human review while intentionally avoiding real client names, payloads, traces, prompts, endpoints, secrets and sensitive IDs.",
+      },
+      result: {
+        title: "Result / current state",
+        body: "The project now has a standalone public case study with redacted dashboard and architecture visuals. It demonstrates a serious product-infrastructure mindset for AI systems without claiming access to private production telemetry or exposing internal details.",
+      },
+      learnings: {
+        title: "What I learned",
+        body: "Observability for AI agents is not just logging. A useful system must explain the run story, separate completion from trustworthiness, surface human-review points and protect sensitive context from the first layer of documentation.",
+      },
+      nextSteps: {
+        title: "Next steps",
+        body: "Continue refining the signal taxonomy, reliability summaries and safe redaction model so the dashboard can communicate useful operations evidence without encouraging over-collection or public exposure of sensitive traces.",
+      },
+    },
+  },
+  {
+    slug: "ai-codebase-explainer",
+    title: "AI Codebase Explainer",
+    eyebrow: "Developer tools · AI · Issue triage",
+    summary:
+      "An AI engineering assistant for turning a public or demo repository into a first-pass technical brief: stack signals, architecture explanation, important files, risks, exports and reviewable issue suggestions.",
+    description:
+      "AI Codebase Explainer is designed to help engineers understand unfamiliar repositories faster while keeping claims bounded to visible static evidence and human-reviewed interpretation.",
+    status: "MVP-style project with explicit static-analysis limits",
+    role: "Product and engineering design: repository-analysis pipeline, AI boundaries, dashboard narrative, issue-triage workflow, redaction and public-safe case-study writing.",
+    stack: ["Static analysis", "Repository scanning", "AI summaries", "Issue triage", "Architecture maps", "Exports", "Optional observability"],
+    highlights: ["Static-first pipeline", "Bounded AI context", "Architecture brief", "Suggested issues", "Runtime limits stated clearly"],
+    flow: ["Repository", "Static scan", "Stack signals", "Important files", "AI summary", "Issue suggestions", "Human review", "Export"],
+    gallery: [
+      {
+        src: "/images/projects/ai-codebase-explainer/codebase-explainer-dashboard-redacted-v1.jpeg",
+        alt: "Redacted AI codebase explainer dashboard showing repository summary and triage areas",
+        caption:
+          "Public-safe dashboard evidence: a repository explanation interface that prioritizes summary, structure, important files, issue suggestions and bounded questions over open-ended certainty.",
+      },
+      {
+        src: "/images/projects/ai-codebase-explainer/ai-codebase-explainer-architecture-v1.svg",
+        alt: "AI codebase explainer architecture diagram showing static repository analysis and bounded AI explanation flow",
+        caption:
+          "Architecture view: repository structure is scanned and filtered first, then bounded context supports explanations, issue suggestions and optional non-blocking observability traces.",
+      },
+    ],
+    sections: {
+      problem: {
+        title: "Problem",
+        body: "Understanding an unfamiliar repository takes time because important signals are distributed across manifests, folders, entry points, docs, tests, deployment files and conventions. A generic chatbot can miss that structure or invent confidence when context is weak.",
+        bullets: [
+          "Developers need a first map before making architecture or maintenance decisions.",
+          "Repository health signals should be grounded in visible files, not vibes.",
+          "Generated issue suggestions need human review before becoming project commitments.",
+        ],
+      },
+      solution: {
+        title: "Solution",
+        body: "I designed the explainer around a static-first analysis pipeline. The system scans repository structure, detects stack signals, filters heavy/generated folders, bounds source context and then uses AI to produce a readable technical brief, architecture notes, important-file views and suggested issues.",
+      },
+      architecture: {
+        title: "Architecture / flow",
+        body: "The flow starts with a public or demo repository and performs static scanning only. It does not install dependencies, execute the code, run tests or inspect private infrastructure. AI output is constrained by retrieved context, deterministic findings and redaction rules.",
+        bullets: [
+          "Static scanning reduces risk and keeps the project honest about what it can prove.",
+          "Secret-like content should be redacted before persistence, prompts, exports or telemetry.",
+          "Optional observability can connect to the companion dashboard without becoming a hard runtime dependency.",
+        ],
+      },
+      challenges: {
+        title: "Technical challenges",
+        body: "The key challenge is avoiding shallow or invented answers. Static analysis can identify structure and risk indicators, but it cannot fully verify runtime behavior, production incidents, security posture or business context by itself.",
+      },
+      decisions: {
+        title: "Important decisions",
+        body: "I kept the public language intentionally bounded. The project is presented as a first-pass engineering brief and triage assistant, not as a final security audit, runtime verifier or replacement for experienced maintainers.",
+      },
+      result: {
+        title: "Result / current state",
+        body: "The project now has a standalone case study, real redacted visuals and clearer maturity language. It communicates practical AI developer tooling while being honest that outputs must be reviewed and that static evidence cannot prove everything about a system.",
+      },
+      learnings: {
+        title: "What I learned",
+        body: "Useful codebase explanation requires a pipeline, not just a prompt. The strongest results come from combining deterministic scanning, bounded context, file-grounded explanations, clear uncertainty and human review of suggested issues.",
+      },
+      nextSteps: {
+        title: "Next steps",
+        body: "Refine the file-grounding, export story, issue review workflow and observability integration while preserving the public promise: helpful first-pass understanding, not overstated runtime or security guarantees.",
+      },
+    },
+  },
+  {
     slug: "visual-runner-server",
     title: "Visual Runner Server",
     eyebrow: "Infrastructure · Browser validation",

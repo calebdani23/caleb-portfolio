@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">AI Agent Observability Dashboard architecture</title>
+  <desc id="desc">Redacted architecture diagram showing inputs, agent runs, events, failures, retries, human review, trace storage and dashboard views using demo-friendly labels only.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#08111f"/>
+      <stop offset="45%" stop-color="#0d1830"/>
+      <stop offset="100%" stop-color="#101827"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#14233d"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#14b8a6"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#6366f1"/>
+    </linearGradient>
+    <linearGradient id="amber" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+    <linearGradient id="red" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fb7185"/>
+      <stop offset="100%" stop-color="#ef4444"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000000" flood-opacity="0.30"/>
+    </filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#7dd3fc"/>
+    </marker>
+    <marker id="arrowAmber" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#fbbf24"/>
+    </marker>
+    <style>
+      .title { font: 700 42px Inter, Segoe UI, Arial, sans-serif; fill: #f8fafc; }
+      .subtitle { font: 400 18px Inter, Segoe UI, Arial, sans-serif; fill: #94a3b8; }
+      .label { font: 700 20px Inter, Segoe UI, Arial, sans-serif; fill: #f8fafc; }
+      .small { font: 500 14px Inter, Segoe UI, Arial, sans-serif; fill: #cbd5e1; }
+      .tiny { font: 500 12px Inter, Segoe UI, Arial, sans-serif; fill: #94a3b8; }
+      .pill { font: 700 12px Inter, Segoe UI, Arial, sans-serif; fill: #e2e8f0; letter-spacing: .05em; }
+      .card { fill: url(#card); stroke: #263654; stroke-width: 1.2; filter: url(#shadow); }
+      .soft { fill: #0b1220; stroke: #263654; stroke-width: 1; }
+      .line { stroke: #7dd3fc; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .line2 { stroke: #fbbf24; stroke-width: 3; fill: none; marker-end: url(#arrowAmber); stroke-dasharray: 9 8; }
+      .mutedLine { stroke: #334155; stroke-width: 2; fill: none; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <circle cx="1390" cy="110" r="220" fill="#2563eb" opacity="0.12"/>
+  <circle cx="130" cy="830" r="260" fill="#14b8a6" opacity="0.09"/>
+
+  <text x="80" y="82" class="title">AI Agent Observability Dashboard — Architecture v1</text>
+  <text x="80" y="116" class="subtitle">Reference based on the public GitHub Pages app and demo telemetry. Redacted: no secrets, internal endpoints, private payloads or client/project names.</text>
+
+  <!-- Left Inputs -->
+  <rect x="80" y="190" width="270" height="250" rx="28" class="card"/>
+  <rect x="110" y="220" width="106" height="28" rx="14" fill="#1e293b" stroke="#334155"/>
+  <text x="128" y="240" class="pill">INPUTS</text>
+  <text x="110" y="285" class="label">Tasks &amp; user intent</text>
+  <text x="110" y="322" class="small">• User requests</text>
+  <text x="110" y="352" class="small">• Scheduled jobs</text>
+  <text x="110" y="382" class="small">• Review actions</text>
+  <text x="110" y="412" class="small">• Demo prompts</text>
+
+  <rect x="80" y="520" width="270" height="220" rx="28" class="card"/>
+  <rect x="110" y="550" width="135" height="28" rx="14" fill="#1e293b" stroke="#334155"/>
+  <text x="128" y="570" class="pill">DEMO AGENTS</text>
+  <text x="110" y="615" class="small">travel-planning-agent</text>
+  <text x="110" y="650" class="small">code-review-agent</text>
+  <text x="110" y="685" class="small">customer-support-agent</text>
+  <text x="110" y="720" class="tiny">Synthetic demo runs only</text>
+
+  <!-- Agent Run Engine -->
+  <rect x="460" y="190" width="360" height="550" rx="32" class="card"/>
+  <rect x="500" y="225" width="118" height="30" rx="15" fill="url(#blue)" opacity="0.92"/>
+  <text x="520" y="246" class="pill">RUN ENGINE</text>
+  <text x="500" y="300" class="label">Agent run lifecycle</text>
+
+  <rect x="505" y="340" width="270" height="54" rx="18" class="soft"/>
+  <circle cx="535" cy="367" r="10" fill="url(#green)"/>
+  <text x="560" y="372" class="small">Run created</text>
+
+  <line x1="535" y1="400" x2="535" y2="430" class="mutedLine"/>
+  <rect x="505" y="435" width="270" height="54" rx="18" class="soft"/>
+  <circle cx="535" cy="462" r="10" fill="#38bdf8"/>
+  <text x="560" y="467" class="small">Steps executed</text>
+
+  <line x1="535" y1="495" x2="535" y2="525" class="mutedLine"/>
+  <rect x="505" y="530" width="270" height="54" rx="18" class="soft"/>
+  <circle cx="535" cy="557" r="10" fill="#a78bfa"/>
+  <text x="560" y="562" class="small">Tools called</text>
+
+  <line x1="535" y1="590" x2="535" y2="620" class="mutedLine"/>
+  <rect x="505" y="625" width="270" height="54" rx="18" class="soft"/>
+  <circle cx="535" cy="652" r="10" fill="url(#amber)"/>
+  <text x="560" y="657" class="small">Failure / retry path</text>
+
+  <text x="500" y="715" class="tiny">Run states: success · warning · error</text>
+
+  <!-- Events -->
+  <rect x="900" y="160" width="290" height="260" rx="28" class="card"/>
+  <rect x="930" y="190" width="125" height="28" rx="14" fill="#1e293b" stroke="#334155"/>
+  <text x="948" y="210" class="pill">EVENTS</text>
+  <text x="930" y="255" class="label">Logs &amp; signals</text>
+  <text x="930" y="292" class="small">• LLM call step</text>
+  <text x="930" y="322" class="small">• Tool call result</text>
+  <text x="930" y="352" class="small">• Latency signal</text>
+  <text x="930" y="382" class="small">• Error category</text>
+
+  <rect x="900" y="480" width="290" height="260" rx="28" class="card"/>
+  <rect x="930" y="510" width="175" height="28" rx="14" fill="url(#amber)" opacity="0.92"/>
+  <text x="948" y="530" class="pill">HUMAN REVIEW</text>
+  <text x="930" y="575" class="label">Review checkpoints</text>
+  <text x="930" y="612" class="small">• Warnings</text>
+  <text x="930" y="642" class="small">• Policy escalation</text>
+  <text x="930" y="672" class="small">• Retry exhausted</text>
+  <text x="930" y="702" class="small">• Manual resolution</text>
+
+  <!-- Storage / Processing -->
+  <rect x="1260" y="190" width="260" height="550" rx="32" class="card"/>
+  <rect x="1290" y="225" width="165" height="30" rx="15" fill="#1e293b" stroke="#334155"/>
+  <text x="1308" y="246" class="pill">TRACE STORE</text>
+  <text x="1290" y="300" class="label">Summaries &amp; metrics</text>
+  <text x="1290" y="338" class="small">• Redacted traces</text>
+  <text x="1290" y="368" class="small">• Run summaries</text>
+  <text x="1290" y="398" class="small">• Status totals</text>
+  <text x="1290" y="428" class="small">• Tool usage</text>
+  <text x="1290" y="458" class="small">• Error categories</text>
+
+  <rect x="1290" y="520" width="190" height="120" rx="22" fill="#0b1220" stroke="#263654"/>
+  <text x="1315" y="558" class="small">Postgres-backed</text>
+  <text x="1315" y="588" class="small">FastAPI metrics</text>
+  <text x="1315" y="618" class="small">Static React UI</text>
+
+  <!-- Dashboard -->
+  <rect x="460" y="815" width="1060" height="120" rx="30" class="card"/>
+  <rect x="500" y="845" width="135" height="28" rx="14" fill="url(#green)" opacity="0.92"/>
+  <text x="520" y="865" class="pill">DASHBOARD</text>
+  <text x="665" y="865" class="label">Final panel: Dashboard · Traces · OpenAI Run · Analytics</text>
+  <text x="665" y="900" class="small">Shows demo runs, statuses, warnings/errors, trace timelines, prompt inspector, tool activity and aggregate metrics.</text>
+
+  <!-- Arrows -->
+  <path d="M350 315 C395 315 410 315 455 315" class="line"/>
+  <path d="M350 630 C405 630 405 555 455 555" class="line"/>
+  <path d="M820 370 C850 350 865 315 895 295" class="line"/>
+  <path d="M820 650 C850 650 865 620 895 610" class="line2"/>
+  <path d="M1190 290 C1218 290 1228 300 1255 315" class="line"/>
+  <path d="M1190 610 C1218 610 1228 580 1255 550" class="line2"/>
+  <path d="M1390 740 C1390 790 1180 815 1000 815" class="line"/>
+  <path d="M640 740 C640 790 690 808 760 815" class="line"/>
+
+  <!-- Redaction footer -->
+  <rect x="80" y="880" width="270" height="55" rx="18" fill="#0f172a" stroke="#334155"/>
+  <text x="105" y="905" class="tiny">Public-safe artifact</text>
+  <text x="105" y="925" class="tiny">No secrets · no internal endpoints · no payloads</text>
+</svg>

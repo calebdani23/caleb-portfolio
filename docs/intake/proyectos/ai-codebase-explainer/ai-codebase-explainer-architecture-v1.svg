@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980" role="img" aria-labelledby="title desc">
+<title id="title">AI Codebase Explainer Architecture</title>
+<desc id="desc">Redacted architecture diagram for AI Codebase Explainer showing repository input, static analysis pipeline, output layers and user interface.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#020617"/>
+    <stop offset="0.55" stop-color="#0f172a"/>
+    <stop offset="1" stop-color="#111827"/>
+  </linearGradient>
+  <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#111827"/>
+    <stop offset="1" stop-color="#1e293b"/>
+  </linearGradient>
+  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#38bdf8"/>
+    <stop offset="1" stop-color="#8b5cf6"/>
+  </linearGradient>
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+    <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000000" flood-opacity="0.35"/>
+  </filter>
+  <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+    <path d="M2,2 L10,6 L2,10 Z" fill="#64748b"/>
+  </marker>
+</defs>
+
+<rect width="1600" height="980" fill="url(#bg)"/>
+<circle cx="1350" cy="130" r="260" fill="#2563eb" opacity="0.08"/>
+<circle cx="190" cy="810" r="290" fill="#7c3aed" opacity="0.08"/>
+
+<text x="80" y="70" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="800" fill="#f8fafc">AI Codebase Explainer &amp; Issue Triage</text>
+<text x="80" y="104" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="400" fill="#94a3b8">Redacted public architecture: static repository analysis, grounded summaries, issue triage and safe UI output.</text>
+
+<!-- Top safety badges -->
+<rect x="1080" y="52" width="147" height="30" rx="15" fill="#172554" stroke="#1d4ed8" stroke-width="1" opacity="1"/><text x="1153.5" y="72" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600" fill="#bfdbfe">Public repos only</text>
+<rect x="1225" y="52" width="110" height="30" rx="15" fill="#172554" stroke="#1d4ed8" stroke-width="1" opacity="1"/><text x="1280.0" y="72" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600" fill="#bfdbfe">Static scan</text>
+<rect x="1355" y="52" width="140" height="30" rx="15" fill="#172554" stroke="#1d4ed8" stroke-width="1" opacity="1"/><text x="1425.0" y="72" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600" fill="#bfdbfe">Secret redaction</text>
+
+<!-- Input section -->
+<rect x="70" y="170" width="290" height="170" rx="24" fill="url(#panel)" stroke="#334155" stroke-width="1.5" opacity="1"/>
+<text x="215" y="205" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="800" fill="#f8fafc">1. Repository Input</text>
+<text x="215" y="236" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="400" fill="#cbd5e1">Public GitHub URL or</text>
+<text x="215" y="254" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="400" fill="#cbd5e1">deterministic demo repository.</text>
+<text x="215" y="272" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="400" fill="#cbd5e1">No private repo names or</text>
+<text x="215" y="290" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="400" fill="#cbd5e1">sensitive code included.</text>
+<rect x="105" y="292" width="110" height="30" rx="15" fill="#0f172a" stroke="#334155" stroke-width="1" opacity="1"/><text x="160.0" y="312" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600" fill="#cbd5e1">GitHub URL</text>
+<rect x="232" y="292" width="110" height="30" rx="15" fill="#0f172a" stroke="#334155" stroke-width="1" opacity="1"/><text x="287.0" y="312" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600" fill="#cbd5e1">Demo repo</text>
+
+<!-- Frontend -->
+<rect x="70" y="420" width="290" height="230" rx="24" fill="#08111f" stroke="#1e40af" stroke-width="1.5" opacity="1"/>
+<text x="215" y="455" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="800" fill="#dbeafe">GitHub Pages Interface</text>
+<text x="215" y="486" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="400" fill="#bfdbfe">Landing, repository intake,</text>
+<text x="215" y="504" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="400" fill="#bfdbfe">analysis overview,</text>
+<text x="215" y="522" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="400" fill="#bfdbfe">architecture explorer, issue</text>
+<text x="215" y="540" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="400" fill="#bfdbfe">table and Ask your codebase</text>
+<text x="215" y="558" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="400" fill="#bfdbfe">area.</text>
+<rect x="105" y="570" width="119" height="30" rx="15" fill="#0f172a" stroke="#1e40af" stroke-width="1" opacity="1"/><text x="164.5" y="590" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600" fill="#bfdbfe">Summary panel</text>
+<rect x="238" y="570" width="110" height="30" rx="15" fill="#0f172a" stroke="#1e40af" stroke-width="1" opacity="1"/><text x="293.0" y="590" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600" fill="#bfdbfe">Chat UI</text>
+<rect x="105" y="610" width="110" height="30" rx="15" fill="#0f172a" stroke="#1e40af" stroke-width="1" opacity="1"/><text x="160.0" y="630" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600" fill="#bfdbfe">Exports</text>
+
+<!-- Backend pipeline -->
+<rect x="455" y="160" width="690" height="520" rx="28" fill="#0b1220" stroke="#475569" stroke-width="1.7" opacity="1"/>
+<text x="800" y="200" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800" fill="#f8fafc">2. Backend Analysis Pipeline</text>
+
+<rect x="500" y="245" width="180" height="115" rx="18" fill="#172033" stroke="#334155" stroke-width="1.2" opacity="1"/>
+<text x="590" y="275" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800" fill="#f8fafc">Parser</text>
+<text x="590" y="302" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">Download public ZIP</text>
+<text x="590" y="320" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">or load demo input.</text>
+
+<rect x="720" y="245" width="180" height="115" rx="18" fill="#172033" stroke="#334155" stroke-width="1.2" opacity="1"/>
+<text x="810" y="275" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800" fill="#f8fafc">Indexing</text>
+<text x="810" y="302" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">Filter files, chunk</text>
+<text x="810" y="320" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">text and map paths.</text>
+
+<rect x="940" y="245" width="165" height="115" rx="18" fill="#172033" stroke="#334155" stroke-width="1.2" opacity="1"/>
+<text x="1022" y="275" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800" fill="#f8fafc">Redaction</text>
+<text x="1022" y="302" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">Remove secret-like</text>
+<text x="1022" y="320" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">content before</text>
+<text x="1022" y="338" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">storage or AI.</text>
+
+<path d="M 680 302 L 720 302" stroke="#64748b" stroke-width="2.2" fill="none" marker-end="url(#arrow)"/>
+<path d="M 900 302 L 940 302" stroke="#64748b" stroke-width="2.2" fill="none" marker-end="url(#arrow)"/>
+
+<rect x="500" y="420" width="180" height="125" rx="18" fill="#13251d" stroke="#16a34a" stroke-width="1.2" opacity="1"/>
+<text x="590" y="450" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800" fill="#dcfce7">Stack Detection</text>
+<text x="590" y="480" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="400" fill="#bbf7d0">Languages,</text>
+<text x="590" y="498" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="400" fill="#bbf7d0">frameworks,</text>
+<text x="590" y="516" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="400" fill="#bbf7d0">manifests, CI and</text>
+<text x="590" y="534" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="400" fill="#bbf7d0">deployment signals.</text>
+
+<rect x="720" y="420" width="180" height="125" rx="18" fill="#13251d" stroke="#16a34a" stroke-width="1.2" opacity="1"/>
+<text x="810" y="450" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800" fill="#dcfce7">Architecture Map</text>
+<text x="810" y="480" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="400" fill="#bbf7d0">Entry points,</text>
+<text x="810" y="498" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="400" fill="#bbf7d0">modules, folders and</text>
+<text x="810" y="516" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="400" fill="#bbf7d0">likely</text>
+<text x="810" y="534" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="400" fill="#bbf7d0">responsibilities.</text>
+
+<rect x="940" y="420" width="165" height="125" rx="18" fill="#13251d" stroke="#16a34a" stroke-width="1.2" opacity="1"/>
+<text x="1022" y="450" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800" fill="#dcfce7">Issue Triage</text>
+<text x="1022" y="480" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="400" fill="#bbf7d0">Risks, confidence,</text>
+<text x="1022" y="498" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="400" fill="#bbf7d0">severity, effort</text>
+<text x="1022" y="516" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="400" fill="#bbf7d0">and copy-ready</text>
+<text x="1022" y="534" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="400" fill="#bbf7d0">issues.</text>
+
+<path d="M 590 360 L 590 420" stroke="#64748b" stroke-width="2.2" fill="none" marker-end="url(#arrow)"/>
+<path d="M 810 360 L 810 420" stroke="#64748b" stroke-width="2.2" fill="none" marker-end="url(#arrow)"/>
+<path d="M 1022 360 L 1022 420" stroke="#64748b" stroke-width="2.2" fill="none" marker-end="url(#arrow)"/>
+<path d="M 680 482 L 720 482" stroke="#64748b" stroke-width="2.2" fill="none" marker-end="url(#arrow)"/>
+<path d="M 900 482 L 940 482" stroke="#64748b" stroke-width="2.2" fill="none" marker-end="url(#arrow)"/>
+
+<rect x="595" y="585" width="410" height="55" rx="18" fill="#1e1b4b" stroke="#6366f1" stroke-width="1.2" opacity="1"/>
+<text x="800" y="620" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800" fill="#e0e7ff">Persisted bounded analysis context</text>
+
+<!-- Output layers -->
+<rect x="1240" y="170" width="290" height="420" rx="24" fill="url(#panel)" stroke="#334155" stroke-width="1.5" opacity="1"/>
+<text x="1385" y="205" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800" fill="#f8fafc">3. Output Layers</text>
+<text x="1385" y="238" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="400" fill="#cbd5e1">The UI shows useful</text>
+<text x="1385" y="256" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="400" fill="#cbd5e1">engineering explanations</text>
+<text x="1385" y="274" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="400" fill="#cbd5e1">without exposing private</text>
+<text x="1385" y="292" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="400" fill="#cbd5e1">payloads.</text>
+<rect x="1275" y="295" width="220" height="46" rx="13" fill="#0f172a" stroke="#334155" stroke-width="1" opacity="1"/>
+<text x="1385" y="324" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#e5e7eb">High-level summary</text>
+<rect x="1275" y="355" width="220" height="46" rx="13" fill="#0f172a" stroke="#334155" stroke-width="1" opacity="1"/>
+<text x="1385" y="384" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#e5e7eb">File/module relationships</text>
+<rect x="1275" y="415" width="220" height="46" rx="13" fill="#0f172a" stroke="#334155" stroke-width="1" opacity="1"/>
+<text x="1385" y="444" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#e5e7eb">Onboarding explanation</text>
+<rect x="1275" y="475" width="220" height="46" rx="13" fill="#0f172a" stroke="#334155" stroke-width="1" opacity="1"/>
+<text x="1385" y="504" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#e5e7eb">Grounded answer generation</text>
+
+<!-- Ask your codebase -->
+<rect x="1240" y="650" width="290" height="180" rx="24" fill="#1b1230" stroke="#7c3aed" stroke-width="1.5" opacity="1"/>
+<text x="1385" y="685" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="800" fill="#ede9fe">Ask Your Codebase</text>
+<text x="1385" y="718" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="400" fill="#ddd6fe">Questions are answered from</text>
+<text x="1385" y="736" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="400" fill="#ddd6fe">bounded retrieved context with</text>
+<text x="1385" y="754" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="400" fill="#ddd6fe">related files and safe</text>
+<text x="1385" y="772" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="400" fill="#ddd6fe">summaries.</text>
+<rect x="1280" y="782" width="119" height="30" rx="15" fill="#2e1065" stroke="#7c3aed" stroke-width="1" opacity="1"/><text x="1339.5" y="802" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600" fill="#ede9fe">Related files</text>
+<rect x="1412" y="782" width="110" height="30" rx="15" fill="#2e1065" stroke="#7c3aed" stroke-width="1" opacity="1"/><text x="1467.0" y="802" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600" fill="#ede9fe">Safe answer</text>
+
+<!-- Observability side -->
+<rect x="455" y="745" width="690" height="145" rx="24" fill="#141421" stroke="#64748b" stroke-width="1.5" opacity="1"/>
+<text x="800" y="780" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="800" fill="#f8fafc">Optional Observability Bridge</text>
+<text x="800" y="812" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="400" fill="#cbd5e1">Analysis and chat can emit non-blocking traces to the companion AI Agent</text>
+<text x="800" y="830" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="400" fill="#cbd5e1">Observability Dashboard: status, stages, latency and safe metadata only.</text>
+<rect x="530" y="850" width="154" height="30" rx="15" fill="#0f172a" stroke="#334155" stroke-width="1" opacity="1"/><text x="607.0" y="870" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600" fill="#cbd5e1">analyze_repository</text>
+<rect x="700" y="850" width="112" height="30" rx="15" fill="#0f172a" stroke="#334155" stroke-width="1" opacity="1"/><text x="756.0" y="870" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600" fill="#cbd5e1">issue_triage</text>
+<rect x="830" y="850" width="112" height="30" rx="15" fill="#0f172a" stroke="#334155" stroke-width="1" opacity="1"/><text x="886.0" y="870" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600" fill="#cbd5e1">ask_codebase</text>
+<rect x="970" y="850" width="119" height="30" rx="15" fill="#0f172a" stroke="#334155" stroke-width="1" opacity="1"/><text x="1029.5" y="870" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600" fill="#cbd5e1">safe metadata</text>
+
+<!-- Arrows -->
+<path d="M 360 255 L 455 295" stroke="#64748b" stroke-width="2.2" fill="none" marker-end="url(#arrow)"/>
+<path d="M 360 535 L 455 535" stroke="#64748b" stroke-width="2.2" fill="none" marker-end="url(#arrow)"/>
+<path d="M 1145 430 L 1240 380" stroke="#64748b" stroke-width="2.2" fill="none" marker-end="url(#arrow)"/>
+<path d="M 1145 520 L 1240 715" stroke="#64748b" stroke-width="2.2" fill="none" marker-end="url(#arrow)"/>
+<path d="M 800 680 L 800 745" stroke="#64748b" stroke-width="2.2" fill="none" marker-end="url(#arrow)" stroke-dasharray="8 8"/>
+
+<!-- Footer redaction note -->
+<rect x="70" y="875" width="290" height="60" rx="18" fill="#111827" stroke="#334155" stroke-width="1.2" opacity="0.95"/>
+<text x="215" y="900" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="800" fill="#f8fafc">Redacted for public sharing</text>
+<text x="215" y="922" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="400" fill="#94a3b8">No private repos, secrets, tokens or internal endpoints.</text>
+
+</svg>
