@@ -14,6 +14,11 @@ type Props = {
 const { caseStudy, previous, next } = Astro.props;
 const title = `${caseStudy.title} — Caleb Perez case study`;
 const isZalmarTravel = caseStudy.slug === "zalmar-travel";
+const externalProjectLinks: Record<string, string> = {
+  "ai-agent-observability-dashboard": "https://calebdani23.github.io/ai-agent-observability-dashboard/",
+  "ai-codebase-explainer": "https://calebdani23.github.io/caleb-portfolio/proyectos/ai-codebase-explainer/",
+};
+const liveProjectUrl = externalProjectLinks[caseStudy.slug];
 const usesIntegratedArchitectureBlock = [
   "ai-agent-observability-dashboard",
   "ai-codebase-explainer",
@@ -64,6 +69,17 @@ const sections = [
             <span class="rounded-full bg-cyan-300 px-3 py-1 text-xs font-bold text-slate-950">{caseStudy.status}</span>
           </div>
           <p class="mt-5 text-sm leading-6 text-slate-300">{caseStudy.summary}</p>
+          {liveProjectUrl && (
+            <a
+              href={liveProjectUrl}
+              target="_blank"
+              rel="noreferrer"
+              class="btn-primary mt-6 inline-flex items-center gap-2 px-5 py-3 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300"
+              aria-label={`Open live page for ${caseStudy.title}`}
+            >
+              Open live page <span aria-hidden="true">↗</span>
+            </a>
+          )}
           <div class="mt-6 flex flex-wrap gap-2">
             {caseStudy.highlights.map((highlight) => (
               <span class="rounded-full border border-white/10 bg-white/[0.05] px-3 py-1 text-xs text-slate-200">{highlight}</span>
