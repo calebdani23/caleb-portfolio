@@ -40,15 +40,15 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "zalmar-travel",
     title: "Zalmar Travel",
-    eyebrow: "Main project · AI travel orchestration · Booking UX",
+    eyebrow: "Main project · AI-first travel platform · Plan-first product",
     summary:
-      "Plan-first travel platform in development: search opens the journey, while the product value lives in the workspace that organizes quotes, booking readiness, payment and reservation follow-up across providers.",
+      "AI-first, plan-first travel platform in development: search opens the journey, while the product value lives in a shared plan and workspace designed so AI can read real trip context clearly and help coordinate quotes, booking readiness, payment and reservation follow-up across providers.",
     description:
-      "Zalmar Travel is my main product: a serious attempt to turn the operational complexity of multi-service travel into a clear, trustworthy journey for discovering, comparing, preparing booking and managing reservations.",
+      "Zalmar Travel is my main product: an AI-powered travel system built so the full experience is AI-friendly by design, while still allowing the user to move through the journey manually whenever they prefer.",
     status: "In development",
-    role: "Product builder: product architecture, UX/UI, booking flows, API integration and AI automation.",
+    role: "Product builder: AI-first product architecture, UX/UI, booking flows, API integration and automation design.",
     stack: ["Astro/React", "TypeScript", "FastAPI", "Hotelbeds", "Duffel", "OpenAI", "Tailwind CSS"],
-    highlights: ["Plan-first product", "Search as entry", "Workspace", "Quote to reservation", "Provider-aware UX"],
+    highlights: ["AI-first system", "Plan-first product", "Search as entry", "Shared workspace", "Quote to reservation", "Provider-aware UX"],
     flow: ["Search", "Plan", "Workspace", "Quote", "Booking readiness", "Payment", "Reservation"],
     brandImage: "/images/projects/zalmar-travel/zalmar-logo-fuerte.svg",
     brandAlt: "Zalmar Travel logo",
@@ -72,17 +72,17 @@ export const caseStudies: CaseStudy[] = [
     sections: {
       problem: {
           title: "Problem",
-        body: "Booking a complete trip means comparing providers, coordinating availability, handling changes and preserving context. Many tools split each piece apart and force people to work across tabs, notes and scattered decisions.",
-        bullets: ["The user needs clarity before booking.", "Search is useful, but it is only the entry point into the real travel decision.", "Operations need traceability from quote and readiness to booking and reservation follow-up.", "AI should help without hiding critical decisions."],
+        body: "Booking a complete trip means comparing providers, coordinating availability, handling changes and preserving context. Many tools split each piece apart, making it hard for both people and AI systems to understand the real trip state from one place.",
+        bullets: ["The user needs clarity before booking.", "Search is useful, but it is only the entry point into the real travel decision.", "Operations need traceability from quote and readiness to booking and reservation follow-up.", "AI should help with real context instead of guessing across fragmented screens and flows."],
       },
       solution: {
            title: "Solution",
-        body: "I designed Zalmar around a plan-first workspace: search feeds the plan, quotes compare alternatives, service-level booking screens prepare provider-specific requirements, and the consolidated booking flow moves the user toward one payment and a unified reservation view. The current MVP is intentionally written in Spanish because it is Caleb's primary language for fast product iteration and technical validation.",
+        body: "I designed Zalmar around a plan-first workspace: search feeds the plan, quotes compare alternatives, service-level booking screens prepare provider-specific requirements, and the consolidated booking flow moves the user toward one payment and a unified reservation view. The system is AI-first because the plan, workspace and booking states are structured so AI can read real context clearly and assist meaningfully, while the same journey can still be handled manually if the user prefers. The current MVP is intentionally written in Spanish because it is Caleb's primary language for fast product iteration and technical validation.",
       },
       architecture: {
-          title: "Architecture / flow",
-        body: "The flow separates experience, orchestration and providers inside the Zalmar product. The interface guides the plan; the API layer normalizes service differences; providers such as Hotelbeds and Duffel supply availability; and agents work against the plan context without replacing reviewable transactional actions.",
-        bullets: ["The plan is the central entity.", "Services are grouped by trip stage across flights, hotels, activities and transfers.", "The workspace connects cart, quote comparison, booking readiness and reservations.", "Provider differences are absorbed into one journey instead of pretending every supplier has the same lifecycle."],
+           title: "Architecture / flow",
+        body: "The flow separates experience, orchestration and providers inside the Zalmar product. The interface guides the plan; the API layer normalizes service differences; providers such as Hotelbeds and Duffel supply availability; and AI works against the same plan context without replacing reviewable transactional actions.",
+        bullets: ["The plan is the central entity.", "The system is structured so AI can read real trip context, states and next steps from one coherent source.", "Services are grouped by trip stage across flights, hotels, activities and transfers.", "The workspace connects cart, quote comparison, booking readiness and reservations.", "Provider differences are absorbed into one journey instead of pretending every supplier has the same lifecycle."],
       },
       challenges: {
           title: "Technical challenges",
@@ -90,19 +90,19 @@ export const caseStudies: CaseStudy[] = [
       },
       decisions: {
           title: "Important decisions",
-        body: "Keeping the plan as the core prevents flights, hotels, activities and transfers from becoming isolated checkouts. Search remains the start of the journey; the workspace, quotes, booking readiness and reservation follow-up are where the product earns trust.",
+        body: "Keeping the plan as the core prevents flights, hotels, activities and transfers from becoming isolated checkouts. Search remains the start of the journey; the workspace, quotes, booking readiness and reservation follow-up are where the product earns trust. This also makes Zalmar AI-friendly by design, because the system keeps context readable for AI assistance without forcing the user to surrender manual control.",
       },
       result: {
-            title: "Result / current state",
-          body: "Product in development with orchestration and booking UX treated as Zalmar capabilities, not separate portfolio projects. Current Spanish-language screens are MVP evidence for agile iteration; priority remains honest plan, quote, booking and reservation flows rather than overstated launch claims.",
+             title: "Result / current state",
+          body: "Product in development with orchestration, booking UX and AI assistance treated as integrated Zalmar capabilities, not separate portfolio projects. Current Spanish-language screens are MVP evidence for agile iteration; priority remains an honest AI-first, plan-first system where users can move with AI support or manually through the same trusted flow.",
       },
       learnings: {
-          title: "What I learned",
-        body: "Travel tech requires thinking about product, operations, orchestration and trust at the same time. A polished search flow is not enough if the system does not explain readiness, availability, restrictions, price, provider state and next steps.",
+           title: "What I learned",
+        body: "Travel tech requires thinking about product, operations, orchestration, AI context and trust at the same time. A polished search flow is not enough if the system does not explain readiness, availability, restrictions, price, provider state and next steps clearly enough for both users and AI assistance.",
       },
       nextSteps: {
-          title: "Next steps",
-        body: "Deepen integrations, clarify plan states, create navigable prototypes and keep orchestration/UX evidence consolidated under the Zalmar product story.",
+           title: "Next steps",
+        body: "Deepen integrations, clarify plan states, strengthen the AI-readable context model, create navigable prototypes and keep orchestration/UX evidence consolidated under the Zalmar product story.",
       },
     },
   },
