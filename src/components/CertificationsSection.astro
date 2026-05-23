@@ -122,6 +122,9 @@ const { certifications, recognitions } = Astro.props;
       <div class="mt-8 grid gap-5 md:grid-cols-3">
         {recognitions.map((recognition) => (
           <article class="section-reveal surface-soft p-5 transition hover:-translate-y-1 hover:border-cyan-300/25 hover:bg-white/[0.06]">
+            {recognition.image && (
+              <img src={withBase(recognition.image)} alt={recognition.imageAlt ?? recognition.title} loading="lazy" decoding="async" class="mb-5 aspect-[4/3] w-full rounded-2xl border border-white/10 bg-slate-950 object-cover" />
+            )}
             <p class="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-300">{recognition.context}</p>
             <h4 class="mt-3 text-xl font-semibold text-white">{recognition.title}</h4>
             <p class="mt-3 text-sm leading-6 text-slate-300">{recognition.description}</p>

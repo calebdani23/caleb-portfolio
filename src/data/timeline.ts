@@ -27,7 +27,7 @@ export const timelineItems: TimelineItem[] = [
     period: "IT & Digital Business",
     title: "Finding the right direction",
     description:
-      "Technology, software and digital systems became the direction where my curiosity and product mindset felt most aligned.",
+      "Technology, software, AI and digital systems became the direction where my curiosity and product mindset felt most aligned.",
   },
   {
     period: "Self-learning phase",
@@ -45,7 +45,7 @@ export const timelineItems: TimelineItem[] = [
     period: "New Zealand",
     title: "Independence and maturity",
     description:
-      "Living and working on my own, adapting from scratch and traveling across the country strengthened independence and resilience.",
+      "Living and working on my own, adapting from scratch and traveling across the country strengthened independence, resilience and entrepreneurial initiative.",
   },
   {
     period: "First ventures",
@@ -63,6 +63,6 @@ export const timelineItems: TimelineItem[] = [
     period: "Current stage",
     title: "Seeking higher challenge",
     description:
-      "I am looking for an environment with stronger entrepreneurial, AI and global product challenges while continuing to build practical evidence.",
+      "I am looking for an environment with stronger entrepreneurial, AI and global product challenges while continuing to build practical evidence instead of following a conventional path.",
   },
 ];
