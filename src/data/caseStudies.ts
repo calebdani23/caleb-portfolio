@@ -333,16 +333,16 @@ export const caseStudies: CaseStudy[] = [
     flow: ["Reused hardware", "Ubuntu Server", "Network setup", "CasaOS", "SMB shares", "Tailscale", "Family use"],
     gallery: [
       {
-        src: "/images/projects/family-home-server-private-cloud/family-home-server-architecture-v1.svg",
-        alt: "Public-safe family home server architecture diagram with no IPs, usernames, device names or sensitive paths",
-        caption:
-          "Redacted architecture view: family devices reach a reused laptop running Ubuntu Server, CasaOS and Docker-managed services, with storage exposed locally and remote access kept private through Tailscale.",
-      },
-      {
         src: "/images/projects/family-home-server-private-cloud/casaos-dashboard-redacted-v1.png",
         alt: "Redacted CasaOS dashboard screenshot for the family home server private cloud",
         caption:
           "Public-safe dashboard evidence: private names, IPs, device identifiers, paths and capacity details are intentionally removed while preserving the shape of the operational system.",
+      },
+      {
+        src: "/images/projects/family-home-server-private-cloud/family-home-server-architecture-v1.svg",
+        alt: "Public-safe family home server architecture diagram with no IPs, usernames, device names or sensitive paths",
+        caption:
+          "Redacted architecture view: family devices reach a reused laptop running Ubuntu Server, CasaOS and Docker-managed services, with storage exposed locally and remote access kept private through Tailscale.",
       },
     ],
     sections: {
