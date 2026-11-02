@@ -1,165 +1,43 @@
 ---
 import { withBase, withoutBase } from "../utils/paths";
-
 const isHome = withoutBase(Astro.url.pathname) === "/";
-const sectionHref = (hash: string) => (isHome ? hash : withBase(`/${hash}`));
+const sectionHref = (hash: string) => isHome ? hash : withBase(`/${hash}`);
 const links = [
-  { label: "About", href: sectionHref("#sobre-mi"), sectionId: "sobre-mi" },
-  { label: "Projects", href: sectionHref("#proyectos"), sectionId: "proyectos" },
-  { label: "Journey", href: sectionHref("#journey"), sectionId: "journey" },
-  { label: "Evidence", href: sectionHref("#certificados"), sectionId: "certificados" },
-  { label: "Sports", href: sectionHref("#trayectoria-deportiva"), sectionId: "trayectoria-deportiva" },
-  { label: "Stack", href: sectionHref("#stack"), sectionId: "stack" },
-  { label: "Contact", href: sectionHref("#contacto"), sectionId: "contacto" },
+  { label: "Now", id: "current-chapter" }, { label: "About", id: "sobre-mi" },
+  { label: "Ventures", id: "proyectos" }, { label: "Journey", id: "journey" },
+  { label: "Evidence", id: "certificados" }, { label: "Sports", id: "trayectoria-deportiva" },
+  { label: "Stack", id: "stack" }, { label: "Contact", id: "contacto" },
 ];
 ---
-
-<header class="fixed inset-x-0 top-0 z-50 border-b border-cyan-300/10 bg-[#06141b]/82 shadow-2xl shadow-black/20 backdrop-blur-2xl">
-  <div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-300/50 to-transparent"></div>
-  <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8 lg:px-10" aria-label="Primary">
-    <a href={sectionHref("#inicio")} class="group inline-flex items-center gap-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300" aria-label="Go to home">
-      <span class="grid size-9 place-items-center rounded-2xl border border-cyan-300/30 bg-cyan-300/10 text-sm font-bold text-cyan-200 shadow-lg shadow-cyan-950/30 transition duration-300 group-hover:scale-105 group-hover:border-cyan-200/60 group-hover:shadow-cyan-500/10">
-        CP
-      </span>
-      <span class="hidden text-sm font-semibold text-white sm:block">Caleb Perez</span>
-    </a>
-
-    <div class="hidden items-center gap-0.5 rounded-full border border-white/10 bg-white/[0.03] p-1 lg:flex">
-      {links.map((link) => (
-        <a href={link.href} data-nav-section={link.sectionId} class="nav-pill rounded-full px-3.5 py-2 text-sm text-slate-300 transition duration-300 hover:bg-white/10 hover:text-white hover:shadow-inner hover:shadow-cyan-300/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300">
-          {link.label}
-        </a>
-      ))}
-    </div>
-
-    <a href="mailto:calebdani@icloud.com" class="btn-primary px-4 py-2 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300">
-      Let’s talk
-    </a>
+<header class="fixed inset-x-0 top-0 z-50 border-b border-cyan-300/10 bg-[#06141b]/90 shadow-2xl shadow-black/20 backdrop-blur-2xl">
+  <nav class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 sm:px-8 lg:px-10" aria-label="Primary">
+    <a href={sectionHref("#inicio")} class="inline-flex items-center gap-3" aria-label="Caleb Perez — home"><span class="grid size-9 place-items-center rounded-2xl border border-cyan-300/30 bg-cyan-300/10 text-sm font-bold text-cyan-200">CP</span><span class="hidden text-sm font-semibold text-white sm:block">Caleb Perez</span></a>
+    <div class="hidden items-center gap-0.5 rounded-full border border-white/10 bg-white/[0.03] p-1 xl:flex">{links.map((link) => <a href={sectionHref(`#${link.id}`)} data-nav-section={link.id} class="nav-pill rounded-full px-3 py-2 text-sm text-slate-300 transition hover:bg-white/10 hover:text-white">{link.label}</a>)}</div>
+    <a href="mailto:calebdani@icloud.com" class="btn-primary shrink-0 px-4 py-2 text-sm">Let’s talk</a>
   </nav>
-
-  <div class="border-t border-white/5 px-5 pb-2 lg:hidden">
-    <div class="flex gap-2 overflow-x-auto pt-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" aria-label="Mobile navigation">
-      {links.map((link) => (
-        <a href={link.href} data-nav-section={link.sectionId} class="nav-pill-mobile shrink-0 rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-xs font-medium text-slate-300 transition hover:border-cyan-300/30 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300">
-          {link.label}
-        </a>
-      ))}
-    </div>
-  </div>
+  <nav class="border-t border-white/5 px-5 pb-2 xl:hidden" aria-label="Section navigation"><div class="flex gap-2 overflow-x-auto pt-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">{links.map((link) => <a href={sectionHref(`#${link.id}`)} data-nav-section={link.id} class="nav-pill-mobile shrink-0 rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-xs font-medium text-slate-300">{link.label}</a>)}</div></nav>
 </header>
-<div class="h-[7.25rem] lg:h-[4.5rem]" aria-hidden="true"></div>
-
+<div class="h-[7.25rem] xl:h-[4.5rem]" aria-hidden="true"></div>
 <script>
-  const initActiveNavigation = () => {
-    const navLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>("[data-nav-section]"));
-    if (navLinks.length === 0) return;
-
-    const sectionIds = Array.from(new Set(navLinks.map((link) => link.dataset.navSection).filter((id): id is string => Boolean(id))));
-    const sections = sectionIds
-      .map((id) => document.getElementById(id ?? ""))
-      .filter((section): section is HTMLElement => Boolean(section));
-
-    if (sections.length === 0) return;
-
-    let activeSectionId = "";
-    let ticking = false;
-
-    const centerMobilePill = (sectionId: string) => {
-      const escapedSectionId = window.CSS?.escape ? CSS.escape(sectionId) : sectionId;
-      const activeMobileLink = document.querySelector<HTMLAnchorElement>(`.nav-pill-mobile[data-nav-section="${escapedSectionId}"]`);
-      if (!activeMobileLink) return;
-      activeMobileLink.scrollIntoView({ block: "nearest", inline: "center" });
-    };
-
-    const setActive = (sectionId: string) => {
-      if (!sectionId || sectionId === activeSectionId) return;
-      activeSectionId = sectionId;
-
-      navLinks.forEach((link) => {
-        const isActive = link.dataset.navSection === sectionId;
-        link.toggleAttribute("data-active", isActive);
-        if (isActive) {
-          link.setAttribute("aria-current", "location");
-        } else {
-          link.removeAttribute("aria-current");
-        }
+  const links = Array.from(document.querySelectorAll<HTMLAnchorElement>("[data-nav-section]"));
+  const ids = [...new Set(links.map((link) => link.dataset.navSection).filter((id): id is string => Boolean(id)))];
+  const sections = ids.map((id) => document.getElementById(id)).filter((section): section is HTMLElement => section !== null);
+  if (sections.length > 0) {
+    let scheduled = false;
+    const update = () => {
+      const threshold = (document.querySelector("header")?.getBoundingClientRect().height ?? 0) + 120;
+      const visible = sections.filter((section) => section.getBoundingClientRect().top <= threshold);
+      const active = visible.at(-1)?.id;
+      links.forEach((link) => {
+        if (link.dataset.navSection === active) link.setAttribute("aria-current", "location");
+        else link.removeAttribute("aria-current");
       });
-
-      centerMobilePill(sectionId);
+      scheduled = false;
     };
-
-    const getHashSection = () => {
-      const hash = window.location.hash.replace("#", "");
-      return sectionIds.includes(hash) ? hash : "";
-    };
-
-    const chooseViewportSection = () => {
-      const headerHeight = document.querySelector("header")?.getBoundingClientRect().height ?? 0;
-      const viewportHeight = window.innerHeight;
-      const readingLine = headerHeight + (viewportHeight - headerHeight) * 0.34;
-      let selected = sections[0]?.id ?? "";
-      let bestScore = Number.POSITIVE_INFINITY;
-
-      sections.forEach((section) => {
-        const { top, bottom } = section.getBoundingClientRect();
-        const visibleTop = Math.max(top, headerHeight);
-        const visibleBottom = Math.min(bottom, viewportHeight);
-        const visibleHeight = Math.max(0, visibleBottom - visibleTop);
-
-        if (visibleHeight <= 0) return;
-
-        const containsReadingLine = top <= readingLine && bottom >= readingLine;
-        const distanceToReadingLine = containsReadingLine
-          ? 0
-          : Math.min(Math.abs(top - readingLine), Math.abs(bottom - readingLine));
-        const score = distanceToReadingLine - Math.min(visibleHeight, 360) / 10000;
-
-        if (score < bestScore) {
-          bestScore = score;
-          selected = section.id;
-        }
-      });
-
-      if (Number.isFinite(bestScore)) return selected;
-
-      sections.forEach((section) => {
-        const { top } = section.getBoundingClientRect();
-        if (top <= readingLine) selected = section.id;
-      });
-
-      return selected;
-    };
-
-    const updateFromViewport = () => {
-      setActive(chooseViewportSection());
-    };
-
-    const requestViewportUpdate = () => {
-      if (ticking) return;
-      ticking = true;
-      window.requestAnimationFrame(() => {
-        updateFromViewport();
-        ticking = false;
-      });
-    };
-
-    const initialHash = getHashSection();
-    if (initialHash) setActive(initialHash);
-    requestViewportUpdate();
-
-    window.addEventListener("hashchange", () => {
-      const hashSection = getHashSection();
-      if (hashSection) setActive(hashSection);
-      window.setTimeout(requestViewportUpdate, 120);
-    });
-
-    window.addEventListener("scroll", requestViewportUpdate, { passive: true });
-    window.addEventListener("resize", requestViewportUpdate, { passive: true });
-  };
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initActiveNavigation, { once: true });
-  } else {
-    window.requestAnimationFrame(initActiveNavigation);
+    const requestUpdate = () => { if (!scheduled) { scheduled = true; requestAnimationFrame(update); } };
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate, { passive: true });
+    window.addEventListener("hashchange", requestUpdate);
+    update();
   }
 </script>
