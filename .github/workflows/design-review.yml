@@ -1,0 +1,41 @@
+name: Design review
+on:
+  push:
+    branches: [portfolio/adren-brand-redesign-2026]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: design-review-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: node scripts/check-portfolio.mjs
+      - name: Install isolated browser tools
+        run: |
+          npm install --prefix "$RUNNER_TEMP/ui-tools" --no-package-lock --no-save playwright@1.56.1 @axe-core/playwright@4.11.0
+          "$RUNNER_TEMP/ui-tools/node_modules/.bin/playwright" install --with-deps chromium
+      - name: Review references and rendered portfolio
+        run: node scripts/review-design.cjs
+        env:
+          UI_TOOLS: ${{ runner.temp }}/ui-tools
+          REFERENCE_AUDIT: '1'
+      - name: Save review evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: portfolio-design-review
+          path: design-review/
+          retention-days: 7
