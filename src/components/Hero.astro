@@ -1,45 +1,24 @@
 ---
 import { profile } from "../data/profile";
-import { currentChapter } from "../data/currentChapter";
 import { withBase } from "../utils/paths";
-const badges = ["TETR · AI undergraduate", "AdrenLabs · Founding team", "Product + software"];
 ---
-
-<section id="inicio" class="relative overflow-hidden px-5 pb-16 pt-12 sm:px-8 sm:pb-24 sm:pt-18 lg:px-10">
-  <div class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_18%_12%,rgba(34,211,238,0.18),transparent_36%)]"></div>
-  <div class="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:gap-14">
-    <div class="section-reveal">
-      <div class="flex flex-wrap gap-2">
-        {badges.map((badge) => <span class="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-3 py-1 text-xs font-medium text-cyan-100">{badge}</span>)}
-      </div>
-      <p class="mt-8 text-sm font-semibold uppercase tracking-[0.2em] text-cyan-200">{profile.name} · {profile.location}</p>
-      <h1 class="mt-5 max-w-4xl text-5xl font-semibold tracking-[-0.04em] text-white sm:text-7xl lg:text-8xl">Real problems.<br />Thoughtful products.<br /><span class="text-cyan-200">Built with AI.</span></h1>
-      <p class="mt-8 max-w-2xl text-lg leading-8 text-slate-200 sm:text-xl">I am studying Artificial Intelligence at TETR College of Business in India and building Adren.ai with the AdrenLabs founding team.</p>
-      <p class="mt-4 max-w-2xl leading-7 text-slate-300">My work connects software, agent workflows and product design — building on independent projects in travel tech, developer tools and self-hosted systems.</p>
-      <div class="mt-9 flex flex-wrap gap-3">
-        <a href={withBase("/proyectos/adren-ai/")} class="btn-primary px-6 py-3 text-sm">Explore Adren.ai</a>
-        <a href="#current-chapter" class="btn-secondary px-6 py-3 text-sm">My TETR chapter</a>
-        <a href="#proyectos" class="btn-secondary px-6 py-3 text-sm">All projects</a>
-      </div>
-      <div class="mt-6 flex flex-wrap gap-x-5 gap-y-3">
-        {profile.links.map((link) => <a href={link.href} target="_blank" rel="noopener noreferrer" class="text-sm text-slate-300 underline decoration-white/20 underline-offset-4 transition hover:text-cyan-200" aria-label={`Open ${link.label} for ${profile.name}`}>{link.label} ↗</a>)}
-      </div>
+<section id="inicio" class="hero"><div class="shell">
+  <div class="hero-grid">
+    <div>
+      <p class="eyebrow">Caleb Perez · Product & Artificial Intelligence</p>
+      <h1>Real problems.<br />Thoughtful <span class="serif">software.</span></h1>
+      <p class="hero-intro">I connect business context, software and AI to build useful products. Currently studying at <strong>TETR</strong> and building <strong>Adren.ai</strong> with the <strong>AdrenLabs</strong> founding team.</p>
+      <div class="actions"><a class="button" href="#proyectos">Explore my work <span aria-hidden="true">↘</span></a><a class="button button-secondary" href="#sobre-mi">A little about me</a></div>
+      <div class="hero-links">{profile.links.filter(link => link.label !== 'Instagram').map(link => <a class="text-link" href={link.href} target="_blank" rel="noopener noreferrer">{link.label} <span aria-hidden="true">↗</span></a>)}</div>
     </div>
-    <div class="section-reveal stagger-1">
-      <figure class="mx-auto w-full max-w-[21rem] sm:max-w-[27rem] lg:max-w-[30rem]">
-        <img src={withBase(profile.photo.src)} alt={profile.photo.alt} width="640" height="800" loading="eager" decoding="async" class="aspect-[4/5] w-full rounded-[2rem] object-contain" style={`object-fit: ${profile.photo.objectFit}; object-position: ${profile.photo.objectPosition};`} />
-      </figure>
-      <div class="premium-card mt-5 p-6">
-        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4">
-          <p class="eyebrow">Current chapter</p>
-          <p class="text-xs text-slate-400">Updated {currentChapter.updated}</p>
-        </div>
-        <dl class="mt-5 grid gap-5 sm:grid-cols-3">
-          <div><dt class="text-xs uppercase tracking-widest text-slate-400">Study</dt><dd class="mt-2 text-sm font-semibold text-white">TETR · BSc AI</dd></div>
-          <div><dt class="text-xs uppercase tracking-widest text-slate-400">Build</dt><dd class="mt-2 text-sm font-semibold text-white">AdrenLabs / Adren.ai</dd></div>
-          <div><dt class="text-xs uppercase tracking-widest text-slate-400">Based in</dt><dd class="mt-2 text-sm font-semibold text-white">Delhi NCR, India</dd></div>
-        </dl>
-      </div>
-    </div>
+    <figure class="hero-portrait">
+      <div class="portrait-photo"><img src={withBase(profile.photo.src)} alt={profile.photo.alt} width="640" height="800" loading="eager" fetchpriority="high" decoding="async" /></div>
+      <figcaption><div><strong>Caleb Perez</strong><span>From Mexico. Building in India.</span></div><span class="portrait-seal" aria-hidden="true">cp.</span></figcaption>
+    </figure>
   </div>
-</section>
+  <dl class="hero-ledger">
+    <div><dt class="label">Building</dt><dd><a href="https://adrenlabs.ai/" target="_blank" rel="noopener noreferrer">AdrenLabs ↗</a> / <a href="https://adren.ai/" target="_blank" rel="noopener noreferrer">Adren.ai ↗</a></dd></div>
+    <div><dt class="label">Studying</dt><dd>TETR · BSc Artificial Intelligence</dd></div>
+    <div><dt class="label">Based in</dt><dd>{profile.location}</dd></div>
+  </dl>
+</div></section>

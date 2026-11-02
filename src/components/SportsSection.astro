@@ -2,101 +2,30 @@
 import type { SportsHighlight } from "../data/sports";
 import SectionHeader from "./SectionHeader.astro";
 import { withBase } from "../utils/paths";
-
-type Props = {
-  highlights: SportsHighlight[];
-};
-
+type Props = { highlights: SportsHighlight[] };
 const { highlights } = Astro.props;
 ---
-
-<section id="trayectoria-deportiva" class="px-5 py-20 sm:px-8 lg:px-10">
-  <div class="mx-auto max-w-7xl">
-    <SectionHeader
-      eyebrow="Sports trajectory"
-      title="Football as a school for discipline, pressure and teamwork."
-      description="This does not compete with my technical profile; it complements it. Sport taught consistency, performance under pressure and how to work inside systems where the result depends on the group."
-    />
-
-    <div class="mt-12 grid gap-6 lg:grid-cols-2">
-      {highlights.map((highlight, highlightIndex) => (
-        <article class="premium-card section-reveal overflow-hidden p-4 transition duration-300 hover:-translate-y-1 hover:border-cyan-300/20 sm:p-5">
-          <div class="mb-3 flex items-center justify-between gap-3 px-1">
-             <span class="rounded-full bg-cyan-300/10 px-3 py-1 text-xs font-semibold text-cyan-100">{highlight.videos.length > 0 ? `${highlight.videos.length} highlight video${highlight.videos.length > 1 ? "s" : ""}` : highlight.photos && highlight.photos.length > 0 ? `${highlight.photos.length} photo${highlight.photos.length > 1 ? "s" : ""}` : "Milestone"}</span>
-             <span class="text-xs text-slate-500">{highlight.videos.length > 0 ? "Play on demand" : highlight.photos && highlight.photos.length > 0 ? "Photo moments" : "Story highlight"}</span>
-            </div>
-          {highlight.videos.length > 0 ? <div class="relative">
-            <div id={`sports-carousel-${highlightIndex}`} class="sports-carousel flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-smooth rounded-[1.5rem]" aria-label={`Videos for ${highlight.title}`} tabindex="0">
-              {highlight.videos.map((video, videoIndex) => (
-                <figure class="video-frame min-w-full snap-center p-2">
-                  <video controls preload="metadata" playsinline poster={withBase(video.poster)} class="aspect-video w-full rounded-[1.1rem] bg-slate-950 object-cover" aria-label={`${video.label} for ${highlight.title}`}>
-                    <source src={withBase(video.src)} type="video/mp4" />
-                    Your browser does not support HTML5 video.
-                  </video>
-                  <figcaption class="media-caption flex flex-col gap-1 px-2 pt-3 sm:flex-row sm:items-center sm:justify-between">
-                    <span><span class="font-semibold text-slate-200">{video.label}:</span> {video.note}</span>
-                    <span class="text-cyan-300/80">{videoIndex + 1}/{highlight.videos.length}</span>
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-
-            <div class="mt-4 flex items-center justify-between gap-3">
-               <button type="button" class="sports-carousel-button btn-secondary px-4 py-2 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300" data-carousel-target={`sports-carousel-${highlightIndex}`} data-carousel-direction="prev" aria-label={`View previous video for ${highlight.title}`}>
-                ← Previous
-              </button>
-              <p class="text-center text-xs text-slate-500">Swipe or use arrows to change clips.</p>
-              <button type="button" class="sports-carousel-button btn-secondary px-4 py-2 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300" data-carousel-target={`sports-carousel-${highlightIndex}`} data-carousel-direction="next" aria-label={`View next video for ${highlight.title}`}>
-                Next →
-              </button>
-            </div>
-          </div> : highlight.photos && highlight.photos.length > 0 ? <div class="relative">
-            <div id={`sports-carousel-${highlightIndex}`} class="sports-carousel flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-smooth rounded-[1.5rem]" aria-label={`Photos for ${highlight.title}`} tabindex="0">
-              {highlight.photos.map((photo, photoIndex) => (
-                <figure class="video-frame min-w-full snap-center p-2">
-                  <img src={withBase(photo.src)} alt={photo.alt} loading="lazy" decoding="async" class="aspect-video w-full rounded-[1.1rem] bg-slate-950 object-cover" />
-                  <figcaption class="media-caption flex flex-col gap-1 px-2 pt-3 sm:flex-row sm:items-center sm:justify-between">
-                    <span><span class="font-semibold text-slate-200">{photo.label}:</span> {photo.note}</span>
-                    <span class="text-cyan-300/80">{photoIndex + 1}/{highlight.photos.length}</span>
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-
-            <div class="mt-4 flex items-center justify-between gap-3">
-               <button type="button" class="sports-carousel-button btn-secondary px-4 py-2 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300" data-carousel-target={`sports-carousel-${highlightIndex}`} data-carousel-direction="prev" aria-label={`View previous photo for ${highlight.title}`}>
-                ← Previous
-              </button>
-              <p class="text-center text-xs text-slate-500">Swipe or use arrows to change photos.</p>
-              <button type="button" class="sports-carousel-button btn-secondary px-4 py-2 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300" data-carousel-target={`sports-carousel-${highlightIndex}`} data-carousel-direction="next" aria-label={`View next photo for ${highlight.title}`}>
-                Next →
-              </button>
-            </div>
-          </div> : <div class="rounded-[1.5rem] border border-white/10 bg-gradient-to-br from-cyan-300/12 via-white/[0.03] to-transparent p-6">
-            <p class="text-sm leading-7 text-slate-300">A story milestone from Caleb's football path, included for the discipline, teamwork and competitive mindset it represents.</p>
-          </div>}
-          <div class="p-2 pt-5">
-            <p class="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-300">{highlight.context}</p>
-            <h3 class="mt-3 text-2xl font-semibold text-white">{highlight.title}</h3>
-            <p class="mt-4 leading-7 text-slate-300">{highlight.description}</p>
-          </div>
-        </article>
-      ))}
-    </div>
-  </div>
-</section>
-
+<section id="trayectoria-deportiva" class="section"><div class="shell">
+  <SectionHeader eyebrow="07 / Beyond the work" title="Discipline has more than one field." description="Football taught me consistency, teamwork and how to perform under pressure. These moments remain part of how I work today." />
+  <div class="sports-grid">{highlights.map((item,index) => <article class="sports-card">
+    {(item.videos.length > 0 || (item.photos?.length ?? 0) > 0) && <>
+      <div class="sports-carousel" id={`sports-carousel-${index}`} tabindex="0" role="region" aria-label={`Media for ${item.title}`}>
+        {item.videos.length > 0 ? item.videos.map((video,i) => <figure><video controls preload="none" playsinline poster={withBase(video.poster)} aria-label={`${video.label} for ${item.title}`}><source src={withBase(video.src)} type="video/mp4" />Your browser does not support this video.</video><figcaption>{video.label} · {video.note} <span class="small">({i+1}/{item.videos.length})</span></figcaption></figure>) : item.photos?.map((photo,i) => <figure><img src={withBase(photo.src)} alt={photo.alt} width="800" height="450" loading="lazy" decoding="async" /><figcaption>{photo.label} · {photo.note} <span class="small">({i+1}/{item.photos?.length})</span></figcaption></figure>)}
+      </div>
+      <div class="carousel-controls"><button type="button" data-carousel-target={`sports-carousel-${index}`} data-direction="prev" aria-label={`Previous media for ${item.title}`}>←</button><span>Swipe or use the arrows</span><button type="button" data-carousel-target={`sports-carousel-${index}`} data-direction="next" aria-label={`Next media for ${item.title}`}>→</button></div>
+    </>}
+    <p class="label">{item.context}</p><h3>{item.title}</h3><p>{item.description}</p>
+  </article>)}</div>
+</div></section>
+<style>
+  @media (min-width: 1100px) { .sports-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+</style>
 <script>
-  document.querySelectorAll<HTMLButtonElement>(".sports-carousel-button").forEach((button) => {
-    button.addEventListener("click", () => {
-      const targetId = button.dataset.carouselTarget;
-      const direction = button.dataset.carouselDirection === "prev" ? -1 : 1;
-      if (!targetId) return;
-
-      const carousel = document.getElementById(targetId);
-      if (!carousel) return;
-
-      carousel.scrollBy({ left: carousel.clientWidth * direction, behavior: "smooth" });
-    });
-  });
+  document.querySelectorAll<HTMLButtonElement>('[data-carousel-target]').forEach(button => button.addEventListener('click', () => {
+    const carousel = document.getElementById(button.dataset.carouselTarget ?? '');
+    if (!carousel) return;
+    const direction = button.dataset.direction === 'prev' ? -1 : 1;
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    carousel.scrollBy({ left: (carousel.clientWidth + 16) * direction, behavior: reduced ? 'instant' : 'smooth' });
+  }));
 </script>

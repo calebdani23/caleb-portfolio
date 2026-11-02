@@ -1,85 +1,14 @@
 ---
 import type { Project } from "../data/projects";
 import { withBase } from "../utils/paths";
-
-type Props = {
-  project: Project;
-};
-
+type Props = { project: Project };
 const { project } = Astro.props;
-const toneClasses = {
-  cyan: "from-cyan-300/18 via-sky-500/8",
-  sky: "from-sky-300/16 via-cyan-500/8",
-  amber: "from-amber-200/16 via-cyan-300/8",
-  emerald: "from-emerald-300/16 via-cyan-300/8",
-};
-const visualTone = toneClasses[project.previewTone ?? "cyan"];
+const href = withBase(project.href ?? `/proyectos/${project.slug}/`);
 ---
-
-<article class="group premium-card section-reveal flex h-full flex-col overflow-hidden p-5 transition duration-300 hover:-translate-y-2 hover:border-cyan-300/30 hover:bg-white/[0.07] sm:p-6">
-  <div class="mb-6 flex items-start justify-between gap-4">
-    <div>
-      <p class="text-sm font-medium text-cyan-300">{project.category}</p>
-      <h3 class="mt-3 text-2xl font-semibold text-white">{project.title}</h3>
-    </div>
-    <span class="shrink-0 rounded-full border border-white/10 bg-white/[0.05] px-3 py-1 text-xs font-semibold text-slate-300">
-      {project.status}
-    </span>
-  </div>
-
-  {
-    project.previewImage ? (
-      <figure class="browser-frame mb-6">
-        <img
-          src={withBase(project.previewImage)}
-          alt={project.previewAlt ?? project.visualLabel}
-          loading="lazy"
-          decoding="async"
-          class="aspect-[16/10] w-full bg-slate-950 object-cover transition duration-500 group-hover:scale-[1.025]"
-          style={`object-fit: ${project.previewObjectFit ?? "cover"}; object-position: ${project.previewObjectPosition ?? "top center"};`}
-        />
-        <figcaption class="media-caption flex items-center justify-between gap-3 px-4 py-3">
-          <span>{project.visualLabel}</span>
-          <span class="rounded-full bg-cyan-300/10 px-2.5 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-cyan-100">real screen</span>
-        </figcaption>
-      </figure>
-    ) : (
-      <div class:list={["mb-6 rounded-3xl border border-white/10 bg-gradient-to-br to-transparent p-5", visualTone]}>
-        <p class="text-xs uppercase tracking-[0.18em] text-cyan-100/70">{project.visualLabel}</p>
-        <div class="mt-7 grid gap-3">
-          <div class="flex items-center gap-3">
-            <span class="h-2 w-14 rounded-full bg-cyan-200/70"></span>
-            <span class="h-2 flex-1 rounded-full bg-white/12"></span>
-          </div>
-          <div class="grid grid-cols-3 gap-2">
-            <span class="h-12 rounded-2xl border border-white/10 bg-slate-950/45"></span>
-            <span class="h-12 rounded-2xl border border-cyan-300/20 bg-cyan-300/10"></span>
-            <span class="h-12 rounded-2xl border border-white/10 bg-slate-950/45"></span>
-          </div>
-          <div class="h-10 rounded-2xl border border-white/10 bg-slate-950/40 shadow-inner shadow-cyan-950/30"></div>
-        </div>
-      </div>
-    )
-  }
-
-  <p class="leading-7 text-slate-300">{project.description}</p>
-
-  <div class="mt-6 flex flex-wrap gap-2">
-    {project.tags.map((tag) => (
-      <span class="rounded-full bg-white/[0.06] px-3 py-1 text-xs text-slate-300">{tag}</span>
-    ))}
-  </div>
-
-  {
-    project.href ? (
-      <a href={withBase(project.href)} class="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-cyan-200 transition group-hover:gap-3 group-hover:text-cyan-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300">
-        Read case study <span aria-hidden="true">→</span>
-      </a>
-    ) : (
-      <div class="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-cyan-100/90">
-        <span class="size-2 rounded-full bg-cyan-300/70"></span>
-        <span>Polished text-first card</span>
-      </div>
-    )
-  }
+<article class="project-card">
+  <a class="project-visual" href={href} aria-label={`View ${project.title} case study`}>
+    {project.previewImage && <img src={withBase(project.previewImage)} alt={project.previewAlt ?? `${project.title} preview`} width="900" height="560" loading="lazy" decoding="async" style={`object-fit:${project.previewObjectFit ?? 'cover'};object-position:${project.previewObjectPosition ?? 'top center'}`} />}
+    <span class="card-arrow" aria-hidden="true">↗</span>
+  </a>
+  <div class="project-info"><div class="row"><h3><a href={href}>{project.title}</a></h3><span class="tag">{project.status}</span></div><p class="category">{project.category}</p><p>{project.description}</p><div class="tags">{project.tags.slice(0,3).map(tag => <span class="tag">{tag}</span>)}</div></div>
 </article>
