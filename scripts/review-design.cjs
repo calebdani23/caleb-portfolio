@@ -23,14 +23,10 @@ const server = http.createServer(async (req, res) => {
     res.end(await fs.readFile(file));
   } catch { res.writeHead(404).end(); }
 });
-
 async function loadImages(page) {
   await page.evaluate(async () => {
     const visible = [...document.images].filter(image => image.getClientRects().length > 0);
-    await Promise.all(visible.map(async image => {
-      image.loading = 'eager';
-      try { await image.decode(); } catch {}
-    }));
+    await Promise.all(visible.map(async image => { image.loading = 'eager'; try { await image.decode(); } catch {} }));
   });
 }
 async function audit(page, name) {
@@ -44,7 +40,9 @@ async function audit(page, name) {
   await fs.mkdir(out, {recursive:true});
   await new Promise(resolve => server.listen(4173,'127.0.0.1',resolve));
   const browser = await chromium.launch();
-  const page = await browser.newPage({ viewport:{width:1440,height:1000}, reducedMotion:'reduce' });
+  // axe requires an explicit context because it opens an auxiliary page.
+  const context = await browser.newContext({ viewport:{width:1440,height:1000}, reducedMotion:'reduce' });
+  const page = await context.newPage();
   const pageErrors = [];
   page.on('pageerror',error=>pageErrors.push(String(error)));
   page.on('response',response=>{ if(response.url().startsWith(origin) && response.status() >= 400) report.failures.push('HTTP '+response.status()+' '+response.url()); });
@@ -58,10 +56,10 @@ async function audit(page, name) {
       check(layout.scrollWidth <= width + 1, 'Horizontal overflow: '+route+' at '+width);
       check(layout.h1===1 && layout.header===1 && layout.footer===1,'Duplicate/missing page structure: '+route);
     }
-    await audit(page,(route||'home')+' light 1440');
     const name = route ? route.split('/')[1] : 'home';
     await page.screenshot({path:path.join(out,name+'-light-desktop.png'),fullPage:true});
-    if(!route){await page.screenshot({path:path.join(out,'home-hero.png')});}
+    if(!route) await page.screenshot({path:path.join(out,'home-hero.png')});
+    await audit(page,(route||'home')+' light 1440');
     const images = await page.evaluate(() => [...document.images].filter(i=>i.getClientRects().length>0 && i.getAttribute('src')).map(i=>({src:i.getAttribute('src'),ok:i.complete&&i.naturalWidth>0})));
     check(images.every(i=>i.ok),'Broken rendered image: '+route);
     await page.locator('[data-theme-toggle]').click();
@@ -74,8 +72,6 @@ async function audit(page, name) {
       await audit(page,name+' light 390');
     }
   }
-
-  // Explicit interaction checks, including keyboard and persistent appearance.
   await page.setViewportSize({width:390,height:844});
   await page.goto(origin+base,{waitUntil:'networkidle'});
   const menu = page.locator('#mobile-menu');
@@ -104,8 +100,8 @@ async function audit(page, name) {
   const next = page.locator('[data-carousel-target][data-direction="next"]').first();
   if(await next.count()){
     const target=await next.getAttribute('data-carousel-target');
-    await next.click();
-    check(await page.locator('#'+target).evaluate(el=>el.scrollLeft)>0,'Media carousel does not advance');
+    const carousel=page.locator('#'+target);
+    if(await carousel.locator('figure').count()>1){await next.click();check(await carousel.evaluate(el=>el.scrollLeft)>0,'Media carousel does not advance');}
   }
   await page.goto(origin+base+'proyectos/zalmar-travel/',{waitUntil:'networkidle'});
   const imageLink = page.locator('[data-lightbox]').first();

@@ -19,5 +19,6 @@ npm-debug.log*
 
 # Local review/reference screenshots
 docs/screenshots-help/
+design-review/
 # Local AI runtime state
 .atl/
