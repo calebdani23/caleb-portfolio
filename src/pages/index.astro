@@ -1,65 +1,43 @@
 ---
-import CertificationsSection from "../components/CertificationsSection.astro";
-import ContactSection from "../components/ContactSection.astro";
-import CurrentChapter from "../components/CurrentChapter.astro";
-import FeaturedProject from "../components/FeaturedProject.astro";
-import Footer from "../components/Footer.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/Hero.astro";
-import Navigation from "../components/Navigation.astro";
+import CurrentChapter from "../components/CurrentChapter.astro";
+import VentureSpotlight from "../components/VentureSpotlight.astro";
+import FeaturedProject from "../components/FeaturedProject.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import SectionHeader from "../components/SectionHeader.astro";
+import Timeline from "../components/Timeline.astro";
+import CertificationsSection from "../components/CertificationsSection.astro";
 import SportsSection from "../components/SportsSection.astro";
 import TechStack from "../components/TechStack.astro";
-import Timeline from "../components/Timeline.astro";
-import VentureSpotlight from "../components/VentureSpotlight.astro";
 import WorkMethod from "../components/WorkMethod.astro";
-import BaseLayout from "../layouts/BaseLayout.astro";
-import { certifications, recognitionItems } from "../data/certifications";
+import ContactSection from "../components/ContactSection.astro";
 import { featuredProject, projects } from "../data/projects";
+import { timelineItems } from "../data/timeline";
+import { certifications, recognitionItems } from "../data/certifications";
 import { sportsHighlights } from "../data/sports";
 import { stackGroups } from "../data/stack";
-import { timelineItems } from "../data/timeline";
 import { workSteps } from "../data/workMethod";
-const secondaryProjects = projects.filter((project) => project !== featuredProject);
+const supporting = projects.filter(project => project !== featuredProject);
 ---
-<BaseLayout title="Caleb Perez — TETR AI Undergraduate & AdrenLabs Product Builder" description="Caleb Perez: Artificial Intelligence undergraduate at TETR in India, AdrenLabs founding team member building Adren.ai, and independent software and travel-tech builder.">
-  <Navigation />
+<BaseLayout>
   <Hero />
+  <section id="proyectos" class="section"><div class="shell">
+    <SectionHeader eyebrow="01 — 02 / Selected work" title="Built with context. Made to be useful." description="A current team venture, an independent travel product, and the systems that support how I build." />
+    <VentureSpotlight />
+    <FeaturedProject project={featuredProject} />
+    <div class="work-section-label"><p class="eyebrow">The systems behind the work</p><p class="small muted">Developer tools · Infrastructure · Evidence</p></div>
+    <div class="project-grid">{supporting.map(project => <ProjectCard project={project} />)}</div>
+  </div></section>
   <CurrentChapter />
-
-  <section id="sobre-mi" class="px-5 py-20 sm:px-8 lg:px-10">
-    <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
-      <SectionHeader eyebrow="About me" title="A non-linear path. A clearer direction." description="I am Caleb Daniel Perez Rodriguez, from Playa del Carmen, Mexico. Business, engineering, self-directed technical training and a year in New Zealand shaped the way I approach software. Today, that path continues at TETR in India." />
-      <div class="section-reveal grid gap-5 md:grid-cols-2">
-        <article class="premium-card p-6 md:col-span-2">
-          <p class="text-lg leading-8 text-slate-200">I learn by building. My current focus is studying Artificial Intelligence and developing Adren.ai with the AdrenLabs team: connecting business problems, agent workflows and practical product development.</p>
-        </article>
-        <article class="surface-soft p-6"><p class="text-sm font-semibold text-cyan-200">Technical foundations</p><h3 class="mt-3 text-xl font-semibold text-white">Independent, structured learning</h3><p class="mt-3 leading-7 text-slate-300">Google IT Support and Oracle Next Education / Alura helped me build foundations in systems, programming and backend development before joining TETR.</p></article>
-        <article class="surface-soft p-6"><p class="text-sm font-semibold text-cyan-200">International experience</p><h3 class="mt-3 text-xl font-semibold text-white">From Mexico to India</h3><p class="mt-3 leading-7 text-slate-300">Living and working in New Zealand developed my independence. Studying in India now adds an international learning environment and experience building with a team.</p></article>
-        <article class="surface-soft p-6 md:col-span-2"><p class="text-sm font-semibold text-cyan-200">The foundation I keep building on</p><h3 class="mt-3 text-xl font-semibold text-white">Real operations, thoughtful software</h3><p class="mt-3 leading-7 text-slate-300">Zalmar Travel grew from close exposure to travel-agency operations. Alongside developer tools and self-hosted infrastructure, it taught me to connect user experience with integrations, reliability and the work happening behind a screen.</p></article>
-      </div>
-    </div>
-  </section>
-
-  <section id="proyectos" class="px-5 py-20 sm:px-8 lg:px-10">
-    <div class="mx-auto max-w-7xl">
-      <SectionHeader eyebrow="Ventures & selected projects" title="What I am building — and the work behind it." description="Adren.ai is my current team venture at TETR. Zalmar Travel, developer tools and infrastructure projects show the independent work that informs how I build today." />
-      <div class="mt-10"><VentureSpotlight /></div>
-      <div class="mt-8"><FeaturedProject project={featuredProject} /></div>
-      <div class="mt-14 border-t border-white/10 pt-10">
-        <p class="eyebrow">Selected technical work</p>
-        <h3 class="mt-3 text-3xl font-semibold tracking-tight text-white">Tools and systems behind the products.</h3>
-        <p class="mt-4 max-w-3xl leading-7 text-slate-300">Agent observability, code understanding and private infrastructure. Each case study keeps its own scope and development status visible.</p>
-        <div class="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-4">{secondaryProjects.map((project) => <ProjectCard project={project} />)}</div>
-      </div>
-    </div>
-  </section>
-
-  <section id="journey" class="px-5 py-20 sm:px-8 lg:px-10"><div class="mx-auto max-w-6xl"><SectionHeader eyebrow="Journey / Trajectory" title="From independent exploration to building with a team." description="Business and engineering studies, technical training, life abroad and independent projects now connect in my first semester at TETR and my work with AdrenLabs." /><Timeline items={timelineItems} /></div></section>
+  <section id="sobre-mi" class="section"><div class="shell about-grid">
+    <div><p class="eyebrow">04 / A little about me</p><h2>A non-linear path.<br /><span class="serif">A clearer direction.</span></h2></div>
+    <div class="about-copy"><p>I am Caleb Daniel Perez Rodriguez, from Playa del Carmen, Mexico. Business and engineering studies, self-directed technical training and a year living and working in New Zealand shaped the way I approach software.</p><p class="muted">Today, that path continues at TETR in India. I am studying Artificial Intelligence and developing Adren.ai with the AdrenLabs team — connecting business problems, agent workflows and practical product development.</p><div class="about-points"><div><h3>Learn through real work</h3><p>Google IT Support, Oracle Next Education / Alura and independent projects gave structure to my technical foundations.</p></div><div><h3>Keep the whole system in view</h3><p>Zalmar Travel began with real agency operations. That context still shapes how I think about users, integrations and trust.</p></div></div></div>
+  </div></section>
+  <section id="journey" class="section section-topline"><div class="shell"><SectionHeader eyebrow="05 / Trajectory" title="Experience that compounds." description="The current chapter, with the earlier experiences that brought me here." /><Timeline items={timelineItems} /></div></section>
   <CertificationsSection certifications={certifications} recognitions={recognitionItems} />
   <SportsSection highlights={sportsHighlights} />
-  <section id="stack" class="px-5 py-20 sm:px-8 lg:px-10"><div class="mx-auto max-w-7xl"><SectionHeader eyebrow="Technical stack" title="Technology chosen for what it helps me build." description="Practical experience across frontend, APIs, AI-assisted development, infrastructure and UX — supported by continued study, not a claim of expertise in every tool." /><TechStack groups={stackGroups} /></div></section>
-  <section id="forma-de-trabajo" class="px-5 py-20 sm:px-8 lg:px-10"><div class="mx-auto max-w-7xl"><SectionHeader eyebrow="Work process" title="Understand first. Build, test and improve." description="From independent projects to AdrenLabs, I connect problem discovery, product decisions and technical implementation. The goal is useful software and evidence that explains its limits." /><WorkMethod steps={workSteps} /></div></section>
+  <section id="stack" class="section section-topline"><div class="shell"><SectionHeader eyebrow="08 / Capabilities" title="The toolkit follows the problem." description="Practical experience across software, AI-assisted development and infrastructure. Always learning, never collecting tools for their own sake." /><TechStack groups={stackGroups} /></div></section>
+  <section id="forma-de-trabajo" class="section section-soft"><div class="shell"><SectionHeader eyebrow="09 / Approach" title="Understand. Build. Learn." description="A simple process, with care in the details. Evidence matters more than the promise of a perfect system." /><WorkMethod steps={workSteps} /></div></section>
   <ContactSection />
-  <Footer />
 </BaseLayout>
