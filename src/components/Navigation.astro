@@ -29,6 +29,10 @@ const links = [
     </div>
   </nav>
 </header>
+<style>
+  .theme-toggle { min-width: 44px; }
+  .mobile-nav summary { min-width: 58px; }
+</style>
 <script>
   const toggle = document.querySelector<HTMLButtonElement>('[data-theme-toggle]');
   const applyTheme = (theme: 'light' | 'dark') => {

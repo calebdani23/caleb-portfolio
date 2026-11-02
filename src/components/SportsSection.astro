@@ -17,6 +17,9 @@ const { highlights } = Astro.props;
     <p class="label">{item.context}</p><h3>{item.title}</h3><p>{item.description}</p>
   </article>)}</div>
 </div></section>
+<style>
+  @media (min-width: 1100px) { .sports-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+</style>
 <script>
   document.querySelectorAll<HTMLButtonElement>('[data-carousel-target]').forEach(button => button.addEventListener('click', () => {
     const carousel = document.getElementById(button.dataset.carouselTarget ?? '');
